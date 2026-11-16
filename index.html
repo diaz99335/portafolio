@@ -147,7 +147,7 @@ h1,h2,h3{font-family:var(--display)}
 .mobile-menu a.m-link span{font-size:.85rem;color:var(--muted);font-weight:500}
 .mobile-menu.open a.m-link{opacity:1;transform:none}
 .mobile-menu .m-actions{margin-top:auto;display:grid;gap:10px}
-.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;padding:150px 56px 0;min-height:720px;align-items:start}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;padding:150px max(56px,calc((100% - var(--container)) / 2 + 14px)) 0;min-height:720px;align-items:start}
 .hero-copy{padding-top:10px}
 .hero h1{font-size:clamp(2.6rem,5.2vw,4.4rem);line-height:1.12;letter-spacing:-.05em;font-weight:400;margin:22px 0 22px}
 .hero h1 .line{display:block;overflow:hidden;white-space:nowrap}
@@ -510,7 +510,7 @@ h1,h2,h3{font-family:var(--display)}
 .articles{display:grid}
 /* Enfoque: carrusel horizontal */
 .posts-wrap{position:relative}
-.articles{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(24px,calc((100vw - var(--container))/2));scrollbar-width:none;padding:6px max(24px,calc((100vw - var(--container))/2)) 22px;cursor:grab;scroll-behavior:smooth}
+.articles{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:8px 2px 24px;cursor:grab;scroll-behavior:smooth;--fl:0px;--fr:70px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--fl),#000 calc(100% - var(--fr)),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 var(--fl),#000 calc(100% - var(--fr)),transparent 100%)}
 .articles::-webkit-scrollbar{display:none}
 .articles.drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
 .post{flex:0 0 min(340px,82vw);scroll-snap-align:start;background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s;user-select:none}
@@ -830,7 +830,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .hobbies-wrap{margin:0 -28px}
   .hobbies{padding:0 28px 6px;scroll-padding-inline:28px}
   .hobbies-wrap::before,.hobbies-wrap::after{width:28px}
-  .articles{padding-inline:16px;scroll-padding-inline:16px}
+  .articles{--fr:40px}
   .hero-shade{background:linear-gradient(180deg,rgba(8,12,26,.88) 0%,rgba(8,12,26,.7) 55%,rgba(8,12,26,.25) 85%,rgba(8,12,26,.1) 100%)}
   .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding:0 16px 4px}
   .filters::-webkit-scrollbar{display:none}
@@ -1403,7 +1403,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <p>Lo que pienso, investigo y aplico. Ideas cortas sobre branding, diseño e inteligencia artificial.</p>
     </div>
   </div>
-  <div class="posts-wrap reveal">
+  <div class="container posts-wrap reveal">
     <div class="articles" id="articles"></div>
   </div>
   <div class="container posts-bar">
@@ -1612,7 +1612,8 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       const cw = cardCol.offsetWidth, ch = cardCol.offsetHeight;
       const sCover = Math.max(hr.width / IMG.w, hr.height / IMG.h);
       // centro deseado: sobre la persona, pero sin chocar con el texto (+ tarjeta flotante)
-      const cx = Math.max(IMG.faceX * sCover, textRight() + 150 + cw / 2);
+      const cRight = (hr.width + Math.min(1180, hr.width - 112)) / 2; // borde derecho del contenido
+      const cx = Math.min(Math.max(IMG.faceX * sCover, textRight() + 150 + cw / 2), cRight - 70 - cw / 2);
       const sc = Math.max(sCover, cx / IMG.faceX);
       const cTop = cardCol.getBoundingClientRect().top - hr.top;
       const g = fit(hr.width, hr.height, cx, cTop + ch * .15, sc);
@@ -1880,7 +1881,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     </article>`).join('');
   const pt = $('#articles'), pBar = $('#postsBar');
   const pStep = () => ($('.post', pt).offsetWidth + 18);
-  const pSync = () => { const max = pt.scrollWidth - pt.clientWidth; const r = pt.clientWidth / pt.scrollWidth; pBar.style.width = (r * 100) + '%'; pBar.style.marginLeft = (max > 0 ? (pt.scrollLeft / max) * (100 - r * 100) : 0) + '%'; };
+  const pSync = () => { const max = pt.scrollWidth - pt.clientWidth; pt.style.setProperty('--fl', pt.scrollLeft > 4 ? '70px' : '0px'); pt.style.setProperty('--fr', pt.scrollLeft < max - 4 ? '70px' : '0px'); const r = pt.clientWidth / pt.scrollWidth; pBar.style.width = (r * 100) + '%'; pBar.style.marginLeft = (max > 0 ? (pt.scrollLeft / max) * (100 - r * 100) : 0) + '%'; };
   pt.addEventListener('scroll', () => requestAnimationFrame(pSync)); addEventListener('resize', pSync); addEventListener('load', pSync); pSync();
   $('#pPrev').onclick = () => pt.scrollBy({ left: -pStep(), behavior: 'smooth' });
   $('#pNext').onclick = () => pt.scrollBy({ left: pStep(), behavior: 'smooth' });
