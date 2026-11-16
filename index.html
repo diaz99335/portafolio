@@ -227,7 +227,9 @@ h1,h2,h3{font-family:var(--display)}
 /* =========================================================
    ABOUT
    ========================================================= */
-.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:stretch}
+.about-grid{display:grid;grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:28px;align-items:center}
+.about-card{min-width:0}
+.portrait.video-card{min-height:0;aspect-ratio:9/16;width:100%}
 .portrait{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:520px;background:linear-gradient(170deg,#6B9AEE,#B7D0F7 60%,#EEF4FD);display:flex;align-items:flex-end;padding:24px}
 .portrait .avatar{position:absolute;inset:0;display:grid;place-items:center}
 .portrait .avatar svg{width:78%;height:auto;opacity:.95}
@@ -608,7 +610,18 @@ h1,h2,h3{font-family:var(--display)}
 .now-playing .eqz i{width:3px;background:var(--blue);border-radius:2px;animation:eqs 1s ease-in-out infinite}
 .now-playing .eqz i:nth-child(2){animation-delay:.2s}.now-playing .eqz i:nth-child(3){animation-delay:.4s}.now-playing .eqz i:nth-child(4){animation-delay:.1s}
 @keyframes eqs{0%,100%{height:4px}50%{height:14px}}
-.hobbies{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hobbies-wrap{position:relative;margin:0 -44px;}
+.hobbies-wrap::before,.hobbies-wrap::after{content:"";position:absolute;top:0;bottom:6px;width:44px;z-index:2;pointer-events:none}
+.hobbies-wrap::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.hobbies-wrap::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
+.hobbies{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 44px 6px;scroll-padding-inline:44px;cursor:grab}
+.hobbies::-webkit-scrollbar{display:none}
+.hobbies.drag{cursor:grabbing;scroll-snap-type:none}
+.hobbies .hobby{flex:0 0 168px;scroll-snap-align:start;user-select:none}
+.hob-nav{display:flex;gap:6px}
+.hob-nav button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.3s var(--ease)}
+.hob-nav button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.hob-nav svg{width:13px;height:13px}
 .hobby{background:var(--bg);border-radius:14px;padding:12px 14px;cursor:default}
 .hobby .ico{font-size:1.25rem;line-height:1;display:inline-block;margin-bottom:6px}
 .hobby strong{display:block;font-size:.86rem;font-weight:600}
@@ -766,6 +779,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .fc1{left:-40px}.fc2{right:-20px}
   .about-grid,.exp-grid,.faq-grid{grid-template-columns:1fr}
   .portrait{min-height:420px}
+  .portrait.video-card{min-height:0;max-width:360px;margin-inline:auto}
   .steps{grid-template-columns:repeat(2,1fr)}
   .stats{grid-template-columns:repeat(2,1fr);row-gap:30px}
   .stat:nth-child(3){border-left:0}
@@ -813,7 +827,9 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .job-body ul{padding:0 0 12px 18px}
   .job-body .tags{padding:0 0 20px 0}
   .tools{grid-template-columns:repeat(3,1fr)}
-  .hobbies{grid-template-columns:1fr 1fr}
+  .hobbies-wrap{margin:0 -28px}
+  .hobbies{padding:0 28px 6px;scroll-padding-inline:28px}
+  .hobbies-wrap::before,.hobbies-wrap::after{width:28px}
   .articles{padding-inline:16px;scroll-padding-inline:16px}
   .hero-shade{background:linear-gradient(180deg,rgba(8,12,26,.88) 0%,rgba(8,12,26,.7) 55%,rgba(8,12,26,.25) 85%,rgba(8,12,26,.1) 100%)}
   .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding:0 16px 4px}
@@ -961,7 +977,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
         </svg>
       </div>
       <div class="tag">
-        <div><small>Basado en</small><strong>Lima, Perú · Remoto LATAM</strong></div>
+        <div><small>Basado en</small><strong>Lima, Perú</strong></div>
         <span class="clock" id="clock" title="Hora en Lima">--:--</span>
       </div>
     </div>
@@ -970,20 +986,20 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <h2>Especialista en branding, <span class="em">curioso por naturaleza</span></h2>
       <p>Mi trabajo empieza en la <span class="hl">estrategia de marca</span>: entender qué es la marca, a quién le habla y qué quiere decir. Desde ahí construyo identidades y sistemas visuales coherentes en cada punto de contacto.</p>
       <p class="muted">Con los años amplié mi campo con diseño gráfico, producción audiovisual, fotografía, UX/UI y web. No los trabajo como disciplinas sueltas, sino como herramientas al servicio de la marca: cada una ayuda a que la marca se vea, se escuche y funcione igual en todas partes. Las aprendí porque me apasionan, y las aplico con el mismo nivel de detalle.</p>
-      <div class="curious"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span><span><b>Siempre estoy investigando.</b> Tengo formación universitaria, pero sobre todo aprendo por mi cuenta y de forma constante: estrategia, diseño, motion, web e inteligencia artificial aplicada a procesos creativos.</span></div>
       <div class="human">
         <div class="human-head">
           <h3>Lo que me mueve <strong class="em">y me hace quien soy</strong></h3>
+          <div class="hob-nav"><button id="hPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button><button id="hNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button></div>
         </div>
         <p class="muted" style="margin:-4px 0 14px;font-size:.9rem">Creo que los mejores equipos se arman entre personas, no solo entre perfiles. Esto es lo que disfruto en mis ratos libres y que, sin darme cuenta, termina inspirando mi trabajo.</p>
-        <div class="hobbies">
+        <div class="hobbies-wrap"><div class="hobbies" id="hobbies">
           <div class="hobby"><span class="ico">🎸</span><strong>Guitarra</strong><span>Me gusta tocarla en mis ratos libres; me despeja y me ordena las ideas.</span></div>
           <div class="hobby"><span class="ico">🤘</span><strong>Rock & música</strong><span>La banda sonora de casi todo lo que diseño.</span></div>
           <div class="hobby"><span class="ico">🎟️</span><strong>Conciertos</strong><span>La energía en vivo no se compara con nada.</span></div>
           <div class="hobby"><span class="ico">🎬</span><strong>Cine</strong><span>Encuadres, luz y narrativa: aprendo en cada película.</span></div>
           <div class="hobby"><span class="ico">🚀</span><strong>Ciencia ficción</strong><span>Leo mundos posibles que me abren la cabeza.</span></div>
           <div class="hobby"><span class="ico">🎮</span><strong>Videojuegos</strong><span>Historias, mundos e interfaces que me inspiran.</span></div>
-        </div>
+        </div></div>
       </div>
       <div class="about-actions">
         <button class="btn btn-dark magnetic" data-open="contact">Agendar una entrevista <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -1615,6 +1631,16 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   document.fonts && document.fonts.ready.then(layoutHero);
   screen.addEventListener('mousemove', e => { const r = screen.getBoundingClientRect(); screen.style.setProperty('--mx', (e.clientX - r.left) + 'px'); screen.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
 
+  /* Gustos: carrusel horizontal */
+  const hob = $('#hobbies');
+  const hStep = () => $('.hobby', hob).offsetWidth + 10;
+  $('#hPrev').onclick = () => hob.scrollBy({ left: -hStep(), behavior: 'smooth' });
+  $('#hNext').onclick = () => hob.scrollBy({ left: hStep(), behavior: 'smooth' });
+  let hd = false, hx = 0, hl = 0;
+  hob.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; hd = true; hx = e.clientX; hl = hob.scrollLeft; });
+  addEventListener('pointermove', e => { if (!hd) return; const dx = e.clientX - hx; if (Math.abs(dx) > 4) hob.classList.add('drag'); hob.scrollLeft = hl - dx; });
+  addEventListener('pointerup', () => { if (!hd) return; hd = false; hob.classList.remove('drag'); });
+
   /* ---------- Rotador del hero (sin saltos) ---------- */
   const rot = $('#rotator'), ws = $$('.w', rot); let wi = 0;
   const fitRot = (animate) => { if (!animate) rot.style.transition = 'none'; rot.style.width = ws[wi].offsetWidth + 'px'; if (!animate) { rot.offsetWidth; rot.style.transition = ''; } };
@@ -1630,6 +1656,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   }, 2800);
 
   /* ---------- Video de presentación (Sobre mí) ----------
+     Formato recomendado: vertical 9:16 (tipo TikTok/Reels), MP4.
      Para agregarlo, sube tu archivo al repositorio y usa: { src: 'video-presentacion.mp4' } */
   const ABOUT_VIDEO = null; // sin video por ahora: muestra un aviso
   const vCard = $('#aboutVideo');
