@@ -571,9 +571,9 @@ h1,h2,h3{font-family:var(--display)}
 .photo-hero .hero-bg.blurred{filter:blur(28px) saturate(1.15) brightness(.85);transform:scale(1.18);animation:none}
 .photo-hero .hero-shade.soft{background:linear-gradient(90deg,rgba(8,12,26,.86) 0%,rgba(8,12,26,.62) 30%,rgba(8,12,26,.12) 52%,rgba(8,12,26,0) 66%),linear-gradient(180deg,rgba(8,12,26,.35) 0%,transparent 22%)}
 .hero-card-col{position:absolute;bottom:0;left:var(--cardL,62%);width:340px;height:590px;z-index:4}
-.pcard{position:relative;width:100%;height:100%;border-radius:32px 32px 0 0;border:2px solid rgba(255,255,255,.75);border-bottom:0;padding:10px 10px 0;background:rgba(255,255,255,.08);backdrop-filter:blur(6px);transform-style:preserve-3d;transition:transform .9s var(--ease),box-shadow .9s var(--ease);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.pcard{position:relative;width:100%;height:100%;border-radius:28px 28px 0 0;border:1px solid rgba(255,255,255,.55);border-bottom:0;padding:0;background:transparent;transform-style:preserve-3d;transition:transform .9s var(--ease),box-shadow .9s var(--ease);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
 .pcard:hover{box-shadow:0 60px 100px -30px rgba(0,0,0,.7);transform:translateY(-8px)}
-.pcard .device-screen{--r:0px;height:100%;border-radius:24px 24px 0 0;background:#0B1124}
+.pcard .device-screen{--r:0px;height:100%;border-radius:27px 27px 0 0;background:#0B1124}
 .pcard .device-screen:hover{--r:88px}
 .pcard .hero-photo{object-position:50% 50%;transition:transform 1.4s var(--ease),filter .8s}
 .pcard:hover .hero-photo{transform:scale(1.045);filter:saturate(1.08) brightness(1.04)}
@@ -597,7 +597,7 @@ h1,h2,h3{font-family:var(--display)}
 @keyframes redraw{0%{stroke-dashoffset:520}100%{stroke-dashoffset:0}}
 .cd-chart .dot{opacity:0;animation:fadeIn .4s 3s forwards}
 @keyframes fadeIn{to{opacity:1}}
-.pcard .ask{left:14px;right:14px;bottom:16px;width:auto}
+.pcard .ask{left:18px;right:18px;bottom:34px;width:auto}
 
 /* Sobre mí: lado personal */
 .human{margin-top:18px;border-top:1px dashed var(--line);padding-top:18px}
@@ -1602,7 +1602,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       const left = g.l + IMG.faceX * (g.w / IMG.w) - cw / 2;
       heroEl.style.setProperty('--cardL', left + 'px');
       setGeo(media, g);
-      const x = left + 10, y = hr.height - ch + 10; // borde + padding de la tarjeta
+      const x = left + pcard.clientLeft + screen.offsetLeft, y = hr.height - ch + pcard.clientTop + screen.offsetTop; // borde fino de la tarjeta
       setGeo(screen, { l: g.l - x, t: g.t - y, w: g.w, h: g.h });
     } else {
       const sw = screen.offsetWidth, sh = screen.offsetHeight;
