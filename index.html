@@ -466,6 +466,8 @@ h1,h2,h3{font-family:var(--display)}
 .tools{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .tool{aspect-ratio:1;border-radius:16px;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:.72rem;color:var(--muted);transition:transform .4s var(--ease),border-color .3s,box-shadow .3s;text-align:center;padding:4px}
 .tool:hover{transform:translateY(-5px) rotate(-2deg);border-color:transparent;box-shadow:var(--shadow);color:var(--ink)}
+.tool .tl-img{width:38px;height:38px;object-fit:contain;transition:transform .4s var(--ease)}
+.tool:hover .tl-img{transform:scale(1.1)}
 .tool .tl-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:.8rem;color:#fff}
 .soft{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .soft span{font-size:.8rem;padding:8px 12px;border-radius:999px;border:1px dashed #CBD2DC;transition:.3s}
@@ -955,7 +957,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   <div class="container">
     <div class="split-head reveal">
       <div><span class="eyebrow">Trabajo destacado</span><h2>Marcas que muestran <span class="em">cómo pienso</span></h2></div>
-      <p>Una selección de mi trabajo en cada empresa: el contexto, lo que aporté y los entregables. Haz clic en cualquier tarjeta para ver el detalle y los enlaces a Behance o Vimeo.</p>
+      <p>Una selección de mi trabajo en cada empresa: el contexto, lo que aporté y los entregables. Haz clic en cualquier tarjeta para ver el detalle completo.</p>
     </div>
     <div class="filters reveal" id="filters" role="tablist" aria-label="Filtrar proyectos">
       <button class="filter active" data-filter="all">Todos <span class="count">7</span></button>
@@ -1251,8 +1253,6 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
           <h3>Idiomas & enlaces</h3>
           <ul class="awards">
             <li>Idiomas <em>Español · Inglés</em></li>
-            <!-- Reemplaza por la URL de tu perfil de LinkedIn -->
-            <li><a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">LinkedIn <em>Ver perfil ↗</em></a></li>
             <li><a href="cv.pdf" download data-cv>CV en PDF <em>Descargar ↓</em></a></li>
             <li><a href="https://wa.me/51999999999" target="_blank" rel="noopener">WhatsApp <em>+51 999 999 999 ↗</em></a></li>
           </ul>
@@ -1287,24 +1287,24 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <div class="skill-card reveal" data-delay="2">
         <h3>Herramientas</h3>
         <div class="tools">
-          <div class="tool"><span class="tl-ic" style="background:#FF9A00">Ai</span>Illustrator</div>
-          <div class="tool"><span class="tl-ic" style="background:#31A8FF">Ps</span>Photoshop</div>
-          <div class="tool"><span class="tl-ic" style="background:#FF3366">Id</span>InDesign</div>
-          <div class="tool"><span class="tl-ic" style="background:#0E0F12">Fg</span>Figma</div>
-          <div class="tool"><span class="tl-ic" style="background:#0055FF">Fr</span>Framer</div>
-          <div class="tool"><span class="tl-ic" style="background:#7B61FF">Pr</span>Premiere</div>
-          <div class="tool"><span class="tl-ic" style="background:#9999FF">Ae</span>After Effects</div>
-          <div class="tool"><span class="tl-ic" style="background:#E9785B">Dv</span>DaVinci</div>
-          <div class="tool"><span class="tl-ic" style="background:#2DA0F0">Lr</span>Lightroom</div>
-          <div class="tool"><span class="tl-ic" style="background:#21759B">Wp</span>WordPress</div>
-          <div class="tool"><span class="tl-ic" style="background:#EB1000">Ff</span>Firefly</div>
-          <div class="tool"><span class="tl-ic" style="background:#111">Mj</span>Midjourney</div>
+          <div class="tool"><img class="tl-img" src="icons/illustrator.svg" alt="Logo de Illustrator" loading="lazy">Illustrator</div>
+          <div class="tool"><img class="tl-img" src="icons/photoshop.svg" alt="Logo de Photoshop" loading="lazy">Photoshop</div>
+          <div class="tool"><img class="tl-img" src="icons/figma.svg" alt="Logo de Figma" loading="lazy">Figma</div>
+          <div class="tool"><img class="tl-img" src="icons/framer.svg" alt="Logo de Framer" loading="lazy">Framer</div>
+          <div class="tool"><img class="tl-img" src="icons/premiere.svg" alt="Logo de Premiere Pro" loading="lazy">Premiere Pro</div>
+          <div class="tool"><img class="tl-img" src="icons/aftereffects.svg" alt="Logo de After Effects" loading="lazy">After Effects</div>
+          <div class="tool"><img class="tl-img" src="icons/davinci.svg" alt="Logo de DaVinci Resolve" loading="lazy">DaVinci Resolve</div>
+          <div class="tool"><img class="tl-img" src="icons/wordpress.svg" alt="Logo de WordPress" loading="lazy">WordPress</div>
+          <div class="tool"><img class="tl-img" src="icons/canva.svg" alt="Logo de Canva" loading="lazy">Canva</div>
+          <div class="tool"><img class="tl-img" src="icons/notion.svg" alt="Logo de Notion" loading="lazy">Notion</div>
+          <div class="tool"><img class="tl-img" src="icons/claude.svg" alt="Logo de Claude" loading="lazy">Claude</div>
+          <div class="tool"><img class="tl-img" src="icons/gemini.svg" alt="Logo de Gemini" loading="lazy">Gemini</div>
         </div>
         <div class="more-tools">Inteligencia artificial:
-          <div class="soft"><span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Runway</span><span>Krea</span><span>Adobe Firefly</span><span>Midjourney</span></div>
+          <div class="soft"><span>ChatGPT</span><span>Midjourney</span><span>Adobe Firefly</span><span>Runway</span><span>Krea</span></div>
         </div>
         <div class="more-tools">También trabajo con:
-          <div class="soft"><span>Sketch</span><span>Canva</span><span>CorelDRAW</span><span>Capcut</span><span>Audition</span><span>Camera Raw</span><span>Capture One</span><span>Snapseed</span><span>HTML5</span><span>CSS</span><span>JavaScript</span><span>VS Code</span><span>Meta Ads</span><span>Google Ads</span><span>TikTok Ads</span><span>HubSpot</span><span>Mailchimp</span><span>Notion</span><span>Miro</span><span>Jira</span><span>Trello</span><span>Slack</span></div>
+          <div class="soft"><span>InDesign</span><span>Lightroom</span><span>Sketch</span><span>CorelDRAW</span><span>Capcut</span><span>Audition</span><span>Camera Raw</span><span>Capture One</span><span>Snapseed</span><span>HTML5</span><span>CSS</span><span>JavaScript</span><span>VS Code</span><span>Meta Ads</span><span>Google Ads</span><span>TikTok Ads</span><span>HubSpot</span><span>Mailchimp</span><span>Miro</span><span>Jira</span><span>Trello</span><span>Slack</span></div>
         </div>
       </div>
     </div>
@@ -1420,7 +1420,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <div class="f-cols">
         <div><h4>Portafolio</h4><a href="#proyectos">Proyectos</a><a href="#especialidades">Especialidades</a><a href="#enfoque">Notas</a></div>
         <div><h4>Sobre mí</h4><a href="#sobre-mi">Perfil</a><a href="#experiencia">Experiencia</a><a href="cv.pdf" download data-cv>CV en PDF</a></div>
-        <div><h4>Contacto</h4><a href="mailto:jose.perez@email.com">Correo</a><a href="https://wa.me/51999999999" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.behance.net/joseperez" target="_blank" rel="noopener">Behance</a></div>
+        <div><h4>Contacto</h4><a href="mailto:jose.perez@email.com">Correo</a><a href="https://wa.me/51999999999" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/joseperez/" target="_blank" rel="noopener">Instagram</a></div>
       </div>
     </div>
     <div class="f-mid">
@@ -1433,9 +1433,8 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     <div class="f-bot">
       <span>© 2026 José Pérez · Hecho con cariño en Lima, Perú.</span>
       <div class="socials">
-        <a href="https://www.behance.net/joseperez" target="_blank" rel="noopener" aria-label="Behance"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.2 11.3c1-.5 1.5-1.2 1.5-2.3C9.7 6.8 8 6 6 6H1v12h5.2c2.1 0 4.1-1 4.1-3.4 0-1.5-.7-2.6-2.1-3.3zM3.4 8h2.2c.8 0 1.6.2 1.6 1.2 0 .9-.6 1.2-1.4 1.2H3.4zm2.5 8H3.4v-3.3H6c1 0 1.7.4 1.7 1.6 0 1.2-.8 1.7-1.8 1.7zM15.7 7h5V8.3h-5zM23 13.6c0-2.7-1.6-4.9-4.4-4.9-2.8 0-4.6 2.1-4.6 4.8 0 2.8 1.7 4.7 4.6 4.7 2.1 0 3.5-1 4.2-3h-2.2c-.2.7-1.1 1.1-1.9 1.1-1.4 0-2.1-.8-2.1-2.2H23zm-6.4-1.1c.1-1.1.8-1.8 1.9-1.8 1.2 0 1.8.7 1.9 1.8z"/></svg></a>
         <a href="https://www.instagram.com/joseperez/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-        <a href="https://vimeo.com/joseperez" target="_blank" rel="noopener" aria-label="Vimeo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 7.4c-.1 2-1.5 4.6-4.1 8-2.7 3.5-5 5.2-6.9 5.2-1.2 0-2.2-1.1-3-3.3L6.4 11.4C5.8 9.2 5.2 8.1 4.5 8.1c-.1 0-.7.3-1.6 1L2 7.8l3-2.7c1.4-1.2 2.4-1.8 3-1.9 1.6-.2 2.6.9 3 3.3.4 2.6.7 4.2.8 4.8.5 2.1 1 3.2 1.6 3.2.4 0 1.1-.7 2-2.1.9-1.4 1.4-2.5 1.4-3.2.1-1.2-.4-1.8-1.4-1.8-.5 0-1 .1-1.5.3 1-3.3 2.9-4.9 5.7-4.8 2.1.1 3.1 1.4 3 4.1z"/></svg></a>
+        <a href="https://wa.me/51999999999" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg></a>
         <a href="mailto:jose.perez@email.com" aria-label="Correo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
       </div>
     </div>
@@ -1514,7 +1513,6 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const EMAIL = 'jose.perez@email.com';
-  const BEHANCE = 'https://www.behance.net/joseperez', VIMEO = 'https://vimeo.com/joseperez', IG = 'https://www.instagram.com/joseperez/';
   const ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>';
 
   const toast = (msg) => {
@@ -1557,16 +1555,13 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   }, 2800);
 
   /* ---------- Video de presentación (Sobre mí) ----------
-     Opción A (Vimeo):  { type: 'vimeo', id: 'ID_DE_TU_VIDEO' }
-     Opción B (archivo propio en la misma carpeta): { type: 'file', src: 'video-presentacion.mp4' } */
+     Para agregarlo, sube tu archivo al repositorio y usa: { src: 'video-presentacion.mp4' } */
   const ABOUT_VIDEO = null; // sin video por ahora: muestra un aviso
   const vCard = $('#aboutVideo');
   const playVideo = () => {
     if (vCard.classList.contains('playing')) return;
     if (!ABOUT_VIDEO) { toast('Muy pronto: video de presentación'); return; }
-    let el;
-    if (ABOUT_VIDEO.type === 'file') { el = document.createElement('video'); el.src = ABOUT_VIDEO.src; el.controls = true; el.autoplay = true; el.playsInline = true; }
-    else { el = document.createElement('iframe'); el.src = `https://player.vimeo.com/video/${ABOUT_VIDEO.id}?autoplay=1&title=0&byline=0&portrait=0`; el.allow = 'autoplay; fullscreen; picture-in-picture'; el.allowFullscreen = true; el.title = 'Video de presentación de José Pérez'; }
+    const el = document.createElement('video'); el.src = ABOUT_VIDEO.src; el.controls = true; el.autoplay = true; el.playsInline = true;
     el.className = 'v-media'; vCard.appendChild(el); vCard.classList.add('playing');
   };
   vCard.addEventListener('click', e => { if (!e.target.closest('#vClose')) playVideo(); });
@@ -1575,49 +1570,49 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
 
   /* ---------- Proyectos ---------- */
   const projects = [
-    { id:'ultima', title:'Última empresa', sub:'Comunicación de marca para salud, educación, seguros y banca', cats:['branding','grafico','campanas','uxui','marketing'], tags:['Branding','Multisector','UX/UI'], label:'Consultoría', wide:true, c1:'#1E3A8A', c2:'#6E9CF2', link:BEHANCE, linkTxt:'Ver en Behance',
+    { id:'ultima', title:'Última empresa', sub:'Comunicación de marca para salud, educación, seguros y banca', cats:['branding','grafico','campanas','uxui','marketing'], tags:['Branding','Multisector','UX/UI'], label:'Consultoría', wide:true, c1:'#1E3A8A', c2:'#6E9CF2',
       art:`<div class="mono" style="left:30%">01</div><div class="art-phone" style="right:12%;top:14%;--c1:#4F86EC;--c2:#0E0F12"><div class="bar"></div><div class="ln"></div><div class="ln s"></div><div class="btnx"></div><div class="ln"></div><div class="ln s"></div></div><div class="art-card" style="left:8%;bottom:10%"><span>Flujo</span><b>Sitemap → Wireframe → UI</b></div>`,
       summary:'En la consultora trabajé la comunicación de marca de clientes de sectores muy distintos, y también su experiencia digital, desde la estructura hasta la interfaz final.',
       role:'Diseñador Gráfico Sr. / UX/UI', company:'Última empresa', scope:'Marca, contenido y digital', tools:'Figma · Illustrator · Photoshop',
       challenge:'Cada cliente tenía su propio sector, tono y nivel de exigencia (salud, educación, aseguradoras y banca). La comunicación tenía que respetar cada marca y mantenerse consistente en todos los canales.',
       solution:'Produje contenido visual estratégico para branding, publicidad digital y engagement; artes para redes, banners, mailing, WhatsApp y comunicación interna; y diseñé interfaces web y móviles con sus ecosistemas, sitemaps y prototipos.',
       results:[['4 sectores','salud, educación, seguros, banca'],['Multicanal','RRSS, mailing y WhatsApp'],['Web + App','interfaces y prototipos']] },
-    { id:'imagina', title:'Imagina Perú', sub:'Identidad, piezas y material e-commerce inmobiliario', cats:['branding','grafico','motion','uxui'], tags:['Branding','Ilustración','E-commerce'], label:'Inmobiliaria', wide:true, c1:'#E9785B', c2:'#F4C95D', link:BEHANCE, linkTxt:'Ver en Behance',
+    { id:'imagina', title:'Imagina Perú', sub:'Identidad, piezas y material e-commerce inmobiliario', cats:['branding','grafico','motion','uxui'], tags:['Branding','Ilustración','E-commerce'], label:'Inmobiliaria', wide:true, c1:'#E9785B', c2:'#F4C95D',
       art:`<div class="mono" style="left:32%">i.</div><div class="art-card" style="right:10%;top:16%"><span>Proyecto</span><b>Ficha inmobiliaria</b></div><div class="art-card" style="right:16%;bottom:14%"><span>E-commerce</span><b>Banners + landing</b></div>`,
       summary:'Como Diseñador Gráfico Senior me encargué de la parte visual de la marca y de sus proyectos, tanto en piezas impresas como digitales.',
       role:'Diseñador Gráfico Senior', company:'Inmobiliaria Imagina Perú', scope:'Branding, contenido y e-commerce', tools:'Illustrator · Photoshop · InDesign · After Effects',
       challenge:'Comunicar proyectos inmobiliarios con una línea visual atractiva y consistente, en medios impresos, redes y canales de venta online.',
       solution:'Diseñé ilustraciones, logotipos y elementos visuales, diagramé piezas, grabé, edité y animé contenido, y prototipé productos digitales con criterios de UX/UI para el e-commerce.',
       results:[['Identidad','logotipos e ilustración'],['Print + Digital','piezas y diagramación'],['UX/UI','prototipos para e-commerce']] },
-    { id:'carrion', title:'Instituto Daniel Alcides Carrión', sub:'Contenido audiovisual institucional y para redes', cats:['audiovisual','motion','campanas'], tags:['Video','Entrevistas','Animación'], label:'Educación', c1:'#0E0F12', c2:'#4F86EC', link:VIMEO, linkTxt:'Ver en Vimeo',
+    { id:'carrion', title:'Instituto Daniel Alcides Carrión', sub:'Contenido audiovisual institucional y para redes', cats:['audiovisual','motion','campanas'], tags:['Video','Entrevistas','Animación'], label:'Educación', c1:'#0E0F12', c2:'#4F86EC',
       art:`<div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="art-player"><span class="pl"></span><span>00:12</span><span class="tl"></span><span>01:30</span></div>`,
       summary:'Produje el contenido audiovisual del instituto, desde la grabación hasta la edición y la animación.',
       role:'Audiovisual / Filmmaker / Fotógrafo', company:'Instituto Daniel Alcides Carrión', scope:'Video, foto y redes', tools:'Premiere · After Effects · Audition · Lightroom',
       challenge:'Mantener un flujo constante de contenido institucional y para redes, con buena calidad de imagen y sonido.',
       solution:'Grabé audio y video, realicé entrevistas, manejé la iluminación, edité y animé piezas dinámicas para cada plataforma.',
       results:[['Video','institucional y RRSS'],['Entrevistas','producción y edición'],['Motion','animaciones dinámicas']] },
-    { id:'reel', title:'Reel audiovisual', sub:'Edición, motion graphics y color', cats:['audiovisual','motion'], tags:['Edición','Motion','Color'], label:'Showreel', c1:'#2B3550', c2:'#9DBEF4', link:VIMEO, linkTxt:'Ver reel en Vimeo',
+    { id:'reel', title:'Reel audiovisual', sub:'Edición, motion graphics y color', cats:['audiovisual','motion'], tags:['Edición','Motion','Color'], label:'Showreel', c1:'#2B3550', c2:'#9DBEF4',
       art:`<div class="mono" style="top:40%;font-size:5.5rem">▶</div><div class="art-player"><span class="pl"></span><span>00:08</span><span class="tl"></span><span>00:60</span></div>`,
       summary:'Una muestra de mi trabajo en edición de video, animación de gráficos y colorización.',
       role:'Edición y motion', company:'Proyectos varios', scope:'Video y animación', tools:'Premiere · After Effects · DaVinci Resolve',
       challenge:'Reunir en pocos minutos lo mejor de mi trabajo audiovisual.',
       solution:'Un reel con ritmo, transiciones cuidadas y colorización consistente entre piezas de distintos proyectos.',
       results:[['Edición','ritmo y narrativa'],['Motion','gráficos animados'],['Color','DaVinci Resolve']] },
-    { id:'colortex', title:'Colortex Perú', sub:'Contenido, campañas y social media', cats:['marketing','campanas','grafico'], tags:['Brand content','Social media','Campañas'], label:'Textil · Retail', c1:'#16A34A', c2:'#A7E3B9', link:BEHANCE, linkTxt:'Ver en Behance',
+    { id:'colortex', title:'Colortex Perú', sub:'Contenido, campañas y social media', cats:['marketing','campanas','grafico'], tags:['Brand content','Social media','Campañas'], label:'Textil · Retail', c1:'#16A34A', c2:'#A7E3B9',
       art:`<div class="art-card" style="left:10%;top:16%"><span>Calendario</span><b>Contenido del mes</b></div><div class="art-card" style="right:10%;bottom:14%"><span>Reporte</span><div class="mini-bars"><i style="height:12px"></i><i style="height:20px"></i><i style="height:16px"></i><i style="height:28px"></i><i style="height:34px"></i></div></div>`,
       summary:'Fui Community Manager y Analista de Marketing de la marca: llevé las redes, la web, la pauta y la medición.',
       role:'Community Manager / Analista de Marketing', company:'Textil Colortex Perú', scope:'RRSS, web, pauta y reportes', tools:'Meta Ads · Google Ads · Analytics · Hootsuite',
       challenge:'Dar presencia digital constante a la marca y medir qué funcionaba para tomar mejores decisiones.',
       solution:'Calendaricé y produje contenidos, administré el sitio web, implementé pauta (SEO y SEM) y realicé campañas, benchmark, analítica e informes.',
       results:[['Contenido','calendarización y diseño'],['Pauta','SEO y SEM'],['Data','reportes y benchmark']] },
-    { id:'foto', title:'Fotografía', sub:'Sesiones, iluminación y retoque', cats:['audiovisual'], tags:['Fotografía','Iluminación','Retoque'], label:'Foto', wide:true, c1:'#3B2A20', c2:'#C8873A', link:IG, linkTxt:'Ver en Instagram',
+    { id:'foto', title:'Fotografía', sub:'Sesiones, iluminación y retoque', cats:['audiovisual'], tags:['Fotografía','Iluminación','Retoque'], label:'Foto', wide:true, c1:'#3B2A20', c2:'#C8873A',
       art:`<div class="vf"><span class="rec">REC</span><span class="focus"></span></div><div class="art-card" style="left:10%;bottom:10%"><span>Ajustes</span><b>ISO 100 · f/2.8 · 1/125</b></div>`,
       summary:'Sesiones fotográficas institucionales y de producto, desde la iluminación hasta el retoque final.',
       role:'Fotógrafo', company:'Proyectos varios', scope:'Retrato, producto e institucional', tools:'Lightroom · Camera Raw · Capture One · Photoshop',
       challenge:'Conseguir imágenes consistentes y de calidad para comunicación institucional y redes.',
       solution:'Planifiqué las sesiones, manejé la iluminación y retoqué las fotos con un estilo de color coherente.',
       results:[['Sesiones','retrato y producto'],['Luz','esquemas de iluminación'],['Retoque','color consistente']] },
-    { id:'freelance', title:'Proyectos freelance', sub:'Branding e identidad para marcas independientes', cats:['branding','grafico','campanas'], tags:['Branding','Identidad','Social media'], label:'Freelance', wide:true, c1:'#0E0F12', c2:'#C8873A', link:BEHANCE, linkTxt:'Ver en Behance',
+    { id:'freelance', title:'Proyectos freelance', sub:'Branding e identidad para marcas independientes', cats:['branding','grafico','campanas'], tags:['Branding','Identidad','Social media'], label:'Freelance', wide:true, c1:'#0E0F12', c2:'#C8873A',
       art:`<div class="mono" style="left:34%">JP.</div><div class="art-card" style="right:10%;top:18%"><span>Entregable</span><b>Brand book</b></div><div class="art-card" style="right:16%;bottom:16%"><span>Lanzamiento</span><b>Kit para redes</b></div>`,
       summary:'Además de mi trabajo en empresa, desarrollo proyectos freelance de branding para emprendimientos y marcas independientes.',
       role:'Especialista en Branding', company:'Clientes independientes', scope:'Estrategia, identidad y lanzamiento', tools:'Illustrator · Photoshop · Figma · IA',
@@ -1683,7 +1678,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
         <div class="case-results">${p.results.map(r => `<div><strong>${r[0]}</strong><span>${r[1]}</span></div>`).join('')}</div>
         <div class="case-nav">
           <button class="btn btn-light btn-sm" data-case="${prev.id}">← ${prev.title}</button>
-          <a class="btn btn-dark btn-sm" href="${p.link}" target="_blank" rel="noopener">${p.linkTxt} ↗</a>
+          <button class="btn btn-dark btn-sm" data-open="contact">Conversemos sobre este proyecto</button>
           <button class="btn btn-light btn-sm" data-case="${next.id}">${next.title} →</button>
         </div>
       </div>`;
