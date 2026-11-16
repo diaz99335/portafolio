@@ -179,7 +179,6 @@ h1,h2,h3{font-family:var(--display)}
 .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transition:transform 1.2s var(--ease),filter .6s}
 .device-screen:hover .hero-photo{transform:scale(1.03);filter:saturate(1.08) brightness(1.04)}
 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,15,18,.35) 0%,transparent 22%,transparent 55%,rgba(14,15,18,.7) 100%);pointer-events:none;z-index:1}
-.device-aura{position:absolute;inset:-30px -110px 0;background:url(foto-hero.jpg) center 30%/cover;filter:blur(22px) saturate(1.1);opacity:.55;border-radius:60px;z-index:-1;-webkit-mask-image:radial-gradient(closest-side,#000 55%,transparent);mask-image:radial-gradient(closest-side,#000 55%,transparent);pointer-events:none}
 .xray img,.xray svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .xr-photo{filter:grayscale(1) contrast(1.2);mix-blend-mode:luminosity;opacity:.4}
 .xr-lines{mix-blend-mode:screen}
@@ -554,17 +553,31 @@ h1,h2,h3{font-family:var(--display)}
 .hero-side .ask{left:auto;right:0;bottom:30px;width:320px}
 
 @media (hover:none){.hero-media .xray,.hero-media .lens{display:none}}
+@media (hover:none){.pcard .hint,.pcard .xray,.pcard .lens{display:none}}
+/* Hero: foto completa + tarjeta como ventana enfocada */
+.geo{position:absolute;left:var(--gl,0);top:var(--gt,0);width:var(--gw,100%);height:var(--gh,100%);transition:transform .9s var(--ease),filter .9s var(--ease)}
+.geo img,.geo svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.bgl img{filter:blur(5px) brightness(.78) saturate(1.05);transition:filter .9s var(--ease)}
+.hero:has(.pcard:hover) .bgl img{filter:blur(9px) brightness(.62) saturate(1)}
+.pcard .device-screen{background:transparent!important}
+.geo.fg .sharp{transition:filter .9s var(--ease)}
+.pcard:hover .geo.fg{transform:translateY(8px)}
+.pcard:hover .geo.fg .sharp{filter:brightness(1.08) contrast(1.04)}
+.pcard .xray .geo img{object-fit:fill}
+.pcard .id-card{top:22px;bottom:auto;left:22px;right:auto}
+.pcard .fc1{left:-118px;top:150px;right:auto}
+.pcard .fc2{right:-62px;top:410px;left:auto}
 /* Hero: fondo desenfocado + tarjeta con la foto */
 .photo-hero .hero-bg.blurred{filter:blur(28px) saturate(1.15) brightness(.85);transform:scale(1.18);animation:none}
 .photo-hero .hero-shade.soft{background:linear-gradient(90deg,rgba(8,12,26,.82) 0%,rgba(8,12,26,.55) 40%,rgba(8,12,26,.15) 70%,rgba(8,12,26,.05) 100%)}
 .hero-card-col{display:flex;justify-content:flex-end;align-self:end;height:100%}
-.pcard{position:relative;width:min(350px,100%);height:590px;border-radius:32px 32px 0 0;border:2px solid rgba(255,255,255,.75);border-bottom:0;padding:10px 10px 0;background:rgba(255,255,255,.08);backdrop-filter:blur(6px);transform-style:preserve-3d;transition:transform .9s var(--ease),box-shadow .9s var(--ease);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
-.pcard:hover{box-shadow:0 60px 100px -30px rgba(0,0,0,.7)}
+.pcard{position:relative;width:min(350px,100%);height:590px;margin-right:30px;border-radius:32px 32px 0 0;border:2px solid rgba(255,255,255,.75);border-bottom:0;padding:10px 10px 0;background:rgba(255,255,255,.08);backdrop-filter:blur(6px);transform-style:preserve-3d;transition:transform .9s var(--ease),box-shadow .9s var(--ease);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.pcard:hover{box-shadow:0 60px 100px -30px rgba(0,0,0,.7);transform:translateY(-8px)}
 .pcard .device-screen{--r:0px;height:100%;border-radius:24px 24px 0 0;background:#0B1124}
 .pcard .device-screen:hover{--r:88px}
 .pcard .hero-photo{object-position:50% 50%;transition:transform 1.4s var(--ease),filter .8s}
 .pcard:hover .hero-photo{transform:scale(1.045);filter:saturate(1.08) brightness(1.04)}
-.pcard .shade{background:linear-gradient(180deg,rgba(8,12,26,.25) 0%,transparent 18%,transparent 38%,rgba(8,12,26,.55) 62%,rgba(8,12,26,.75) 100%)}
+.pcard .shade{background:linear-gradient(180deg,rgba(8,12,26,.45) 0%,transparent 20%,transparent 70%,rgba(8,12,26,.45) 100%)}
 .pcard .hint{position:absolute;top:16px;right:16px;z-index:4;color:#fff}
 .cd-data{position:absolute;left:18px;right:18px;top:47%;z-index:4;color:#fff;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;transition:transform .9s var(--ease)}
 .pcard:hover .cd-data{transform:translateY(-4px)}
@@ -742,6 +755,8 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .hero-media .xray svg{display:none}
   .hero-side{min-height:300px;display:flex;align-items:flex-end;padding-bottom:24px}
   .hero-card-col{justify-content:center;margin-top:10px}
+  .pcard{margin-right:0}
+  .pcard .float-card{display:none}
   .pcard{height:520px}
   .hero-side .hint,.hero-side .float-card{display:none}
   .hero-side .ask{position:relative;right:auto;bottom:auto;left:auto;width:min(360px,100%)}
@@ -860,8 +875,8 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
 <!-- ================= HERO ================= -->
 <header class="hero-wrap" id="inicio">
   <div class="hero photo-hero" id="heroBox">
-    <div class="hero-media" aria-hidden="true">
-      <img class="hero-bg blurred" src="foto-hero.jpg" alt="">
+    <div class="hero-media" aria-hidden="true" id="heroMedia">
+      <div class="geo bgl"><img src="foto-hero-ext.jpg" alt=""></div>
       <div class="hero-shade soft"></div>
     </div>
     <div class="hero-inner">
@@ -886,40 +901,34 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <div class="hero-card-col">
         <div class="pcard" id="pcard">
           <div class="device-screen" id="screen">
-            <img class="hero-photo" src="foto-card.jpg" alt="José Pérez, especialista en branding, en un estudio fotográfico">
+            <div class="geo fg"><img class="sharp" src="foto-hero-ext.jpg" alt="José Pérez, especialista en branding, en un estudio fotográfico"></div>
             <div class="shade"></div>
             <div class="xray" aria-hidden="true">
-              <img class="xr-photo" src="foto-card.jpg" alt="">
-              <img class="xr-lines" src="foto-card-lineas.png" alt="">
-              <svg viewBox="0 0 490 804" preserveAspectRatio="xMidYMid slice" font-family="Inter, sans-serif" font-size="13">
-                <g stroke="#F4C95D" stroke-dasharray="6 5" stroke-width="1.4" opacity=".75"><line x1="163" y1="0" x2="163" y2="804"/><line x1="327" y1="0" x2="327" y2="804"/><line x1="0" y1="268" x2="490" y2="268"/><line x1="0" y1="536" x2="490" y2="536"/></g>
-                <rect x="166" y="66" width="112" height="132" fill="none" stroke="#8FB5F7" stroke-width="1.6" stroke-dasharray="4 4"/>
-                <g fill="#fff"><rect x="162" y="62" width="8" height="8"/><rect x="274" y="62" width="8" height="8"/><rect x="162" y="194" width="8" height="8"/><rect x="274" y="194" width="8" height="8"/></g>
-                <rect x="166" y="40" width="150" height="20" rx="4" fill="#4F86EC"/><text x="174" y="54.5" fill="#fff">Rostro · tercio superior</text>
-                <line x1="110" y1="124" x2="330" y2="124" stroke="#fff" stroke-width="1.2" stroke-dasharray="3 3"/><text x="336" y="128" fill="#fff">línea de ojos</text>
-                <circle cx="222" cy="132" r="100" fill="none" stroke="#8FB5F7" stroke-dasharray="2 5" stroke-width="1.4"/>
-                <text x="334" y="262" fill="#F4C95D">regla de tercios</text>
-              </svg>
+              <div class="geo fg">
+                <img class="xr-photo" src="foto-hero-ext.jpg" alt="">
+                <img class="xr-lines" src="foto-hero-ext-lineas.png" alt="">
+                <svg viewBox="0 0 1440 1084" preserveAspectRatio="none" font-family="Inter, sans-serif" font-size="13">
+                    <rect x="881" y="346" width="112" height="132" fill="none" stroke="#8FB5F7" stroke-width="1.6" stroke-dasharray="4 4"/>
+                    <g fill="#fff"><rect x="877" y="342" width="8" height="8"/><rect x="989" y="342" width="8" height="8"/><rect x="877" y="474" width="8" height="8"/><rect x="989" y="474" width="8" height="8"/></g>
+                    <rect x="881" y="320" width="150" height="20" rx="4" fill="#4F86EC"/><text x="889" y="334.5" fill="#fff">Rostro · tercio superior</text>
+                    <line x1="820" y1="404" x2="1060" y2="404" stroke="#fff" stroke-width="1.2" stroke-dasharray="3 3"/><text x="1066" y="408" fill="#fff">línea de ojos</text>
+                    <circle cx="937" cy="412" r="100" fill="none" stroke="#8FB5F7" stroke-dasharray="2 5" stroke-width="1.4"/>
+                    <g stroke="#F4C95D" stroke-dasharray="6 5" stroke-width="1.3" opacity=".7"><line x1="840" y1="520" x2="1040" y2="520"/><line x1="880" y1="280" x2="880" y2="700"/><line x1="1000" y1="280" x2="1000" y2="700"/></g>
+                    <text x="1006" y="536" fill="#F4C95D">regla de tercios</text>
+                  </svg>
+              </div>
             </div>
             <div class="lens"></div>
             <span class="hint"><i></i>Pasa el mouse</span>
-            <div class="cd-data">
-              <div><div class="k">Experiencia</div><div class="v">8+ años</div><div class="k">construyendo marcas</div></div>
-              <div class="rt"><div class="k">Especialidad</div><span class="chip">Branding 360°</span></div>
-            </div>
-            <div class="cd-chart">
-              <span class="badge">+10 sectores</span>
-              <svg viewBox="0 0 300 80" preserveAspectRatio="none">
-                <line x1="0" y1="18" x2="300" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
-                <path class="base" d="M0 70 L40 64 L80 66 L120 52 L160 50 L200 38 L240 30 L300 8" fill="none" stroke="#8FB5F7" stroke-width="1.6"/>
-                <path class="line" d="M0 76 L25 60 L45 66 L70 48 L95 56 L120 44 L150 46 L175 34 L200 36 L220 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linejoin="round"/>
-                <circle class="dot" cx="220" cy="24" r="4.5" fill="#F4C95D" stroke="#fff" stroke-width="1.5"/>
-              </svg>
-            </div>
+            <div class="id-card"><div class="nm">José Pérez</div><div class="rl">Especialista en Branding</div></div>
             <div class="ask" data-open="contact">
               <span class="l">👋 <span><b>¿Conversamos?</b> Escríbeme</span></span>
               <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
             </div>
+          </div>
+          <div class="float-card fc1"><div class="k">Especialidad</div><div class="v">Branding 360°</div><div class="k">Diseño · Video · Foto · UX/UI · Web</div></div>
+          <div class="float-card fc2"><div class="k">Mi stack diario</div>
+            <div class="stack"><span style="background:#0E0F12">Fg</span><span style="background:#FF9A00">Ai</span><span style="background:#31A8FF">Ps</span><span style="background:#7B61FF">Pr</span><span style="background:#9999FF">Ae</span></div>
           </div>
         </div>
       </div>
@@ -1575,13 +1584,32 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   const easeRate = () => { const a = mqAnim(); if (!a) return; mqRate += (mqTarget - mqRate) * .08; a.playbackRate = mqRate; if (Math.abs(mqTarget - mqRate) > .01) requestAnimationFrame(easeRate); };
   mq.parentElement.addEventListener('mouseenter', () => { mqTarget = .25; easeRate(); });
   mq.parentElement.addEventListener('mouseleave', () => { mqTarget = 1; easeRate(); });
-  /* Tarjeta del hero: lupa + inclinación sutil */
-  const screen = $('#screen'), pcard = $('#pcard');
+  /* Tarjeta del hero: ventana alineada con la foto de fondo + lupa */
+  const screen = $('#screen'), pcard = $('#pcard'), media = $('#heroMedia'), heroEl = $('#heroBox');
+  const IMG = { w: 1440, h: 1084, faceX: 937, hairY: 320 };
+  const setGeo = (el, g) => { el.style.setProperty('--gl', g.l + 'px'); el.style.setProperty('--gt', g.t + 'px'); el.style.setProperty('--gw', g.w + 'px'); el.style.setProperty('--gh', g.h + 'px'); };
+  // Ubica la foto para cubrir una caja (W×H) con el rostro en (cx, hy)
+  const fit = (W, H, cx, hy, sMin) => {
+    let sc = Math.max(sMin, W / IMG.w, H / IMG.h, cx / IMG.faceX, (W - cx) / (IMG.w - IMG.faceX), hy / IMG.hairY);
+    let l = cx - IMG.faceX * sc, t = hy - IMG.hairY * sc;
+    l = Math.min(0, Math.max(l, W - IMG.w * sc)); t = Math.min(0, Math.max(t, H - IMG.h * sc));
+    return { l, t, w: IMG.w * sc, h: IMG.h * sc };
+  };
+  const layoutHero = () => {
+    const hr = heroEl.getBoundingClientRect(), sw = screen.offsetWidth, sh = screen.offsetHeight;
+    // posición de la pantalla sin transformaciones
+    let x = 0, y = 0, n = screen; while (n && n !== heroEl) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+    if (innerWidth > 1080) {
+      const g = fit(hr.width, hr.height, x + sw / 2, y + sh * .14, sh / 470);
+      setGeo(media, g); setGeo(screen, { l: g.l - x, t: g.t - y, w: g.w, h: g.h });
+    } else {
+      setGeo(media, fit(hr.width, hr.height, hr.width * .5, hr.height * .06, 0));
+      setGeo(screen, fit(sw, sh, sw / 2, sh * .12, sh / 520));
+    }
+  };
+  layoutHero(); addEventListener('resize', layoutHero); addEventListener('load', layoutHero);
+  document.fonts && document.fonts.ready.then(layoutHero);
   screen.addEventListener('mousemove', e => { const r = screen.getBoundingClientRect(); screen.style.setProperty('--mx', (e.clientX - r.left) + 'px'); screen.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
-  if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
-    pcard.addEventListener('mousemove', e => { const r = pcard.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; pcard.style.transform = `perspective(1100px) rotateY(${x * 5}deg) rotateX(${-y * 3}deg) translateY(-6px)`; });
-    pcard.addEventListener('mouseleave', () => pcard.style.transform = '');
-  }
 
   /* ---------- Rotador del hero (sin saltos) ---------- */
   const rot = $('#rotator'), ws = $$('.w', rot); let wi = 0;
