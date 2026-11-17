@@ -601,6 +601,51 @@ h1,h2,h3{font-family:var(--display)}
 @keyframes fadeIn{to{opacity:1}}
 .pcard .ask{left:18px;right:18px;bottom:34px;width:auto}
 
+/* Sobre mí: modo profesional / personal */
+.about-head{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:28px;position:relative}
+.mode-switch{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:var(--shadow-sm)}
+.mode-switch button{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 22px;border-radius:999px;font-size:.88rem;font-weight:500;color:var(--muted);transition:color .4s var(--ease)}
+.mode-switch button[aria-pressed="true"]{color:#fff}
+.mode-switch .thumb{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:999px;background:var(--ink);transition:transform .55s var(--ease),background .4s;box-shadow:0 8px 20px -10px rgba(14,15,18,.6)}
+.mode-switch.personal .thumb{transform:translateX(100%);background:linear-gradient(120deg,#E9785B,#F4A23B)}
+.coach{position:absolute;top:calc(100% + 8px);left:50%;transform:translate(-50%,8px);background:var(--ink);color:#fff;font-size:.8rem;padding:10px 14px;border-radius:12px;white-space:nowrap;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:opacity .45s var(--ease),transform .55s var(--ease);z-index:5;display:flex;align-items:center;gap:8px}
+.coach::before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;background:var(--ink);transform:translateX(-50%) rotate(45deg);border-radius:2px}
+.coach.show{opacity:1;transform:translate(-50%,0);pointer-events:auto;animation:coachBob 1.6s ease-in-out .6s infinite}
+@keyframes coachBob{50%{transform:translate(-50%,-4px)}}
+.coach button{color:#fff;opacity:.7;font-size:.9rem;margin-left:4px}
+.coach .hand{display:inline-block;animation:swipe 1.4s ease-in-out infinite}
+@keyframes swipe{0%,100%{transform:translateX(-3px)}50%{transform:translateX(5px)}}
+.about-grid.v2{grid-template-columns:.92fr 1.08fr;align-items:stretch}
+.about-media{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:560px;background:#0B1124;box-shadow:var(--shadow-sm)}
+.about-media .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s var(--ease)}
+.about-media .slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 6s linear}
+.about-media .slide.on{opacity:1}
+.about-media .slide.on img{transform:scale(1)}
+.about-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,26,.35) 0%,transparent 25%,transparent 60%,rgba(8,12,26,.7) 100%);pointer-events:none}
+.am-top{position:absolute;top:18px;left:18px;right:18px;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.am-chip{font-size:.72rem;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px);color:#fff;display:flex;align-items:center;gap:6px}
+.am-bottom{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.am-cap small{display:block;font-size:.7rem;opacity:.8}
+.am-cap strong{font-family:var(--display);font-size:1.25rem;font-weight:600;letter-spacing:-.02em;display:block;transition:opacity .4s}
+.am-ctrl{display:flex;align-items:center;gap:8px}
+.am-ctrl button.arw{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--ink);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.am-ctrl button.arw:hover{transform:scale(1.08)}
+.am-ctrl svg{width:14px;height:14px}
+.am-dots{position:absolute;left:20px;right:20px;bottom:82px;z-index:2;display:flex;gap:6px}
+.am-dots i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.3);overflow:hidden;position:relative}
+.am-dots i b{position:absolute;inset:0;width:0;background:#fff}
+.am-dots i.done b{width:100%}
+.am-dots i.on b{animation:fill 4.5s linear forwards}
+@keyframes fill{to{width:100%}}
+.about-card.v2{display:grid}
+.about-card.v2 .panes{display:grid}
+.about-card.v2 .pane{grid-area:1/1;transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.about-card.v2 .pane[hidden]{display:block;opacity:0;transform:translateY(12px);pointer-events:none;visibility:hidden}
+.about-card.v2 .pane h2{margin-top:12px}
+.skill-pills{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 4px}
+.skill-pills span{font-size:.75rem;padding:6px 11px;border-radius:999px;background:var(--bg);color:var(--ink-2)}
+.hobby-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.eyebrow.warm{color:#E9785B}
 /* Sobre mí: lado personal */
 .human{margin-top:18px;border-top:1px dashed var(--line);padding-top:18px}
 .human-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
@@ -780,6 +825,8 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .about-grid,.exp-grid,.faq-grid{grid-template-columns:1fr}
   .portrait{min-height:420px}
   .portrait.video-card{min-height:0;max-width:360px;margin-inline:auto}
+  .about-grid.v2{grid-template-columns:1fr}
+  .about-media{min-height:0;aspect-ratio:4/3}
   .steps{grid-template-columns:repeat(2,1fr)}
   .stats{grid-template-columns:repeat(2,1fr);row-gap:30px}
   .stat:nth-child(3){border-left:0}
@@ -827,6 +874,10 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .job-body ul{padding:0 0 12px 18px}
   .job-body .tags{padding:0 0 20px 0}
   .tools{grid-template-columns:repeat(3,1fr)}
+  .hobby-grid{grid-template-columns:1fr 1fr}
+  .about-media{min-height:0;aspect-ratio:4/5}
+  .mode-switch button{padding:9px 16px;font-size:.82rem}
+  .coach{white-space:normal;width:250px;text-align:left}
   .hobbies-wrap{margin:0 -28px}
   .hobbies{padding:0 28px 6px;scroll-padding-inline:28px}
   .hobbies-wrap::before,.hobbies-wrap::after{width:28px}
@@ -959,51 +1010,55 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
 
 <!-- ================= ABOUT ================= -->
 <section class="section" id="sobre-mi">
-  <div class="container about-grid">
-    <!-- Video de presentación: configúralo en ABOUT_VIDEO (script, al final) -->
-    <div class="portrait video-card reveal" id="aboutVideo" role="button" tabindex="0" aria-label="Reproducir video de presentación">
-      <span class="v-chip"><i></i>Conóceme en video</span>
-      <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span>
-      <button class="v-close" id="vClose" aria-label="Cerrar video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      <div class="avatar">
-        <svg viewBox="0 0 300 360" fill="none">
-          <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity=".55"/></linearGradient></defs>
-          <circle cx="150" cy="120" r="62" fill="url(#g1)"/>
-          <path d="M40 360c0-80 50-130 110-130s110 50 110 130" fill="url(#g1)"/>
-          <path d="M92 118c0-40 26-68 60-68 30 0 58 22 58 62 0 18-6 32-6 32s-4-40-24-52c-16 10-48 16-88 26z" fill="#0E0F12" opacity=".85"/>
-          <circle cx="232" cy="70" r="22" fill="#F4C95D" opacity=".9"/>
-          <rect x="30" y="60" width="44" height="44" rx="12" fill="#0E0F12" opacity=".85"/>
-          <text x="52" y="89" text-anchor="middle" font-family="Plus Jakarta Sans, Inter, sans-serif" font-weight="800" font-size="18" fill="#fff">JP</text>
-        </svg>
+  <div class="container">
+    <div class="about-head reveal">
+      <div class="mode-switch" id="modeSwitch" role="group" aria-label="Elegir cómo conocerme">
+        <span class="thumb" aria-hidden="true"></span>
+        <button type="button" data-mode="pro" aria-pressed="true">💼 Profesional</button>
+        <button type="button" data-mode="per" aria-pressed="false">🎸 Personal</button>
       </div>
-      <div class="tag">
-        <div><small>Basado en</small><strong>Lima, Perú</strong></div>
-        <span class="clock" id="clock" title="Hora en Lima">--:--</span>
-      </div>
+      <div class="coach" id="coach" role="status"><span class="hand">👉</span> Cambia aquí y conoce mi lado personal <button type="button" id="coachX" aria-label="Cerrar aviso">✕</button></div>
     </div>
-    <div class="about-card reveal" data-delay="1">
-      <span class="eyebrow">Sobre mí</span>
-      <h2>Especialista en branding, <span class="em">curioso por naturaleza</span></h2>
-      <p>Mi trabajo empieza en la <span class="hl">estrategia de marca</span>: entender qué es la marca, a quién le habla y qué quiere decir. Desde ahí construyo identidades y sistemas visuales coherentes en cada punto de contacto.</p>
-      <p class="muted">Con los años amplié mi campo con diseño gráfico, producción audiovisual, fotografía, UX/UI y web. No los trabajo como disciplinas sueltas, sino como herramientas al servicio de la marca: cada una ayuda a que la marca se vea, se escuche y funcione igual en todas partes. Las aprendí porque me apasionan, y las aplico con el mismo nivel de detalle.</p>
-      <div class="human">
-        <div class="human-head">
-          <h3>Lo que me mueve <strong class="em">y me hace quien soy</strong></h3>
-          <div class="hob-nav"><button id="hPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button><button id="hNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button></div>
+    <div class="about-grid v2">
+      <!-- Fotos de stock (Unsplash, licencia libre). Reemplázalas por fotos propias cuando las tengas. -->
+      <div class="about-media reveal" id="aboutMedia" aria-roledescription="carrusel" aria-label="Fotos">
+        <div class="am-top"><span class="am-chip" id="amMode">💼 Modo profesional</span><span class="clock" id="clock" title="Hora en Lima">--:--</span></div>
+        <div class="am-dots" id="amDots"></div>
+        <div class="am-bottom">
+          <div class="am-cap"><small id="amSub"></small><strong id="amTitle"></strong></div>
+          <div class="am-ctrl">
+            <button class="arw" id="amPrev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button class="arw" id="amNext" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
         </div>
-        <p class="muted" style="margin:-4px 0 14px;font-size:.9rem">Creo que los mejores equipos se arman entre personas, no solo entre perfiles. Esto es lo que disfruto en mis ratos libres y que, sin darme cuenta, termina inspirando mi trabajo.</p>
-        <div class="hobbies-wrap"><div class="hobbies" id="hobbies">
-          <div class="hobby"><span class="ico">🎸</span><strong>Guitarra</strong><span>Me gusta tocarla en mis ratos libres; me despeja y me ordena las ideas.</span></div>
-          <div class="hobby"><span class="ico">🤘</span><strong>Rock & música</strong><span>La banda sonora de casi todo lo que diseño.</span></div>
-          <div class="hobby"><span class="ico">🎟️</span><strong>Conciertos</strong><span>La energía en vivo no se compara con nada.</span></div>
-          <div class="hobby"><span class="ico">🎬</span><strong>Cine</strong><span>Encuadres, luz y narrativa: aprendo en cada película.</span></div>
-          <div class="hobby"><span class="ico">🚀</span><strong>Ciencia ficción</strong><span>Leo mundos posibles que me abren la cabeza.</span></div>
-          <div class="hobby"><span class="ico">🎮</span><strong>Videojuegos</strong><span>Historias, mundos e interfaces que me inspiran.</span></div>
-        </div></div>
       </div>
-      <div class="about-actions">
-        <button class="btn btn-dark magnetic" data-open="contact">Agendar una entrevista <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        <a href="cv.pdf" download class="btn btn-light" data-cv>Descargar CV</a>
+      <div class="about-card v2 reveal" data-delay="1">
+        <div class="panes">
+          <div class="pane" data-pane="pro">
+            <span class="eyebrow">Perfil profesional</span>
+            <h2>Especialista en branding, <span class="em">curioso por naturaleza</span></h2>
+            <p>Mi trabajo empieza en la <span class="hl">estrategia de marca</span>: entender qué es la marca, a quién le habla y qué quiere decir. Desde ahí construyo identidades y sistemas visuales coherentes en cada punto de contacto.</p>
+            <p class="muted">Con los años amplié mi campo con diseño gráfico, producción audiovisual, fotografía, UX/UI y web. No los trabajo como disciplinas sueltas, sino como herramientas al servicio de la marca: cada una ayuda a que la marca se vea, se escuche y funcione igual en todas partes.</p>
+            <div class="skill-pills"><span>Estrategia</span><span>Identidad visual</span><span>Diseño gráfico</span><span>Audiovisual</span><span>Fotografía</span><span>UX/UI & web</span><span>IA aplicada</span></div>
+          </div>
+          <div class="pane" data-pane="per" hidden>
+            <span class="eyebrow warm">Lado personal</span>
+            <h2>Lo que me mueve <span class="em">y me hace quien soy</span></h2>
+            <p class="muted">Creo que los mejores equipos se arman entre personas, no solo entre perfiles. Esto es lo que disfruto en mis ratos libres y que, sin darme cuenta, termina inspirando mi trabajo.</p>
+            <div class="hobby-grid">
+              <div class="hobby"><span class="ico">🎸</span><strong>Guitarra</strong><span>Me gusta tocarla en mis ratos libres; me despeja y me ordena las ideas.</span></div>
+              <div class="hobby"><span class="ico">🤘</span><strong>Rock & música</strong><span>La banda sonora de casi todo lo que diseño.</span></div>
+              <div class="hobby"><span class="ico">🎟️</span><strong>Conciertos</strong><span>La energía en vivo no se compara con nada.</span></div>
+              <div class="hobby"><span class="ico">🎬</span><strong>Cine</strong><span>Encuadres, luz y narrativa: aprendo en cada película.</span></div>
+              <div class="hobby"><span class="ico">🚀</span><strong>Ciencia ficción</strong><span>Leo mundos posibles que me abren la cabeza.</span></div>
+              <div class="hobby"><span class="ico">🎮</span><strong>Videojuegos</strong><span>Historias, mundos e interfaces que me inspiran.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-actions">
+          <button class="btn btn-dark magnetic" data-open="contact">Agendar una entrevista <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <a href="cv.pdf" download class="btn btn-light" data-cv>Descargar CV</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1632,15 +1687,53 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   document.fonts && document.fonts.ready.then(layoutHero);
   screen.addEventListener('mousemove', e => { const r = screen.getBoundingClientRect(); screen.style.setProperty('--mx', (e.clientX - r.left) + 'px'); screen.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
 
-  /* Gustos: carrusel horizontal */
-  const hob = $('#hobbies');
-  const hStep = () => $('.hobby', hob).offsetWidth + 10;
-  $('#hPrev').onclick = () => hob.scrollBy({ left: -hStep(), behavior: 'smooth' });
-  $('#hNext').onclick = () => hob.scrollBy({ left: hStep(), behavior: 'smooth' });
-  let hd = false, hx = 0, hl = 0;
-  hob.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; hd = true; hx = e.clientX; hl = hob.scrollLeft; });
-  addEventListener('pointermove', e => { if (!hd) return; const dx = e.clientX - hx; if (Math.abs(dx) > 4) hob.classList.add('drag'); hob.scrollLeft = hl - dx; });
-  addEventListener('pointerup', () => { if (!hd) return; hd = false; hob.classList.remove('drag'); });
+  /* ---------- Sobre mí: profesional / personal + carrusel de fotos ---------- */
+  const ABOUT_PHOTOS = {"pro": [{"src": "https://images.unsplash.com/photo-1758876203195-69a51e4145f0?auto=format&fit=crop&w=900&q=70", "t": "Estrategia de marca", "s": "Investigación e insights"}, {"src": "https://images.unsplash.com/photo-1716471330475-f0669db8947a?auto=format&fit=crop&w=900&q=70", "t": "Identidad visual", "s": "Color, tipografía y sistema"}, {"src": "https://images.unsplash.com/photo-1729710877311-0e8e70bf820b?auto=format&fit=crop&w=900&q=70", "t": "UX/UI & web", "s": "Wireframes y prototipos"}, {"src": "https://images.unsplash.com/photo-1760768550727-00f5e02feb72?auto=format&fit=crop&w=900&q=70", "t": "Producción audiovisual", "s": "Video, motion y edición"}, {"src": "https://images.unsplash.com/photo-1552599886-841708231c60?auto=format&fit=crop&w=900&q=70", "t": "Fotografía", "s": "Luz, encuadre y retoque"}], "per": [{"src": "https://images.unsplash.com/photo-1598390024569-24ddee81aaa6?auto=format&fit=crop&w=900&q=70", "t": "Guitarra", "s": "Mi forma de despejar la mente"}, {"src": "https://images.unsplash.com/photo-1617405169156-4cf26e70605c?auto=format&fit=crop&w=900&q=70", "t": "Conciertos", "s": "Rock y música en vivo"}, {"src": "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?auto=format&fit=crop&w=900&q=70", "t": "Cine", "s": "Encuadres que me inspiran"}, {"src": "https://images.unsplash.com/photo-1603162610423-af7febeca563?auto=format&fit=crop&w=900&q=70", "t": "Ciencia ficción", "s": "Mundos posibles en cada libro"}, {"src": "https://images.unsplash.com/photo-1600861194942-f883de0dfe96?auto=format&fit=crop&w=900&q=70", "t": "Videojuegos", "s": "Historias e interfaces"}]};
+  const aMedia = $('#aboutMedia'), dotsEl = $('#amDots'), sw = $('#modeSwitch');
+  let aMode = 'pro', aIdx = 0, aTimer = null;
+  const buildSlides = () => {
+    $$('.slide', aMedia).forEach(s => { s.classList.remove('on'); setTimeout(() => s.remove(), 1000); });
+    ABOUT_PHOTOS[aMode].forEach((p, i) => {
+      const d = document.createElement('div'); d.className = 'slide';
+      d.innerHTML = `<img src="${p.src}" alt="${p.t}" loading="${i ? 'lazy' : 'eager'}">`;
+      aMedia.insertBefore(d, aMedia.firstChild);
+    });
+    dotsEl.innerHTML = ABOUT_PHOTOS[aMode].map(() => '<i><b></b></i>').join('');
+    aIdx = 0; showSlide(0);
+  };
+  const showSlide = (i) => {
+    const set = ABOUT_PHOTOS[aMode], slides = $$('.slide:not(.old)', aMedia).slice(0, set.length).reverse();
+    aIdx = (i + set.length) % set.length;
+    slides.forEach((s, j) => s.classList.toggle('on', j === aIdx));
+    $$('i', dotsEl).forEach((d, j) => { d.classList.toggle('done', j < aIdx); d.classList.remove('on'); });
+    const cur = $$('i', dotsEl)[aIdx]; cur && (cur.offsetWidth, cur.classList.add('on'));
+    $('#amTitle').textContent = set[aIdx].t; $('#amSub').textContent = set[aIdx].s;
+    clearTimeout(aTimer); aTimer = setTimeout(() => showSlide(aIdx + 1), 4500);
+  };
+  const setMode = (m) => {
+    if (m === aMode) return; aMode = m;
+    sw.classList.toggle('personal', m === 'per');
+    $$('button', sw).forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
+    $$('.pane').forEach(p => p.hidden = p.dataset.pane !== m);
+    $('#amMode').textContent = m === 'per' ? '🎸 Modo personal' : '💼 Modo profesional';
+    $$('.slide', aMedia).forEach(s => s.classList.add('old'));
+    buildSlides(); hideCoach(true);
+  };
+  $$('button', sw).forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+  $('#amPrev').onclick = () => showSlide(aIdx - 1);
+  $('#amNext').onclick = () => showSlide(aIdx + 1);
+  aMedia.addEventListener('mouseenter', () => clearTimeout(aTimer));
+  aMedia.addEventListener('mouseleave', () => showSlide(aIdx));
+  buildSlides();
+  // Aviso la primera vez que se llega a la sección
+  const coach = $('#coach'); let coachSeen = false;
+  try { coachSeen = localStorage.getItem('aboutCoach') === '1'; } catch (e) {}
+  function hideCoach(save) { coach.classList.remove('show'); if (save) { try { localStorage.setItem('aboutCoach', '1'); } catch (e) {} } }
+  $('#coachX').onclick = () => hideCoach(true);
+  if (!coachSeen) {
+    const cio = new IntersectionObserver(en => { if (en[0].isIntersecting) { setTimeout(() => coach.classList.add('show'), 500); setTimeout(() => hideCoach(true), 9000); cio.disconnect(); } }, { threshold: .4 });
+    cio.observe(sw);
+  }
 
   /* ---------- Rotador del hero (sin saltos) ---------- */
   const rot = $('#rotator'), ws = $$('.w', rot); let wi = 0;
@@ -1655,21 +1748,6 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     fitRot(true);
     setTimeout(() => cur.classList.remove('is-out'), 700);
   }, 2800);
-
-  /* ---------- Video de presentación (Sobre mí) ----------
-     Formato recomendado: vertical 9:16 (tipo TikTok/Reels), MP4.
-     Para agregarlo, sube tu archivo al repositorio y usa: { src: 'video-presentacion.mp4' } */
-  const ABOUT_VIDEO = null; // sin video por ahora: muestra un aviso
-  const vCard = $('#aboutVideo');
-  const playVideo = () => {
-    if (vCard.classList.contains('playing')) return;
-    if (!ABOUT_VIDEO) { toast('Muy pronto: video de presentación'); return; }
-    const el = document.createElement('video'); el.src = ABOUT_VIDEO.src; el.controls = true; el.autoplay = true; el.playsInline = true;
-    el.className = 'v-media'; vCard.appendChild(el); vCard.classList.add('playing');
-  };
-  vCard.addEventListener('click', e => { if (!e.target.closest('#vClose')) playVideo(); });
-  vCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playVideo(); } });
-  $('#vClose').addEventListener('click', e => { e.stopPropagation(); const m = $('.v-media', vCard); m && m.remove(); vCard.classList.remove('playing'); });
 
   /* ---------- Proyectos ---------- */
   const projects = [
