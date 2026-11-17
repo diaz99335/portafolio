@@ -534,6 +534,31 @@ h1,h2,h3{font-family:var(--display)}
    ========================================================= */
 .articles{display:grid}
 /* Enfoque: carrusel horizontal */
+.n-viewport{overflow:hidden}
+.n-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:8px max(24px,calc((100vw - var(--container))/2 + 120px)) 26px;cursor:grab;scroll-behavior:smooth}
+.n-track::-webkit-scrollbar{display:none}
+.n-track.drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.ncard{flex:0 0 min(420px,82vw);scroll-snap-align:center;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:26px 28px;display:flex;flex-direction:column;gap:18px;min-height:330px;cursor:pointer;user-select:none;opacity:.55;transform:scale(.96);transition:background .5s var(--ease),opacity .5s var(--ease),transform .5s var(--ease),box-shadow .5s}
+.ncard.on{background:var(--blue-soft);opacity:1;transform:none}
+.ncard:hover{opacity:1;box-shadow:var(--shadow)}
+.ncard .nc-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ncard .nc-cat{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.9rem;letter-spacing:-.01em}
+.ncard .nc-cat i{width:32px;height:32px;border-radius:10px;background:linear-gradient(140deg,var(--c1),var(--c2));display:grid;place-items:center;color:#fff;font-style:normal;font-weight:800;font-size:.72rem;letter-spacing:-.03em}
+.ncard .nc-read{font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:5px}
+.ncard .nc-read svg{width:14px;height:14px;color:var(--blue)}
+.ncard .qm{font-size:3.4rem;line-height:.6;height:22px;color:var(--blue);font-weight:700}
+.ncard h3{font-size:clamp(1.25rem,1.9vw,1.55rem);font-weight:400;letter-spacing:-.03em;line-height:1.22;color:var(--ink)}
+.ncard p{font-size:.88rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ncard .nc-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid rgba(14,15,18,.07)}
+.ncard .nc-auth{display:flex;align-items:center;gap:10px;font-size:.82rem}
+.ncard .nc-auth b{display:block;font-weight:600}
+.ncard .nc-auth span{color:var(--muted);font-size:.74rem}
+.ncard .nc-av{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:.7rem;font-weight:700}
+.ncard .nc-go{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.35s var(--ease)}
+.ncard .nc-go svg{width:15px;height:15px}
+.ncard:hover .nc-go,.ncard.on .nc-go{background:var(--ink);color:#fff;border-color:var(--ink)}
+.n-ctrl{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:6px}
+.n-ctrl .t-btn.fill{background:var(--blue);color:#fff;border-color:var(--blue)}
 .notes{border-top:1px solid var(--line)}
 .note{display:grid;grid-template-columns:1.15fr 200px 1fr;gap:48px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);cursor:pointer}
 .note h3{font-size:clamp(1.15rem,1.7vw,1.4rem);font-weight:500;letter-spacing:-.025em;line-height:1.25;transition:color .3s}
@@ -960,7 +985,8 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .job-body .tags{padding:0 0 20px 0}
   .tools{grid-template-columns:repeat(3,1fr)}
   .hobby-grid{grid-template-columns:1fr 1fr}
-  .note{grid-template-columns:1fr 120px;gap:20px}
+  .n-track{padding-inline:16px}
+  .ncard{min-height:300px;padding:22px}
   .note .ex-col{grid-column:1/-1}
   .flow,.brings ul{grid-template-columns:1fr}
   .flow-it:not(:last-child)::after{display:none}
@@ -1569,9 +1595,13 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <p>Lo que pienso, investigo y aplico. Ideas cortas sobre branding, diseño e inteligencia artificial.</p>
     </div>
   </div>
-  <div class="container reveal">
-    <div class="notes" id="articles"></div>
-    <div class="notes-more"><button class="btn btn-light" id="notesMore">Ver todas las notas <span id="notesCount"></span></button></div>
+  <div class="n-viewport reveal">
+    <div class="n-track" id="articles"></div>
+  </div>
+  <div class="n-ctrl">
+    <button class="t-btn" id="nPrev" aria-label="Nota anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="dots" id="nDots"></div>
+    <button class="t-btn fill" id="nNext" aria-label="Nota siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
   </div>
 </section>
 
@@ -2096,19 +2126,33 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
         'Empezar es simple: anima tu logo, define tres transiciones y un estilo de color. Con eso tu contenido ya se siente parte de la misma marca.'] }
   ];
   const renderBody = b => b.map(x => typeof x === 'string' ? `<p>${x}</p>` : x.h ? `<h3>${x.h}</h3>` : x.ul ? `<ul class="pts">${x.ul.map(i => `<li>${i}</li>`).join('')}</ul>` : `<blockquote>${x.q}</blockquote>`).join('');
-  const NOTE_IMGS = ['https://images.unsplash.com/photo-1716471330475-f0669db8947a?auto=format&fit=crop&w=600&q=70', 'https://images.unsplash.com/photo-1729710877311-0e8e70bf820b?auto=format&fit=crop&w=600&q=70', 'https://images.unsplash.com/photo-1758876203195-69a51e4145f0?auto=format&fit=crop&w=600&q=70', 'https://images.unsplash.com/photo-1603162610423-af7febeca563?auto=format&fit=crop&w=600&q=70', 'https://images.unsplash.com/photo-1760768550727-00f5e02feb72?auto=format&fit=crop&w=600&q=70'];
-  const VISIBLE = 3;
+  const CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+  const GO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   $('#articles').innerHTML = articles.map((a, i) => {
     const [cat, read] = a.cat.split(' · ');
-    return `<article class="note${i >= VISIBLE ? ' extra' : ''}" data-i="${i}" tabindex="0" role="button" aria-label="Leer nota: ${a.t}">
-      <div><h3>${a.t}</h3><span class="meta">${read} &nbsp;/&nbsp; ${cat}</span></div>
-      <div class="thumb" style="--c1:${a.c1};--c2:${a.c2}"><span>${a.g}</span><img src="${NOTE_IMGS[i]}" alt="" loading="lazy" onerror="this.remove()"></div>
-      <div class="ex-col"><p class="ex">${a.ex}</p><span class="btn btn-light btn-sm">Leer nota</span></div>
+    return `<article class="ncard" data-i="${i}" tabindex="0" role="button" aria-label="Leer nota: ${a.t}" style="--c1:${a.c1};--c2:${a.c2}">
+      <div class="nc-top"><span class="nc-cat"><i>${a.g}</i>${cat}</span><span class="nc-read">${CLOCK}${read}</span></div>
+      <div class="qm">“</div>
+      <h3>${a.t}</h3>
+      <p>${a.ex}</p>
+      <div class="nc-foot"><span class="nc-auth"><span class="nc-av">JP</span><span><b>José Pérez</b><span>Nota ${String(i + 1).padStart(2, '0')} de ${String(articles.length).padStart(2, '0')}</span></span></span><span class="nc-go">${GO}</span></div>
     </article>`;
   }).join('');
-  const notesWrap = $('#articles'), moreBtn = $('#notesMore');
-  $('#notesCount').textContent = `(${articles.length})`;
-  moreBtn.onclick = () => { const open = notesWrap.classList.toggle('all'); moreBtn.firstChild.textContent = open ? 'Ver menos notas ' : 'Ver todas las notas '; };
+  const nt = $('#articles'), ncards = $$('.ncard', nt), nDots = $('#nDots');
+  nDots.innerHTML = ncards.map((_, i) => `<button aria-label="Nota ${i + 1}"></button>`).join('');
+  const nGo = i => { const c = ncards[Math.max(0, Math.min(ncards.length - 1, i))]; nt.scrollTo({ left: c.offsetLeft - (nt.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' }); };
+  const nCur = () => { const mid = nt.scrollLeft + nt.clientWidth / 2; let b = 0, d = 1e9; ncards.forEach((c, i) => { const x = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (x < d) { d = x; b = i; } }); return b; };
+  const nSync = () => { const i = nCur(); ncards.forEach((c, j) => c.classList.toggle('on', j === i)); $$('button', nDots).forEach((d, j) => d.classList.toggle('active', j === i)); $('#nPrev').classList.toggle('fill', i > 0); $('#nNext').classList.toggle('fill', i < ncards.length - 1); };
+  nt.addEventListener('scroll', () => requestAnimationFrame(nSync));
+  $$('button', nDots).forEach((d, i) => d.onclick = () => nGo(i));
+  $('#nPrev').onclick = () => nGo(nCur() - 1);
+  $('#nNext').onclick = () => nGo(nCur() + 1);
+  let nd = false, nm = false, nx = 0, nl = 0;
+  nt.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; nd = true; nm = false; nx = e.clientX; nl = nt.scrollLeft; });
+  addEventListener('pointermove', e => { if (!nd) return; const dx = e.clientX - nx; if (Math.abs(dx) > 5) { nm = true; nt.classList.add('drag'); } nt.scrollLeft = nl - dx; });
+  addEventListener('pointerup', () => { if (!nd) return; nd = false; nt.classList.remove('drag'); nGo(nCur()); });
+  nt.addEventListener('click', e => { if (nm) { e.stopImmediatePropagation(); nm = false; return; } const c = e.target.closest('.ncard'); if (c && !c.classList.contains('on')) { e.stopImmediatePropagation(); nGo(+c.dataset.i); } }, true);
+  addEventListener('load', () => { nt.style.scrollBehavior = 'auto'; nGo(1); nt.style.scrollBehavior = ''; nSync(); }); nSync();
   const openArticle = i => {
     const a = articles[i];
     $('#articleContent').innerHTML = `<div class="case-hero" style="--c1:${a.c1};--c2:${a.c2}"><div class="mono">${a.g}</div></div>
@@ -2116,10 +2160,10 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <div class="case-nav" style="margin-top:24px"><button class="btn btn-light btn-sm" data-next-article="${(i + 1) % articles.length}">Siguiente nota →</button><button class="btn btn-dark btn-sm" data-open="contact">Conversemos</button></div></div>`;
     openModal('articleModal');
   };
-  $('#articles').addEventListener('click', e => { const a = e.target.closest('.note'); if (a) openArticle(+a.dataset.i); });
+  $('#articles').addEventListener('click', e => { const a = e.target.closest('.ncard'); if (a) openArticle(+a.dataset.i); });
   $('#articleContent').addEventListener('click', e => { const n = e.target.closest('[data-next-article]'); if (n) { openArticle(+n.dataset.nextArticle); $('#articleModal .modal-box').scrollTop = 0; } });
   document.addEventListener('click', e => { const b = e.target.closest('[data-article]'); if (b) openArticle(+b.dataset.article); });
-  $('#articles').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.classList.contains('note')) openArticle(+e.target.dataset.i); });
+  $('#articles').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.classList.contains('ncard')) openArticle(+e.target.dataset.i); });
 
   /* ---------- Tabs ---------- */
   const tabs = $$('.tab'), ink = $('#tabInk');
@@ -2231,9 +2275,9 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; lab.style.left = mx + 'px'; lab.style.top = my + 'px'; });
     (function loop() { cx += (mx - cx) * .2; cy += (my - cy) * .2; cur.style.left = cx + 'px'; cur.style.top = cy + 'px'; requestAnimationFrame(loop); })();
     document.addEventListener('mouseover', e => {
-      const p = e.target.closest('.project, .note, .video-card:not(.playing)');
+      const p = e.target.closest('.project, .ncard, .video-card:not(.playing)');
       const inScreen = !!e.target.closest('#screen') && !e.target.closest('.ask');
-      lab.textContent = p?.classList.contains('note') ? 'Leer nota' : p?.classList.contains('video-card') ? 'Ver video' : 'Ver proyecto';
+      lab.textContent = p?.classList.contains('ncard') ? 'Leer nota' : p?.classList.contains('video-card') ? 'Ver video' : 'Ver proyecto';
       lab.classList.toggle('show', !!p);
       cur.classList.toggle('big', !p && !!e.target.closest('a, button, .tool, .fact'));
       cur.style.opacity = (p || inScreen) ? 0 : 1;
