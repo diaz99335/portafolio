@@ -217,11 +217,13 @@ h1,h2,h3{font-family:var(--display)}
 /* =========================================================
    CLIENTS MARQUEE
    ========================================================= */
-.figures{padding:var(--sec) 0 0}
+.figures{padding:64px 0 0}
+.figures + .section{padding-top:80px}
+@media (max-width:640px){.figures{padding-top:48px}.figures + .section{padding-top:60px}}
 .figs{display:grid;grid-template-columns:repeat(4,1fr)}
 .fig{text-align:center;padding:4px 16px;position:relative}
 .fig + .fig::before{content:"";position:absolute;left:0;top:12%;height:76%;width:1px;background:linear-gradient(180deg,transparent,var(--line) 20%,var(--line) 80%,transparent)}
-.fig strong{display:block;font-size:clamp(2.4rem,4.6vw,3.6rem);font-weight:300;letter-spacing:-.05em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.fig strong{display:block;font-size:clamp(2.4rem,4.6vw,3.6rem);font-weight:700;letter-spacing:-.05em;line-height:1.05;font-variant-numeric:tabular-nums;background:var(--grad-dark);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;width:fit-content;margin-inline:auto;padding-bottom:.04em}
 .fig span{display:block;margin-top:10px;font-size:.88rem;color:var(--muted)}
 .clients{padding:calc(var(--sec) - 48px) 0 0;text-align:center}
 .clients h3{font-size:1.1rem;font-weight:400;margin-bottom:28px;letter-spacing:-.02em}
