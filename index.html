@@ -504,6 +504,28 @@ h1,h2,h3{font-family:var(--display)}
 .sk-soft{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
 .sk-soft .lbl,.tl-grp .lbl{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:6px}
 .sk-soft > span:not(.lbl){font-size:.78rem;padding:6px 12px;border-radius:999px;background:var(--bg);color:var(--ink-2)}
+.sk-board{padding:36px 36px 30px}
+.sk-cols{gap:0}
+.sk-col{padding:0 32px!important;gap:0}
+.sk-col:first-child{padding-left:0!important}
+.sk-col:last-child{padding-right:0!important}
+.sk-col + .sk-col{border-left:1px solid var(--line)}
+.sk-col .sk-badge{background:none!important;color:var(--ink)!important;padding:0;border-radius:0;font-size:1.02rem;font-weight:600;letter-spacing:-.015em;text-transform:none;display:flex;align-items:baseline;gap:10px}
+.sk-col .sk-badge em{font-style:normal;font-size:.72rem;font-weight:500;color:var(--blue);letter-spacing:.04em}
+.sk-col .sk-desc{font-size:.82rem;margin:6px 0 18px;min-height:2.7em;line-height:1.4}
+.sk-col ul{gap:0;border-top:1px solid var(--line)}
+.sk-col li{background:none!important;border-radius:0;padding:14px 0;border-bottom:1px solid var(--line);gap:14px;align-items:flex-start;transition:padding .4s var(--ease)}
+.sk-col li:last-child{border-bottom:0}
+.sk-col li:hover{padding-left:6px}
+.sk-col .sk-ic{width:auto;height:auto;background:none;box-shadow:none;color:var(--muted)!important;margin-top:2px;transition:color .3s}
+.sk-col li:hover .sk-ic{color:var(--blue)!important}
+.sk-col .sk-ic svg{width:16px;height:16px}
+.sk-col li b{font-weight:500;font-size:.9rem}
+.sk-col li small{font-size:.76rem;margin-top:2px}
+.sk-soft2{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:6px 0}
+.sk-soft2 span{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);width:100%;margin-bottom:8px}
+.sk-soft2 b{font-weight:400;color:var(--ink-2);white-space:nowrap}
+.sk-soft2 b + b::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:#C3CAD6;margin:0 14px;vertical-align:middle}
 .tl-board{margin-top:20px;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px 28px}
 .tl-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .tl-head h3{font-size:1.05rem;font-weight:700;letter-spacing:-.02em}
@@ -1064,7 +1086,9 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .tools{grid-template-columns:repeat(3,1fr)}
   .hobby-grid{grid-template-columns:1fr 1fr}
   .sk-cols{grid-template-columns:1fr}
-  .sk-col + .sk-col{border-left:0;padding-left:4px;border-top:1px solid var(--line);padding-top:18px}
+  .sk-col{padding:0!important}
+  .sk-col + .sk-col{border-left:0;border-top:1px solid var(--line);padding-top:22px!important;margin-top:22px}
+  .sk-soft2 span{width:100%;margin-bottom:6px}
   .sk-col .sk-desc{min-height:0}
   .sk-board,.tl-board{padding:22px}
   .n-track{padding-inline:16px}
@@ -1604,22 +1628,22 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     <div class="sk-board reveal">
       <div class="sk-cols">
         <div class="sk-col lead">
-          <span class="sk-badge">Lidero</span>
+          <span class="sk-badge"><em>01</em>Lidero</span>
           <p class="sk-desc">Defino la dirección y respondo por el resultado.</p>
           <ul><li title="Posicionamiento, plataforma de marca y tono de voz."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Branding & estrategia de marca</b><small>Posicionamiento, plataforma de marca y tono de voz.</small></span></li><li title="Logotipos, sistemas visuales y brand books."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><span><b>Identidad visual</b><small>Logotipos, sistemas visuales y brand books.</small></span></li><li title="Campañas, key visuals, piezas digitales e impresas."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span><span><b>Diseño gráfico</b><small>Campañas, key visuals, piezas digitales e impresas.</small></span></li></ul>
         </div>
         <div class="sk-col exec">
-          <span class="sk-badge">Ejecuto de principio a fin</span>
+          <span class="sk-badge"><em>02</em>Ejecuto de principio a fin</span>
           <p class="sk-desc">Me encargo de todo el proceso, sin depender de terceros.</p>
           <ul><li title="Grabación, edición, animación y color."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-4v12l-6-4z"/></svg></span><span><b>Audiovisual & motion</b><small>Grabación, edición, animación y color.</small></span></li><li title="Sesiones, iluminación y retoque."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-3h6l2 3h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></svg></span><span><b>Fotografía</b><small>Sesiones, iluminación y retoque.</small></span></li><li title="Sitemaps, wireframes, prototipos y WordPress."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><span><b>UX/UI & web</b><small>Sitemaps, wireframes, prototipos y WordPress.</small></span></li></ul>
         </div>
         <div class="sk-col boost">
-          <span class="sk-badge">Potencio con</span>
+          <span class="sk-badge"><em>03</em>Potencio con</span>
           <p class="sk-desc">Herramientas que hacen que todo lo anterior rinda más.</p>
           <ul><li title="Exploración, producción y procesos más ágiles."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4M17 5h4"/></svg></span><span><b>IA aplicada</b><small>Exploración, producción y procesos más ágiles.</small></span></li><li title="Estrategia de contenido, campañas y redes."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><span><b>Marketing & contenido</b><small>Estrategia de contenido, campañas y redes.</small></span></li></ul>
         </div>
       </div>
-      <div class="sk-soft"><span class="lbl">En equipo</span><span>Pensamiento estratégico</span><span>Investigación constante</span><span>Aprendizaje autodidacta</span><span>Comunicación efectiva</span><span>Trabajo en equipo</span><span>Metodologías ágiles</span></div>
+      <p class="sk-soft2"><span>Mi forma de trabajar</span><b>Pensamiento estratégico</b><b>Investigación constante</b><b>Aprendizaje autodidacta</b><b>Comunicación efectiva</b><b>Trabajo en equipo</b><b>Metodologías ágiles</b></p>
     </div>
     <div class="tl-board reveal" data-delay="1">
       <div class="tl-head"><h3>Herramientas</h3><button class="btn btn-light btn-sm" id="tlMore" aria-expanded="false">Ver todas <span>+27</span></button></div>
