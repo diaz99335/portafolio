@@ -484,6 +484,41 @@ h1,h2,h3{font-family:var(--display)}
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .skill-card{background:#fff;border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-sm)}
 .skill-card h3{font-size:1.25rem;font-weight:700;margin-bottom:22px;letter-spacing:-.025em}
+.sk-board{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:28px}
+.sk-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sk-col{display:flex;flex-direction:column;gap:10px;padding:0 4px;min-width:0}
+.sk-col + .sk-col{border-left:1px solid var(--line);padding-left:24px}
+.sk-col .sk-badge{align-self:flex-start}
+.sk-col.exec .sk-badge{background:var(--blue)}
+.sk-col.boost .sk-badge{background:var(--blue-soft);color:var(--blue)}
+.sk-col .sk-desc{font-size:.8rem;color:var(--muted);margin:0 0 4px;min-height:2.6em}
+.sk-col ul{list-style:none;display:grid;gap:8px}
+.sk-col li{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;background:var(--bg)}
+.sk-col.exec .sk-ic{color:var(--blue)}
+.sk-col.boost .sk-ic{color:#7B61FF}
+.sk-col li b{display:block;font-size:.84rem;font-weight:600;line-height:1.25}
+.sk-col li small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.72rem;color:var(--muted);line-height:1.35}
+.sk-col li > span:last-child{min-width:0}
+.reveal.in .sk-col li{animation:skIn .7s var(--ease) both}
+.reveal.in .sk-col li:nth-child(2){animation-delay:.08s}.reveal.in .sk-col li:nth-child(3){animation-delay:.16s}
+.sk-soft{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.sk-soft .lbl,.tl-grp .lbl{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.sk-soft > span:not(.lbl){font-size:.78rem;padding:6px 12px;border-radius:999px;background:var(--bg);color:var(--ink-2)}
+.tl-board{margin-top:20px;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px 28px}
+.tl-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.tl-head h3{font-size:1.05rem;font-weight:700;letter-spacing:-.02em}
+.tl-head .btn span{color:var(--muted);font-weight:500}
+.tl-row{display:grid;grid-template-columns:repeat(12,1fr);gap:8px}
+.tl{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border-radius:14px;transition:background .3s,transform .4s var(--ease)}
+.tl:hover{background:var(--bg);transform:translateY(-3px)}
+.tl img{width:32px;height:32px;object-fit:contain}
+.tl span{font-size:.66rem;color:var(--muted);text-align:center;line-height:1.2}
+.tl-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.tl-more.open{grid-template-rows:1fr}
+.tl-more > div{overflow:hidden}
+.tl-grp{display:flex;align-items:baseline;gap:10px;padding-top:16px;flex-wrap:wrap}
+.tl-grp .soft{margin:0;flex:1}
+.tl-grp .soft span{font-size:.74rem;padding:5px 10px}
 .sk-intro{font-size:.88rem;color:var(--muted);margin:-12px 0 20px}
 .sk-group{padding:16px 0;border-top:1px solid var(--line)}
 .sk-group:first-of-type{border-top:0;padding-top:0}
@@ -968,6 +1003,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .panel{grid-template-columns:1fr}
   .panel-visual{min-height:320px}
   .skills-grid{grid-template-columns:1fr}
+  .tl-row{grid-template-columns:repeat(6,1fr)}
   .split-head{flex-direction:column;align-items:flex-start;gap:16px}
   .case-meta{grid-template-columns:1fr 1fr}
   .contact-box{grid-template-columns:1fr}
@@ -1004,6 +1040,11 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .job-body .tags{padding:0 0 20px 0}
   .tools{grid-template-columns:repeat(3,1fr)}
   .hobby-grid{grid-template-columns:1fr 1fr}
+  .sk-cols{grid-template-columns:1fr}
+  .sk-col + .sk-col{border-left:0;padding-left:4px;border-top:1px solid var(--line);padding-top:18px}
+  .sk-col .sk-desc{min-height:0}
+  .tl-row{grid-template-columns:repeat(4,1fr)}
+  .sk-board,.tl-board{padding:22px}
   .n-track{padding-inline:16px}
   .ncard{min-height:300px;padding:22px}
   .note .ex-col{grid-column:1/-1}
@@ -1536,62 +1577,35 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     <div class="section-head reveal">
       <span class="eyebrow">Habilidades</span>
       <h2>Mi caja de <span class="em">herramientas</span></h2>
-      <p>Lo que domino, con qué trabajo a diario y cómo me muevo en equipo.</p>
+      <p>Cómo participo en cada disciplina y con qué trabajo a diario.</p>
     </div>
-    <div class="skills-grid">
-      <div class="skill-card reveal" data-delay="1">
-        <h3>Competencias clave</h3>
-        <p class="sk-intro">Más que un porcentaje, así participo en cada disciplina.</p>
-        <div class="sk-group lead">
-          <div class="sk-head"><span class="sk-badge">Lidero</span><span class="sk-desc">Defino la dirección y respondo por el resultado.</span></div>
-          <ul>
-            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Branding & estrategia de marca</b><small>Posicionamiento, plataforma de marca y tono de voz.</small></span></li>
-            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><span><b>Identidad visual</b><small>Logotipos, sistemas visuales y brand books.</small></span></li>
-            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span><span><b>Diseño gráfico</b><small>Campañas, key visuals, piezas digitales e impresas.</small></span></li>
-          </ul>
+    <div class="sk-board reveal">
+      <div class="sk-cols">
+        <div class="sk-col lead">
+          <span class="sk-badge">Lidero</span>
+          <p class="sk-desc">Defino la dirección y respondo por el resultado.</p>
+          <ul><li title="Posicionamiento, plataforma de marca y tono de voz."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Branding & estrategia de marca</b><small>Posicionamiento, plataforma de marca y tono de voz.</small></span></li><li title="Logotipos, sistemas visuales y brand books."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><span><b>Identidad visual</b><small>Logotipos, sistemas visuales y brand books.</small></span></li><li title="Campañas, key visuals, piezas digitales e impresas."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span><span><b>Diseño gráfico</b><small>Campañas, key visuals, piezas digitales e impresas.</small></span></li></ul>
         </div>
-        <div class="sk-group exec">
-          <div class="sk-head"><span class="sk-badge">Ejecuto de principio a fin</span><span class="sk-desc">Me encargo de todo el proceso, sin depender de terceros.</span></div>
-          <ul>
-            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-4v12l-6-4z"/></svg></span><span><b>Audiovisual & motion</b><small>Grabación, edición, animación y color.</small></span></li>
-            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-3h6l2 3h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></svg></span><span><b>Fotografía</b><small>Sesiones, iluminación y retoque.</small></span></li>
-            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><span><b>UX/UI & web</b><small>Sitemaps, wireframes, prototipos y WordPress.</small></span></li>
-          </ul>
+        <div class="sk-col exec">
+          <span class="sk-badge">Ejecuto de principio a fin</span>
+          <p class="sk-desc">Me encargo de todo el proceso, sin depender de terceros.</p>
+          <ul><li title="Grabación, edición, animación y color."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-4v12l-6-4z"/></svg></span><span><b>Audiovisual & motion</b><small>Grabación, edición, animación y color.</small></span></li><li title="Sesiones, iluminación y retoque."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-3h6l2 3h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></svg></span><span><b>Fotografía</b><small>Sesiones, iluminación y retoque.</small></span></li><li title="Sitemaps, wireframes, prototipos y WordPress."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><span><b>UX/UI & web</b><small>Sitemaps, wireframes, prototipos y WordPress.</small></span></li></ul>
         </div>
-        <div class="sk-group boost">
-          <div class="sk-head"><span class="sk-badge">Potencio con</span><span class="sk-desc">Herramientas que hacen que todo lo anterior rinda más.</span></div>
-          <ul>
-            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4M17 5h4"/></svg></span><span><b>IA aplicada</b><small>Exploración, producción y procesos más ágiles.</small></span></li>
-            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><span><b>Marketing & contenido</b><small>Estrategia de contenido, campañas y redes.</small></span></li>
-          </ul>
-        </div>
-        <div class="soft">
-          <span>Pensamiento estratégico</span><span>Investigación constante</span><span>Aprendizaje autodidacta</span><span>Comunicación efectiva</span><span>Trabajo en equipo</span><span>Metodologías ágiles</span>
+        <div class="sk-col boost">
+          <span class="sk-badge">Potencio con</span>
+          <p class="sk-desc">Herramientas que hacen que todo lo anterior rinda más.</p>
+          <ul><li title="Exploración, producción y procesos más ágiles."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4M17 5h4"/></svg></span><span><b>IA aplicada</b><small>Exploración, producción y procesos más ágiles.</small></span></li><li title="Estrategia de contenido, campañas y redes."><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><span><b>Marketing & contenido</b><small>Estrategia de contenido, campañas y redes.</small></span></li></ul>
         </div>
       </div>
-      <div class="skill-card reveal" data-delay="2">
-        <h3>Herramientas</h3>
-        <div class="tools">
-          <div class="tool"><img class="tl-img" src="icons/illustrator.svg" alt="Logo de Illustrator" loading="lazy">Illustrator</div>
-          <div class="tool"><img class="tl-img" src="icons/photoshop.svg" alt="Logo de Photoshop" loading="lazy">Photoshop</div>
-          <div class="tool"><img class="tl-img" src="icons/figma.svg" alt="Logo de Figma" loading="lazy">Figma</div>
-          <div class="tool"><img class="tl-img" src="icons/framer.svg" alt="Logo de Framer" loading="lazy">Framer</div>
-          <div class="tool"><img class="tl-img" src="icons/premiere.svg" alt="Logo de Premiere Pro" loading="lazy">Premiere Pro</div>
-          <div class="tool"><img class="tl-img" src="icons/aftereffects.svg" alt="Logo de After Effects" loading="lazy">After Effects</div>
-          <div class="tool"><img class="tl-img" src="icons/davinci.svg" alt="Logo de DaVinci Resolve" loading="lazy">DaVinci Resolve</div>
-          <div class="tool"><img class="tl-img" src="icons/wordpress.svg" alt="Logo de WordPress" loading="lazy">WordPress</div>
-          <div class="tool"><img class="tl-img" src="icons/canva.svg" alt="Logo de Canva" loading="lazy">Canva</div>
-          <div class="tool"><img class="tl-img" src="icons/notion.svg" alt="Logo de Notion" loading="lazy">Notion</div>
-          <div class="tool"><img class="tl-img" src="icons/claude.svg" alt="Logo de Claude" loading="lazy">Claude</div>
-          <div class="tool"><img class="tl-img" src="icons/gemini.svg" alt="Logo de Gemini" loading="lazy">Gemini</div>
-        </div>
-        <div class="more-tools">Inteligencia artificial:
-          <div class="soft"><span>ChatGPT</span><span>Midjourney</span><span>Adobe Firefly</span><span>Runway</span><span>Krea</span></div>
-        </div>
-        <div class="more-tools">También trabajo con:
-          <div class="soft"><span>InDesign</span><span>Lightroom</span><span>Sketch</span><span>CorelDRAW</span><span>Capcut</span><span>Audition</span><span>Camera Raw</span><span>Capture One</span><span>Snapseed</span><span>HTML5</span><span>CSS</span><span>JavaScript</span><span>VS Code</span><span>Meta Ads</span><span>Google Ads</span><span>TikTok Ads</span><span>HubSpot</span><span>Mailchimp</span><span>Miro</span><span>Jira</span><span>Trello</span><span>Slack</span></div>
-        </div>
-      </div>
+      <div class="sk-soft"><span class="lbl">En equipo</span><span>Pensamiento estratégico</span><span>Investigación constante</span><span>Aprendizaje autodidacta</span><span>Comunicación efectiva</span><span>Trabajo en equipo</span><span>Metodologías ágiles</span></div>
+    </div>
+    <div class="tl-board reveal" data-delay="1">
+      <div class="tl-head"><h3>Herramientas</h3><button class="btn btn-light btn-sm" id="tlMore" aria-expanded="false">Ver todas <span>+27</span></button></div>
+      <div class="tl-row"><div class="tl" title="Illustrator"><img class="tl-img" src="icons/illustrator.svg" alt="Logo de Illustrator" loading="lazy"><span>Illustrator</span></div><div class="tl" title="Photoshop"><img class="tl-img" src="icons/photoshop.svg" alt="Logo de Photoshop" loading="lazy"><span>Photoshop</span></div><div class="tl" title="Figma"><img class="tl-img" src="icons/figma.svg" alt="Logo de Figma" loading="lazy"><span>Figma</span></div><div class="tl" title="Framer"><img class="tl-img" src="icons/framer.svg" alt="Logo de Framer" loading="lazy"><span>Framer</span></div><div class="tl" title="Premiere Pro"><img class="tl-img" src="icons/premiere.svg" alt="Logo de Premiere Pro" loading="lazy"><span>Premiere Pro</span></div><div class="tl" title="After Effects"><img class="tl-img" src="icons/aftereffects.svg" alt="Logo de After Effects" loading="lazy"><span>After Effects</span></div><div class="tl" title="DaVinci Resolve"><img class="tl-img" src="icons/davinci.svg" alt="Logo de DaVinci Resolve" loading="lazy"><span>DaVinci Resolve</span></div><div class="tl" title="WordPress"><img class="tl-img" src="icons/wordpress.svg" alt="Logo de WordPress" loading="lazy"><span>WordPress</span></div><div class="tl" title="Canva"><img class="tl-img" src="icons/canva.svg" alt="Logo de Canva" loading="lazy"><span>Canva</span></div><div class="tl" title="Notion"><img class="tl-img" src="icons/notion.svg" alt="Logo de Notion" loading="lazy"><span>Notion</span></div><div class="tl" title="Claude"><img class="tl-img" src="icons/claude.svg" alt="Logo de Claude" loading="lazy"><span>Claude</span></div><div class="tl" title="Gemini"><img class="tl-img" src="icons/gemini.svg" alt="Logo de Gemini" loading="lazy"><span>Gemini</span></div></div>
+      <div class="tl-more" id="tlList"><div>
+        <div class="tl-grp"><span class="lbl">Inteligencia artificial</span><div class="soft"><span>ChatGPT</span><span>Midjourney</span><span>Adobe Firefly</span><span>Runway</span><span>Krea</span></div></div>
+        <div class="tl-grp"><span class="lbl">También trabajo con</span><div class="soft"><span>InDesign</span><span>Lightroom</span><span>Sketch</span><span>CorelDRAW</span><span>Capcut</span><span>Audition</span><span>Camera Raw</span><span>Capture One</span><span>Snapseed</span><span>HTML5</span><span>CSS</span><span>JavaScript</span><span>VS Code</span><span>Meta Ads</span><span>Google Ads</span><span>TikTok Ads</span><span>HubSpot</span><span>Mailchimp</span><span>Miro</span><span>Jira</span><span>Trello</span><span>Slack</span></div></div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1905,6 +1919,10 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     const cio = new IntersectionObserver(en => { if (en[0].isIntersecting) { setTimeout(() => coach.classList.add('show'), 500); setTimeout(() => hideCoach(true), 9000); cio.disconnect(); } }, { threshold: .4 });
     cio.observe(sw);
   }
+
+  /* Herramientas: ver todas */
+  const tlMore = $('#tlMore');
+  tlMore.onclick = () => { const o = $('#tlList').classList.toggle('open'); tlMore.setAttribute('aria-expanded', o); tlMore.firstChild.textContent = o ? 'Ver menos ' : 'Ver todas '; };
 
   /* ---------- Rotador del hero (sin saltos) ---------- */
   const rot = $('#rotator'), ws = $$('.w', rot); let wi = 0;
