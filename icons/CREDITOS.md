@@ -1,7 +1,7 @@
 # Créditos de íconos
 
-- Illustrator, Photoshop, Figma, Premiere Pro, After Effects, WordPress, Canva, Notion y Claude: [Devicon](https://github.com/devicons/devicon) (licencia MIT, abajo).
-- Framer, DaVinci Resolve y Gemini: [Simple Icons](https://github.com/simple-icons/simple-icons) (CC0 1.0).
+- Illustrator, Photoshop, Figma, Premiere Pro, After Effects, WordPress, Canva, Notion, Claude, Sketch, HTML5, CSS, JavaScript, VS Code, Jira, Trello y Slack: [Devicon](https://github.com/devicons/devicon) (licencia MIT, abajo).
+- Framer, DaVinci Resolve, Gemini, CorelDRAW, Meta, Google Ads, TikTok, HubSpot, Mailchimp y Miro: [Simple Icons](https://github.com/simple-icons/simple-icons) (CC0 1.0).
 
 Los logos son marcas registradas de sus respectivos dueños y se usan solo para indicar las herramientas que manejo.
 

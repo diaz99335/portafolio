@@ -513,6 +513,16 @@ h1,h2,h3{font-family:var(--display)}
 .tl:hover{background:var(--bg);transform:translateY(-3px)}
 .tl img{width:32px;height:32px;object-fit:contain}
 .tl span{font-size:.66rem;color:var(--muted);text-align:center;line-height:1.2}
+.tl-marquee{overflow:hidden;margin:0 -28px;padding:4px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tl-marquee .tl-row{display:flex;gap:10px;width:max-content;animation:tlMove 40s linear infinite;animation-direction:reverse}
+.tl-marquee .tl{width:96px;flex:none}
+@keyframes tlMove{to{transform:translateX(-50%)}}
+.tl-grp{display:block!important;padding-top:20px}
+.tl-grp .lbl{display:block;margin-bottom:10px}
+.tl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:6px}
+.tl-grid .tl{border:1px solid var(--line)}
+.mono-ic{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.78rem;letter-spacing:-.02em}
+.tl-more.open .tl{animation:skIn .6s var(--ease) both}
 .tl-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
 .tl-more.open{grid-template-rows:1fr}
 .tl-more > div{overflow:hidden}
@@ -1017,7 +1027,6 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .panel{grid-template-columns:1fr}
   .panel-visual{min-height:320px}
   .skills-grid{grid-template-columns:1fr}
-  .tl-row{grid-template-columns:repeat(6,1fr)}
   .split-head{flex-direction:column;align-items:flex-start;gap:16px}
   .case-meta{grid-template-columns:1fr 1fr}
   .contact-box{grid-template-columns:1fr}
@@ -1057,7 +1066,6 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .sk-cols{grid-template-columns:1fr}
   .sk-col + .sk-col{border-left:0;padding-left:4px;border-top:1px solid var(--line);padding-top:18px}
   .sk-col .sk-desc{min-height:0}
-  .tl-row{grid-template-columns:repeat(4,1fr)}
   .sk-board,.tl-board{padding:22px}
   .n-track{padding-inline:16px}
   .ncard{min-height:300px;padding:22px}
@@ -1615,10 +1623,10 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     </div>
     <div class="tl-board reveal" data-delay="1">
       <div class="tl-head"><h3>Herramientas</h3><button class="btn btn-light btn-sm" id="tlMore" aria-expanded="false">Ver todas <span>+27</span></button></div>
-      <div class="tl-row"><div class="tl" title="Illustrator"><img class="tl-img" src="icons/illustrator.svg" alt="Logo de Illustrator" loading="lazy"><span>Illustrator</span></div><div class="tl" title="Photoshop"><img class="tl-img" src="icons/photoshop.svg" alt="Logo de Photoshop" loading="lazy"><span>Photoshop</span></div><div class="tl" title="Figma"><img class="tl-img" src="icons/figma.svg" alt="Logo de Figma" loading="lazy"><span>Figma</span></div><div class="tl" title="Framer"><img class="tl-img" src="icons/framer.svg" alt="Logo de Framer" loading="lazy"><span>Framer</span></div><div class="tl" title="Premiere Pro"><img class="tl-img" src="icons/premiere.svg" alt="Logo de Premiere Pro" loading="lazy"><span>Premiere Pro</span></div><div class="tl" title="After Effects"><img class="tl-img" src="icons/aftereffects.svg" alt="Logo de After Effects" loading="lazy"><span>After Effects</span></div><div class="tl" title="DaVinci Resolve"><img class="tl-img" src="icons/davinci.svg" alt="Logo de DaVinci Resolve" loading="lazy"><span>DaVinci Resolve</span></div><div class="tl" title="WordPress"><img class="tl-img" src="icons/wordpress.svg" alt="Logo de WordPress" loading="lazy"><span>WordPress</span></div><div class="tl" title="Canva"><img class="tl-img" src="icons/canva.svg" alt="Logo de Canva" loading="lazy"><span>Canva</span></div><div class="tl" title="Notion"><img class="tl-img" src="icons/notion.svg" alt="Logo de Notion" loading="lazy"><span>Notion</span></div><div class="tl" title="Claude"><img class="tl-img" src="icons/claude.svg" alt="Logo de Claude" loading="lazy"><span>Claude</span></div><div class="tl" title="Gemini"><img class="tl-img" src="icons/gemini.svg" alt="Logo de Gemini" loading="lazy"><span>Gemini</span></div></div>
+      <div class="tl-marquee"><div class="tl-row" id="tlRow"><div class="tl" title="Illustrator"><img class="tl-img" src="icons/illustrator.svg" alt="Logo de Illustrator" loading="lazy"><span>Illustrator</span></div><div class="tl" title="Photoshop"><img class="tl-img" src="icons/photoshop.svg" alt="Logo de Photoshop" loading="lazy"><span>Photoshop</span></div><div class="tl" title="Figma"><img class="tl-img" src="icons/figma.svg" alt="Logo de Figma" loading="lazy"><span>Figma</span></div><div class="tl" title="Framer"><img class="tl-img" src="icons/framer.svg" alt="Logo de Framer" loading="lazy"><span>Framer</span></div><div class="tl" title="Premiere Pro"><img class="tl-img" src="icons/premiere.svg" alt="Logo de Premiere Pro" loading="lazy"><span>Premiere Pro</span></div><div class="tl" title="After Effects"><img class="tl-img" src="icons/aftereffects.svg" alt="Logo de After Effects" loading="lazy"><span>After Effects</span></div><div class="tl" title="DaVinci Resolve"><img class="tl-img" src="icons/davinci.svg" alt="Logo de DaVinci Resolve" loading="lazy"><span>DaVinci Resolve</span></div><div class="tl" title="WordPress"><img class="tl-img" src="icons/wordpress.svg" alt="Logo de WordPress" loading="lazy"><span>WordPress</span></div><div class="tl" title="Canva"><img class="tl-img" src="icons/canva.svg" alt="Logo de Canva" loading="lazy"><span>Canva</span></div><div class="tl" title="Notion"><img class="tl-img" src="icons/notion.svg" alt="Logo de Notion" loading="lazy"><span>Notion</span></div><div class="tl" title="Claude"><img class="tl-img" src="icons/claude.svg" alt="Logo de Claude" loading="lazy"><span>Claude</span></div><div class="tl" title="Gemini"><img class="tl-img" src="icons/gemini.svg" alt="Logo de Gemini" loading="lazy"><span>Gemini</span></div></div></div>
       <div class="tl-more" id="tlList"><div>
-        <div class="tl-grp"><span class="lbl">Inteligencia artificial</span><div class="soft"><span>ChatGPT</span><span>Midjourney</span><span>Adobe Firefly</span><span>Runway</span><span>Krea</span></div></div>
-        <div class="tl-grp"><span class="lbl">También trabajo con</span><div class="soft"><span>InDesign</span><span>Lightroom</span><span>Sketch</span><span>CorelDRAW</span><span>Capcut</span><span>Audition</span><span>Camera Raw</span><span>Capture One</span><span>Snapseed</span><span>HTML5</span><span>CSS</span><span>JavaScript</span><span>VS Code</span><span>Meta Ads</span><span>Google Ads</span><span>TikTok Ads</span><span>HubSpot</span><span>Mailchimp</span><span>Miro</span><span>Jira</span><span>Trello</span><span>Slack</span></div></div>
+        <div class="tl-grp"><span class="lbl">Inteligencia artificial</span><div class="tl-grid"><div class="tl" title="ChatGPT"><i class="mono-ic" style="background:#10A37F;color:#fff">AI</i><span>ChatGPT</span></div><div class="tl" title="Midjourney"><i class="mono-ic" style="background:#0E0F12;color:#fff">Mj</i><span>Midjourney</span></div><div class="tl" title="Adobe Firefly"><i class="mono-ic" style="background:#EB1000;color:#fff">Ff</i><span>Adobe Firefly</span></div><div class="tl" title="Runway"><i class="mono-ic" style="background:#111;color:#fff">Rw</i><span>Runway</span></div><div class="tl" title="Krea"><i class="mono-ic" style="background:#1F1F1F;color:#fff">Kr</i><span>Krea</span></div></div></div>
+        <div class="tl-grp"><span class="lbl">También trabajo con</span><div class="tl-grid"><div class="tl" title="InDesign"><i class="mono-ic" style="background:#49021F;color:#FF3366">Id</i><span>InDesign</span></div><div class="tl" title="Lightroom"><i class="mono-ic" style="background:#001E36;color:#31A8FF">Lr</i><span>Lightroom</span></div><div class="tl" title="Sketch"><img src="icons/sketch.svg" alt="Logo de Sketch" loading="lazy"><span>Sketch</span></div><div class="tl" title="CorelDRAW"><img src="icons/coreldraw.svg" alt="Logo de CorelDRAW" loading="lazy"><span>CorelDRAW</span></div><div class="tl" title="CapCut"><i class="mono-ic" style="background:#000;color:#fff">Cc</i><span>CapCut</span></div><div class="tl" title="Audition"><i class="mono-ic" style="background:#00005B;color:#9999FF">Au</i><span>Audition</span></div><div class="tl" title="Camera Raw"><i class="mono-ic" style="background:#001E36;color:#31A8FF">Cr</i><span>Camera Raw</span></div><div class="tl" title="Capture One"><i class="mono-ic" style="background:#1A1A1A;color:#fff">C1</i><span>Capture One</span></div><div class="tl" title="Snapseed"><i class="mono-ic" style="background:#2E7D32;color:#fff">Sn</i><span>Snapseed</span></div><div class="tl" title="HTML5"><img src="icons/html5.svg" alt="Logo de HTML5" loading="lazy"><span>HTML5</span></div><div class="tl" title="CSS"><img src="icons/css3.svg" alt="Logo de CSS" loading="lazy"><span>CSS</span></div><div class="tl" title="JavaScript"><img src="icons/javascript.svg" alt="Logo de JavaScript" loading="lazy"><span>JavaScript</span></div><div class="tl" title="VS Code"><img src="icons/vscode.svg" alt="Logo de VS Code" loading="lazy"><span>VS Code</span></div><div class="tl" title="Meta Ads"><img src="icons/meta.svg" alt="Logo de Meta Ads" loading="lazy"><span>Meta Ads</span></div><div class="tl" title="Google Ads"><img src="icons/googleads.svg" alt="Logo de Google Ads" loading="lazy"><span>Google Ads</span></div><div class="tl" title="TikTok Ads"><img src="icons/tiktok.svg" alt="Logo de TikTok Ads" loading="lazy"><span>TikTok Ads</span></div><div class="tl" title="HubSpot"><img src="icons/hubspot.svg" alt="Logo de HubSpot" loading="lazy"><span>HubSpot</span></div><div class="tl" title="Mailchimp"><img src="icons/mailchimp.svg" alt="Logo de Mailchimp" loading="lazy"><span>Mailchimp</span></div><div class="tl" title="Miro"><img src="icons/miro.svg" alt="Logo de Miro" loading="lazy"><span>Miro</span></div><div class="tl" title="Jira"><img src="icons/jira.svg" alt="Logo de Jira" loading="lazy"><span>Jira</span></div><div class="tl" title="Trello"><img src="icons/trello.svg" alt="Logo de Trello" loading="lazy"><span>Trello</span></div><div class="tl" title="Slack"><img src="icons/slack.svg" alt="Logo de Slack" loading="lazy"><span>Slack</span></div></div></div>
       </div></div>
     </div>
   </div>
@@ -1934,7 +1942,14 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     cio.observe(sw);
   }
 
-  /* Herramientas: ver todas */
+  /* Herramientas: carrusel continuo + ver todas */
+  const tlRow = $('#tlRow'); tlRow.innerHTML += tlRow.innerHTML;
+  $$('.tl', tlRow).forEach((t, i) => { if (i >= tlRow.children.length / 2) t.setAttribute('aria-hidden', 'true'); });
+  const tlAnim = () => tlRow.getAnimations ? tlRow.getAnimations()[0] : null; let tr = 1, tt = 1;
+  const tlEase = () => { const a = tlAnim(); if (!a) return; tr += (tt - tr) * .08; a.playbackRate = tr; if (Math.abs(tt - tr) > .01) requestAnimationFrame(tlEase); };
+  tlRow.parentElement.addEventListener('mouseenter', () => { tt = .2; tlEase(); });
+  tlRow.parentElement.addEventListener('mouseleave', () => { tt = 1; tlEase(); });
+  $$('#tlList .tl').forEach((t, i) => t.style.animationDelay = (i * 25) + 'ms');
   const tlMore = $('#tlMore');
   tlMore.onclick = () => { const o = $('#tlList').classList.toggle('open'); tlMore.setAttribute('aria-expanded', o); tlMore.firstChild.textContent = o ? 'Ver menos ' : 'Ver todas '; };
 
