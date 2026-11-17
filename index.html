@@ -484,6 +484,25 @@ h1,h2,h3{font-family:var(--display)}
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .skill-card{background:#fff;border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-sm)}
 .skill-card h3{font-size:1.25rem;font-weight:700;margin-bottom:22px;letter-spacing:-.025em}
+.sk-intro{font-size:.88rem;color:var(--muted);margin:-12px 0 20px}
+.sk-group{padding:16px 0;border-top:1px solid var(--line)}
+.sk-group:first-of-type{border-top:0;padding-top:0}
+.sk-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.sk-badge{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px;background:var(--ink);color:#fff}
+.sk-group.exec .sk-badge{background:var(--blue)}
+.sk-group.boost .sk-badge{background:var(--blue-soft);color:var(--blue)}
+.sk-desc{font-size:.78rem;color:var(--muted)}
+.sk-group ul{list-style:none;display:grid;gap:8px}
+.sk-group li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;background:var(--bg)}
+.sk-ic{width:34px;height:34px;flex:none;border-radius:10px;background:#fff;display:grid;place-items:center;color:var(--ink);box-shadow:var(--shadow-sm)}
+.sk-group.exec .sk-ic{color:var(--blue)}
+.sk-group.boost .sk-ic{color:#7B61FF}
+.sk-ic svg{width:17px;height:17px}
+.sk-group li b{display:block;font-size:.88rem;font-weight:600}
+.sk-group li small{display:block;font-size:.76rem;color:var(--muted);line-height:1.35}
+.reveal.in .sk-group li{animation:skIn .7s var(--ease) both}
+.reveal.in .sk-group li:nth-child(2){animation-delay:.08s}.reveal.in .sk-group li:nth-child(3){animation-delay:.16s}
+@keyframes skIn{from{opacity:0;transform:translateX(-10px)}}
 .bar{margin-bottom:18px}
 .bar-top{display:flex;justify-content:space-between;font-size:.86rem;margin-bottom:8px}
 .bar-top span:last-child{color:var(--muted);font-variant-numeric:tabular-nums}
@@ -1522,13 +1541,30 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     <div class="skills-grid">
       <div class="skill-card reveal" data-delay="1">
         <h3>Competencias clave</h3>
-        <div class="bar"><div class="bar-top"><span>Branding & estrategia de marca</span><span>95%</span></div><div class="bar-track"><div class="bar-fill" data-w="95"></div></div></div>
-        <div class="bar"><div class="bar-top"><span>Identidad visual & diseño gráfico</span><span>95%</span></div><div class="bar-track"><div class="bar-fill" data-w="95"></div></div></div>
-        <div class="bar"><div class="bar-top"><span>Producción audiovisual & motion</span><span>88%</span></div><div class="bar-track"><div class="bar-fill" data-w="88"></div></div></div>
-        <div class="bar"><div class="bar-top"><span>Fotografía & iluminación</span><span>85%</span></div><div class="bar-track"><div class="bar-fill" data-w="85"></div></div></div>
-        <div class="bar"><div class="bar-top"><span>UX/UI & diseño web</span><span>85%</span></div><div class="bar-track"><div class="bar-fill" data-w="85"></div></div></div>
-        <div class="bar"><div class="bar-top"><span>IA aplicada a procesos creativos</span><span>85%</span></div><div class="bar-track"><div class="bar-fill" data-w="85"></div></div></div>
-        <div class="bar"><div class="bar-top"><span>Marketing & estrategia de contenido</span><span>82%</span></div><div class="bar-track"><div class="bar-fill" data-w="82"></div></div></div>
+        <p class="sk-intro">Más que un porcentaje, así participo en cada disciplina.</p>
+        <div class="sk-group lead">
+          <div class="sk-head"><span class="sk-badge">Lidero</span><span class="sk-desc">Defino la dirección y respondo por el resultado.</span></div>
+          <ul>
+            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><b>Branding & estrategia de marca</b><small>Posicionamiento, plataforma de marca y tono de voz.</small></span></li>
+            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><span><b>Identidad visual</b><small>Logotipos, sistemas visuales y brand books.</small></span></li>
+            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span><span><b>Diseño gráfico</b><small>Campañas, key visuals, piezas digitales e impresas.</small></span></li>
+          </ul>
+        </div>
+        <div class="sk-group exec">
+          <div class="sk-head"><span class="sk-badge">Ejecuto de principio a fin</span><span class="sk-desc">Me encargo de todo el proceso, sin depender de terceros.</span></div>
+          <ul>
+            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-4v12l-6-4z"/></svg></span><span><b>Audiovisual & motion</b><small>Grabación, edición, animación y color.</small></span></li>
+            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-3h6l2 3h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></svg></span><span><b>Fotografía</b><small>Sesiones, iluminación y retoque.</small></span></li>
+            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><span><b>UX/UI & web</b><small>Sitemaps, wireframes, prototipos y WordPress.</small></span></li>
+          </ul>
+        </div>
+        <div class="sk-group boost">
+          <div class="sk-head"><span class="sk-badge">Potencio con</span><span class="sk-desc">Herramientas que hacen que todo lo anterior rinda más.</span></div>
+          <ul>
+            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4M17 5h4"/></svg></span><span><b>IA aplicada</b><small>Exploración, producción y procesos más ágiles.</small></span></li>
+            <li><span class="sk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><span><b>Marketing & contenido</b><small>Estrategia de contenido, campañas y redes.</small></span></li>
+          </ul>
+        </div>
         <div class="soft">
           <span>Pensamiento estratégico</span><span>Investigación constante</span><span>Aprendizaje autodidacta</span><span>Comunicación efectiva</span><span>Trabajo en equipo</span><span>Metodologías ágiles</span>
         </div>
