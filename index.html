@@ -300,26 +300,36 @@ h1,h2,h3{font-family:var(--display)}
 /* =========================================================
    PROJECTS
    ========================================================= */
-.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px}
+.proj-bar{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:28px}
+.filters{display:flex;gap:6px;flex-wrap:nowrap;min-width:0;overflow-x:auto;scrollbar-width:none;padding:2px 28px 2px 0;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
+.filters::-webkit-scrollbar{display:none}
+.filter{flex:none}
 .filter{height:38px;padding:0 16px;border-radius:999px;font-size:.82rem;border:1px solid var(--line);background:#fff;color:var(--muted);transition:.3s var(--ease);display:inline-flex;align-items:center;gap:6px}
 .filter:hover{color:var(--ink);border-color:#CDD1D8}
 .filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}
 .filter .count{font-size:.7rem;opacity:.6}
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.project{grid-column:auto;background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s,opacity .45s,scale .45s;display:flex;flex-direction:column}
+.project{grid-column:auto;transition-property:transform,box-shadow,opacity,scale,translate!important;transition-duration:.5s,.5s,.45s,.45s,.55s!important;transition-timing-function:var(--ease)!important;background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s,opacity .45s,scale .45s;display:flex;flex-direction:column}
 .project-body > div{min-width:0}
 .project-body p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.9em;line-height:1.45}
 .project .tags{flex-wrap:nowrap;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
 .project .tag{flex:none}
 .project-body h3{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pager{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:32px}
-.pager[hidden]{display:none}
-.pager .pg{min-width:42px;height:42px;padding:0 6px;border-radius:999px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;font-size:.85rem;font-weight:500;color:var(--ink-2);transition:.3s var(--ease)}
-.pager .pg:hover:not(:disabled){border-color:var(--ink);color:var(--ink)}
-.pager .pg.on{background:var(--ink);border-color:var(--ink);color:#fff}
-.pager .pg:disabled{opacity:.35;cursor:default}
-.pager .pg svg{width:16px;height:16px}
-.pager .info{font-size:.8rem;color:var(--muted);margin:0 6px}
+.pager{display:flex;align-items:center;gap:14px;flex:none;transition:opacity .4s var(--ease)}
+.pager.off{opacity:0;pointer-events:none}
+.pager .pg{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;color:var(--ink);transition:background .35s var(--ease),color .35s,border-color .35s,transform .35s var(--ease)}
+.pager .pg:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink);transform:scale(1.06)}
+.pager .pg:active:not(:disabled){transform:scale(.94)}
+.pager .pg:disabled{opacity:.3;cursor:default}
+.pager .pg svg{width:15px;height:15px}
+.pg-count{display:flex;align-items:center;gap:10px;font-size:.8rem;font-variant-numeric:tabular-nums;color:var(--muted)}
+.pg-count .cur{position:relative;display:inline-block;height:1.2em;overflow:hidden;color:var(--ink);font-weight:600}
+.pg-count .cur b{display:block;left:0;font-weight:600;transition:transform .55s var(--ease)}
+.pg-track{position:relative;width:56px;height:2px;border-radius:2px;background:var(--line);overflow:hidden}
+.pg-track i{position:absolute;inset:0;width:var(--p,50%);background:var(--ink);border-radius:2px;transition:width .6s var(--ease)}
+.project{translate:0 0}
+.project.leaving{opacity:0;translate:var(--dx,0) var(--dy,0)}
+.project.entering{opacity:0;translate:var(--dx,0) var(--dy,0);transition:none!important}
 .project:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
 .project.hide{display:none}
 .project.fade{opacity:0;scale:.96}
@@ -908,6 +918,8 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
 }
 @media (max-width:860px){
   .projects{grid-template-columns:1fr 1fr}
+  .proj-bar{flex-direction:column;align-items:stretch;gap:14px}
+  .pager{justify-content:flex-end}
   .projects{grid-template-columns:1fr 1fr}
   .panel{grid-template-columns:1fr}
   .panel-visual{min-height:320px}
@@ -1167,7 +1179,8 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <div><span class="eyebrow">Trabajo destacado</span><h2>Marcas que muestran <span class="em">cómo pienso</span></h2></div>
       <p>Una selección de mi trabajo en cada empresa: el contexto, lo que aporté y los entregables. Haz clic en cualquier tarjeta para ver el detalle completo.</p>
     </div>
-    <div class="filters reveal" id="filters" role="tablist" aria-label="Filtrar proyectos">
+    <div class="proj-bar reveal">
+    <div class="filters" id="filters" role="tablist" aria-label="Filtrar proyectos">
       <button class="filter active" data-filter="all">Todos <span class="count">7</span></button>
       <button class="filter" data-filter="branding">Branding <span class="count"></span></button>
       <button class="filter" data-filter="grafico">Diseño gráfico <span class="count"></span></button>
@@ -1177,8 +1190,9 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <button class="filter" data-filter="uxui">UX/UI & web <span class="count"></span></button>
       <button class="filter" data-filter="marketing">Marketing <span class="count"></span></button>
     </div>
+      <nav class="pager off" id="pager" aria-label="Paginación de proyectos"></nav>
+    </div>
     <div class="projects" id="projects"></div>
-    <nav class="pager" id="pager" aria-label="Paginación de proyectos" hidden></nav>
   </div>
 </section>
 
@@ -1900,33 +1914,59 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     </article>`).join('');
 
   $$('.filter').forEach(f => { const k = f.dataset.filter; if (k !== 'all') f.querySelector('.count').textContent = projects.filter(p => p.cats.includes(k)).length; });
-  const PER_PAGE = 6; let curFilter = 'all', curPage = 1;
-  const ARW = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="${d}"/></svg>`;
-  const render = (animate) => {
-    const list = $$('.project').filter(c => curFilter === 'all' || c.dataset.cats.split(' ').includes(curFilter));
-    const pages = Math.max(1, Math.ceil(list.length / PER_PAGE)); curPage = Math.min(curPage, pages);
-    const visible = list.slice((curPage - 1) * PER_PAGE, curPage * PER_PAGE);
-    const apply = () => {
-      $$('.project').forEach(c => { c.classList.toggle('hide', !visible.includes(c)); c.classList.remove('wide'); c.classList.add('in'); });
-      requestAnimationFrame(() => $$('.project').forEach(c => c.classList.remove('fade')));
+  const PER_PAGE = 6; let curFilter = 'all', curPage = 1, busy = false;
+  const ARW = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`;
+  const pad = n => String(n).padStart(2, '0');
+  const pager = $('#pager');
+  pager.innerHTML = `<button class="pg" data-step="-1" aria-label="Página anterior">${ARW('M15 6l-6 6 6 6')}</button>
+    <span class="pg-count" aria-live="polite"><span class="cur"><b>01</b></span><span class="pg-track"><i></i></span><span class="tot">02</span></span>
+    <button class="pg" data-step="1" aria-label="Página siguiente">${ARW('M9 6l6 6-6 6')}</button>`;
+  const listFor = () => $$('.project').filter(c => curFilter === 'all' || c.dataset.cats.split(' ').includes(curFilter));
+  const updPager = (pages, dir) => {
+    pager.classList.toggle('off', pages < 2);
+    $('.tot', pager).textContent = pad(pages);
+    pager.querySelector('[data-step="-1"]').disabled = curPage === 1;
+    pager.querySelector('[data-step="1"]').disabled = curPage === pages;
+    pager.querySelector('.pg-track').style.setProperty('--p', (curPage / pages * 100) + '%');
+    const cur = $('.cur', pager), old = $('b', cur);
+    if (old.textContent === pad(curPage)) return;
+    const nb = document.createElement('b'); nb.textContent = pad(curPage);
+    if (!dir) { cur.replaceChildren(nb); return; }
+    nb.style.transform = `translateY(${dir * 100}%)`; nb.style.position = 'absolute'; nb.style.top = 0; cur.appendChild(nb);
+    requestAnimationFrame(() => requestAnimationFrame(() => { old.style.transform = `translateY(${-dir * 100}%)`; nb.style.transform = 'none'; }));
+    setTimeout(() => { old.remove(); nb.style.position = ''; }, 560);
+  };
+  const render = (dir = 0, animate = true) => {
+    const list = listFor(), pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+    curPage = Math.min(Math.max(1, curPage), pages);
+    const next = list.slice((curPage - 1) * PER_PAGE, curPage * PER_PAGE);
+    const shown = $$('.project').filter(c => !c.classList.contains('hide'));
+    const off = dir ? { dx: `${-dir * 32}px`, dy: '0px' } : { dx: '0px', dy: '14px' };
+    const on = dir ? { dx: `${dir * 32}px`, dy: '0px' } : { dx: '0px', dy: '14px' };
+    updPager(pages, dir);
+    const swapIn = () => {
+      $$('.project').forEach(c => { c.classList.remove('leaving'); c.classList.toggle('hide', !next.includes(c)); c.classList.add('in'); });
+      if (!animate) { busy = false; return; }
+      next.forEach((c, i) => { c.style.setProperty('--dx', on.dx); c.style.setProperty('--dy', on.dy); c.classList.add('entering'); });
+      grid.offsetWidth;
+      next.forEach((c, i) => { c.style.transitionDelay = `${i * 55}ms`; c.classList.remove('entering'); });
+      setTimeout(() => { next.forEach(c => c.style.transitionDelay = ''); busy = false; }, 600 + next.length * 55);
     };
-    if (animate) { $$('.project').forEach(c => c.classList.add('fade')); setTimeout(apply, 250); } else apply();
-    const pager = $('#pager'); pager.hidden = pages < 2;
-    pager.innerHTML = `<button class="pg" data-pg="${curPage - 1}" aria-label="Página anterior" ${curPage === 1 ? 'disabled' : ''}>${ARW('M15 6l-6 6 6 6')}</button>`
-      + Array.from({ length: pages }, (_, i) => `<button class="pg${i + 1 === curPage ? ' on' : ''}" data-pg="${i + 1}" aria-label="Página ${i + 1}" ${i + 1 === curPage ? 'aria-current="page"' : ''}>${i + 1}</button>`).join('')
-      + `<button class="pg" data-pg="${curPage + 1}" aria-label="Página siguiente" ${curPage === pages ? 'disabled' : ''}>${ARW('M9 6l6 6-6 6')}</button>`
-      + `<span class="info">${list.length} proyectos</span>`;
+    if (!animate) return swapIn();
+    busy = true;
+    shown.forEach((c, i) => { c.style.setProperty('--dx', off.dx); c.style.setProperty('--dy', off.dy); c.style.transitionDelay = `${i * 30}ms`; c.classList.add('leaving'); });
+    setTimeout(() => { shown.forEach(c => c.style.transitionDelay = ''); swapIn(); }, shown.length ? 320 + shown.length * 30 : 0);
   };
   const applyFilter = k => {
+    if (k === curFilter && curPage === 1) return;
     $$('.filter').forEach(x => x.classList.toggle('active', x.dataset.filter === k));
-    curFilter = k; curPage = 1; render(true);
+    curFilter = k; curPage = 1; render(0);
   };
-  $('#pager').addEventListener('click', e => {
-    const b = e.target.closest('.pg'); if (!b || b.disabled) return;
-    curPage = +b.dataset.pg; render(true);
-    const top = $('#filters').getBoundingClientRect().top; if (top < 0) $('#filters').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  pager.addEventListener('click', e => {
+    const b = e.target.closest('.pg'); if (!b || b.disabled || busy) return;
+    const step = +b.dataset.step; curPage += step; render(step);
   });
-  render(false);
+  render(0, false);
   $('#filters').addEventListener('click', e => { const b = e.target.closest('.filter'); if (b) applyFilter(b.dataset.filter); });
   document.addEventListener('click', e => { const g = e.target.closest('[data-goto]'); if (!g) return; applyFilter(g.dataset.goto); $('#proyectos').scrollIntoView({ behavior: 'smooth' }); });
 
