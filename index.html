@@ -315,6 +315,37 @@ h1,h2,h3{font-family:var(--display)}
 .project .tags{flex-wrap:nowrap;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
 .project .tag{flex:none}
 .project-body h3{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vx{position:absolute;inset:0;font-family:var(--sans)}
+.vx-logo{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:.62rem;letter-spacing:-.02em;color:#fff}
+.vx-logo i{width:10px;height:10px;border-radius:50% 50% 50% 2px;background:#F4B860;transform:rotate(45deg)}
+.vx-logo.dark{color:#0F5C5B}
+.vx-post{position:absolute;left:7%;top:12%;width:40%;aspect-ratio:4/5;border-radius:14px;padding:12px;background:linear-gradient(160deg,#0B4847,#0F5C5B);color:#fff;display:flex;flex-direction:column;gap:6px;box-shadow:0 24px 40px -18px rgba(0,0,0,.45);transform:rotate(-4deg);transition:transform .8s var(--ease)}
+.vx-post b{font-size:1.15rem;line-height:1.05;letter-spacing:-.03em;font-weight:700;margin-top:auto}
+.vx-post small{font-size:.55rem;opacity:.8}
+.vx-cta{align-self:flex-start;font-size:.55rem;font-weight:600;background:#F4B860;color:#0B4847;padding:4px 9px;border-radius:999px;margin-top:4px}
+.vx-phone{position:absolute;right:9%;top:8%;width:36%;aspect-ratio:9/17;border-radius:20px;background:#0E0F12;padding:5px;box-shadow:0 30px 50px -20px rgba(0,0,0,.55);transition:transform .8s var(--ease)}
+.project:hover .vx-phone{transform:translateY(-6px)}
+.project:hover .vx-post{transform:rotate(-6deg) translateX(-4px)}
+.vx-scr{height:100%;border-radius:16px;background:#F6F3EE;padding:10px 9px;display:flex;flex-direction:column;gap:7px;overflow:hidden}
+.vx-top{display:flex;justify-content:space-between;align-items:center}
+.vx-av{width:16px;height:16px;border-radius:50%;background:#2FB5A3;color:#fff;font-size:.38rem;font-weight:700;display:grid;place-items:center}
+.vx-hi{font-size:.5rem;color:#5B6B6A}
+.vx-next{background:#0F5C5B;color:#fff;border-radius:10px;padding:7px 8px;display:flex;flex-direction:column;gap:1px}
+.vx-next small{font-size:.42rem;opacity:.75}
+.vx-next b{font-size:.68rem;font-weight:700;letter-spacing:-.01em}
+.vx-next span{font-size:.45rem;opacity:.9}
+.vx-dr{display:flex;align-items:center;gap:4px;margin-top:3px}
+.vx-dr i{width:9px;height:9px;border-radius:50%;background:#F4B860}
+.vx-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.vx-grid span{background:#fff;border-radius:8px;padding:6px;font-size:.45rem;font-weight:600;color:#0F5C5B;display:flex;flex-direction:column;gap:4px}
+.vx-grid i{width:12px;height:12px;border-radius:4px}
+.vx-grid .g1{background:#2FB5A3}.vx-grid .g2{background:#F4B860}.vx-grid .g3{background:#0F5C5B}.vx-grid .g4{background:#9ADFD4}
+.vx-btn{margin-top:auto;background:#F4B860;color:#0B4847;font-size:.5rem;font-weight:700;text-align:center;padding:6px;border-radius:999px}
+.vx-pal{position:absolute;left:7%;bottom:9%;display:flex;align-items:center;gap:4px;background:#fff;border-radius:999px;padding:5px 10px 5px 6px;box-shadow:0 14px 26px -14px rgba(0,0,0,.4)}
+.vx-pal i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.06)}
+.vx-pal span{font-size:.55rem;font-weight:600;margin-left:4px;color:var(--ink)}
+.case-hero .vx-post{width:18%;left:22%;top:12%}.case-hero .vx-phone{width:17%;right:24%;top:7%}.case-hero .vx-pal{left:22%;bottom:8%}
+@media (max-width:640px){.case-hero .vx-post{width:34%;left:8%}.case-hero .vx-phone{width:32%;right:8%}.case-hero .vx-pal{left:8%}}
 .pager{display:flex;align-items:center;gap:14px;flex:none;transition:opacity .4s var(--ease)}
 .pager.off{opacity:0;pointer-events:none}
 .pager .pg{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;color:var(--ink);transition:background .35s var(--ease),color .35s,border-color .35s,transform .35s var(--ease)}
@@ -2005,8 +2036,18 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
 
   /* ---------- Proyectos ---------- */
   const projects = [
-    { id:'ultima', title:'Última empresa', sub:'Comunicación de marca para salud, educación, seguros y banca', cats:['branding','grafico','campanas','uxui','marketing'], tags:['Branding','Multisector','UX/UI'], label:'Consultoría', wide:true, c1:'#1E3A8A', c2:'#6E9CF2',
-      art:`<div class="mono" style="left:30%">01</div><div class="art-phone" style="right:12%;top:14%;--c1:#4F86EC;--c2:#0E0F12"><div class="bar"></div><div class="ln"></div><div class="ln s"></div><div class="btnx"></div><div class="ln"></div><div class="ln s"></div></div><div class="art-card" style="left:8%;bottom:10%"><span>Flujo</span><b>Sitemap → Wireframe → UI</b></div>`,
+    { id:'ultima', title:'Última empresa', sub:'Comunicación de marca para salud, educación, seguros y banca', cats:['branding','grafico','campanas','uxui','marketing'], tags:['Branding','Multisector','UX/UI'], label:'Consultoría', wide:true, c1:'#0F5C5B', c2:'#6FD3C1',
+      art:`<div class="vx">
+        <div class="vx-post"><span class="vx-logo"><i></i>vitalia</span><b>Tu salud,<br>sin filas.</b><small>Agenda tu cita en 1 minuto</small><span class="vx-cta">Reservar</span></div>
+        <div class="vx-phone"><div class="vx-scr">
+          <div class="vx-top"><span class="vx-logo dark"><i></i>vitalia</span><span class="vx-av">MR</span></div>
+          <small class="vx-hi">Hola, María</small>
+          <div class="vx-next"><small>Próxima cita</small><b>Cardiología</b><span>Jue 21 · 10:30 a. m.</span><span class="vx-dr"><i></i>Dra. Ana Ríos</span></div>
+          <div class="vx-grid"><span><i class="g1"></i>Citas</span><span><i class="g2"></i>Resultados</span><span><i class="g3"></i>Recetas</span><span><i class="g4"></i>Chat</span></div>
+          <span class="vx-btn">Agendar nueva cita</span>
+        </div></div>
+        <div class="vx-pal"><i style="background:#0F5C5B"></i><i style="background:#2FB5A3"></i><i style="background:#F4B860"></i><i style="background:#F6F3EE"></i><span>Paleta Vitalia</span></div>
+      </div>`,
       summary:'En la consultora trabajé la comunicación de marca de clientes de sectores muy distintos, y también su experiencia digital, desde la estructura hasta la interfaz final.',
       role:'Diseñador Gráfico Sr. / UX/UI', company:'Última empresa', scope:'Marca, contenido y digital', tools:'Figma · Illustrator · Photoshop',
       challenge:'Cada cliente tenía su propio sector, tono y nivel de exigencia (salud, educación, aseguradoras y banca). La comunicación tenía que respetar cada marca y mantenerse consistente en todos los canales.',
