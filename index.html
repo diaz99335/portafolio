@@ -611,6 +611,20 @@ h1,h2,h3{font-family:var(--display)}
 .ncard .nc-go{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.35s var(--ease)}
 .ncard .nc-go svg{width:15px;height:15px}
 .ncard:hover .nc-go,.ncard.on .nc-go{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ncard{padding:0!important;gap:0!important;overflow:hidden}
+.nc-art{position:relative;height:132px;background:linear-gradient(140deg,var(--c1),var(--c2));overflow:hidden;flex:none}
+.nc-art::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(255,255,255,.35),transparent 55%);}
+.nc-art::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:linear-gradient(180deg,#000,transparent);mask-image:linear-gradient(180deg,#000,transparent)}
+.nc-glyph{position:absolute;right:18px;bottom:-14px;font-weight:800;letter-spacing:-.06em;font-size:5.4rem;line-height:1;color:rgba(255,255,255,.92);transition:transform .8s var(--ease)}
+.ncard:hover .nc-glyph,.ncard.on .nc-glyph{transform:translateY(-6px) rotate(-3deg)}
+.nc-chip{position:absolute;left:18px;top:16px;z-index:1;font-size:.72rem;font-weight:600;color:#fff;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px)}
+.nc-num{position:absolute;left:20px;bottom:14px;z-index:1;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.85);font-variant-numeric:tabular-nums}
+.nc-body{display:flex;flex-direction:column;gap:12px;padding:20px 24px 22px;flex:1}
+.ncard .qm{height:16px;font-size:3rem}
+.ncard h3{font-size:clamp(1.15rem,1.7vw,1.38rem)}
+.ncard .nc-foot{border-top:1px solid rgba(14,15,18,.07);padding-top:14px}
+.nc-link{display:flex;align-items:center;gap:10px;font-size:.82rem;font-weight:600}
+.ncard .nc-go{width:32px;height:32px}
 .n-ctrl{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:6px}
 .n-ctrl .t-btn.fill{background:var(--blue);color:#fff;border-color:var(--blue)}
 .notes{border-top:1px solid var(--line)}
@@ -2185,11 +2199,13 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   $('#articles').innerHTML = articles.map((a, i) => {
     const [cat, read] = a.cat.split(' · ');
     return `<article class="ncard" data-i="${i}" tabindex="0" role="button" aria-label="Leer nota: ${a.t}" style="--c1:${a.c1};--c2:${a.c2}">
-      <div class="nc-top"><span class="nc-cat"><i>${a.g}</i>${cat}</span><span class="nc-read">${CLOCK}${read}</span></div>
-      <div class="qm">“</div>
-      <h3>${a.t}</h3>
-      <p>${a.ex}</p>
-      <div class="nc-foot"><span class="nc-auth"><span class="nc-av">JP</span><span><b>José Pérez</b><span>Nota ${String(i + 1).padStart(2, '0')} de ${String(articles.length).padStart(2, '0')}</span></span></span><span class="nc-go">${GO}</span></div>
+      <div class="nc-art"><span class="nc-glyph">${a.g}</span><span class="nc-chip">${cat}</span><span class="nc-num">${String(i + 1).padStart(2, '0')}</span></div>
+      <div class="nc-body">
+        <div class="qm">“</div>
+        <h3>${a.t}</h3>
+        <p>${a.ex}</p>
+        <div class="nc-foot"><span class="nc-read">${CLOCK}${read}</span><span class="nc-link">Leer nota <span class="nc-go">${GO}</span></span></div>
+      </div>
     </article>`;
   }).join('');
   const nt = $('#articles'), ncards = $$('.ncard', nt), nDots = $('#nDots');
