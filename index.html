@@ -1260,7 +1260,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
 <header class="hero-wrap" id="inicio">
   <div class="hero photo-hero" id="heroBox">
     <div class="hero-media" aria-hidden="true" id="heroMedia">
-      <div class="geo bgl"><img src="foto-hero-ext.jpg" alt=""></div>
+      <div class="geo bgl"><img src="foto-hero2.jpg" alt=""></div>
       <div class="hero-shade soft"></div>
     </div>
     <div class="hero-inner">
@@ -1279,7 +1279,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <div class="hero-card-col">
         <div class="pcard" id="pcard">
           <div class="device-screen" id="screen">
-            <div class="geo fg"><img class="sharp" src="foto-hero-ext.jpg" alt="José Pérez, especialista en branding, en un estudio fotográfico"></div>
+            <div class="geo fg"><img class="sharp" src="foto-hero2.jpg" alt="José Pérez, especialista en branding, en un estudio fotográfico"></div>
             <div class="shade"></div>
             <div class="spot" aria-hidden="true"></div>
             <span class="hint"><i></i>Pasa el mouse</span>
@@ -1955,7 +1955,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   mq.parentElement.addEventListener('mouseleave', () => { mqTarget = 1; easeRate(); });
   /* Tarjeta del hero: ventana alineada con la foto de fondo + lupa */
   const screen = $('#screen'), pcard = $('#pcard'), media = $('#heroMedia'), heroEl = $('#heroBox');
-  const IMG = { w: 1440, h: 1084, faceX: 937, hairY: 320 };
+  const IMG = { w: 2104, h: 954, faceX: 1365, hairY: 330 };
   const setGeo = (el, g) => { el.style.setProperty('--gl', g.l + 'px'); el.style.setProperty('--gt', g.t + 'px'); el.style.setProperty('--gw', g.w + 'px'); el.style.setProperty('--gh', g.h + 'px'); };
   // Ubica la foto para cubrir una caja (W×H) con el rostro en (cx, hy)
   const fit = (W, H, cx, hy, sMin) => {
@@ -1990,7 +1990,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     } else {
       const sw = screen.offsetWidth, sh = screen.offsetHeight;
       setGeo(media, fit(hr.width, hr.height, hr.width * .5, hr.height * .06, 0));
-      setGeo(screen, fit(sw, sh, sw / 2, sh * .12, sh / 520));
+      setGeo(screen, fit(sw, sh, sw / 2, sh * .2, sh / 820));
     }
   };
   layoutHero(); addEventListener('resize', layoutHero); addEventListener('load', layoutHero);
