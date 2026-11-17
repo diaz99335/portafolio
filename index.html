@@ -7,7 +7,7 @@
 <meta name="description" content="Portafolio de José Pérez, especialista en Branding en Lima, Perú. Estrategia e identidad de marca, diseño gráfico, audiovisual, fotografía, UX/UI y web." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 <style>
 /* =========================================================
    TOKENS
@@ -33,7 +33,7 @@
   --ease:cubic-bezier(.22,1,.36,1);
   --serif:'Instrument Serif',Georgia,serif;
   --sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  --display:'Plus Jakarta Sans','Inter',system-ui,sans-serif;
+  --display:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --grad-dark:linear-gradient(100deg,#0E0F12 0%,#22365F 48%,#4F86EC 100%);
   --grad-light:linear-gradient(100deg,#FFFFFF 0%,#FFF1DA 55%,#FFD49A 100%);
   --container:1180px;
@@ -601,6 +601,47 @@ h1,h2,h3{font-family:var(--display)}
 @keyframes fadeIn{to{opacity:1}}
 .pcard .ask{left:18px;right:18px;bottom:34px;width:auto}
 
+/* Sobre mí v3 */
+.ic{width:18px;height:18px;flex:none}
+.ac-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:20px;margin-bottom:22px;border-bottom:1px solid var(--line);position:relative}
+.ac-status{display:inline-flex;align-items:center;gap:7px;font-size:.75rem;color:var(--muted)}
+.ac-status i{width:7px;height:7px;border-radius:50%;background:var(--green);animation:ping 2s infinite}
+.mode-switch .ic{width:16px;height:16px}
+.about-card.v2 .pane h3.title{font-size:clamp(1.6rem,2.6vw,2.05rem);font-weight:400;letter-spacing:-.035em;line-height:1.12;margin:10px 0 12px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 16px;position:relative}
+.flow-it{position:relative;background:var(--bg);border-radius:16px;padding:14px;overflow:hidden}
+.flow-it .n{position:absolute;top:10px;right:12px;font-size:.7rem;font-weight:700;color:#C3CAD6}
+.flow-it .ib{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;margin-bottom:10px;background:var(--c,#4F86EC);box-shadow:0 8px 16px -8px var(--c,#4F86EC)}
+.flow-it strong{display:block;font-size:.88rem;font-weight:600}
+.flow-it span{display:block;font-size:.76rem;color:var(--muted);line-height:1.4;margin-top:2px}
+.flow{overflow:visible}.flow-it{overflow:visible}
+.flow-it:not(:last-child)::after{content:"";position:absolute;right:-9px;top:50%;width:8px;height:8px;border-top:2px solid #C3CAD6;border-right:2px solid #C3CAD6;transform:translateY(-50%) rotate(45deg);z-index:1}
+.motto{display:flex;align-items:center;gap:12px;border-radius:16px;padding:14px 16px;background:linear-gradient(110deg,#0E0F12,#22365F 60%,#4F86EC);color:#fff;margin-bottom:6px}
+.motto .ib{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;flex:none}
+.motto p{margin:0!important;color:#fff!important;font-size:.92rem}
+.motto p b{font-weight:600}
+.motto small{display:block;opacity:.7;font-size:.72rem}
+.hobby-grid .hobby{position:relative;background:var(--bg);border-radius:16px;padding:12px 14px;cursor:default;display:grid;grid-template-columns:36px 1fr;column-gap:10px;align-items:center}
+.hobby-grid .hobby .ico{margin-bottom:0!important;grid-row:span 2}
+.hobby-grid .hobby strong{font-size:.84rem}
+.hobby-grid .hobby span:not(.ico){font-size:.72rem;line-height:1.3}
+.hobby-grid .hobby .ico{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;margin-bottom:10px;background:var(--c);box-shadow:0 8px 16px -8px var(--c)}
+.hobby-grid .hobby .ico .ic{width:18px;height:18px}
+.brings{margin-top:18px;border-radius:16px;padding:14px 16px;background:linear-gradient(110deg,#FFF3EC,#FFF8E8);}
+.brings h4{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#C2410C;font-weight:600;margin-bottom:10px}
+.brings ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.brings li{display:flex;gap:8px;align-items:flex-start;font-size:.8rem;line-height:1.35;color:var(--ink-2)}
+.brings li .ic{width:16px;height:16px;color:#E9785B;margin-top:1px}
+.brings li b{display:block;color:var(--ink);font-weight:600}
+.coach{left:0;transform:translate(0,8px)}
+.coach.show{transform:translate(0,0);animation:coachBob2 1.6s ease-in-out .6s infinite}
+.coach::before{left:60px}
+@keyframes coachBob2{50%{transform:translate(0,-4px)}}
+.coach .ic{width:15px;height:15px}
+.coach button .ic{width:12px;height:12px}
+.am-chip .ic{width:14px;height:14px}
+.ask .l .ic{color:var(--blue)}
+.it .ic{width:14px;height:14px;color:var(--blue)}
 /* Sobre mí: modo profesional / personal */
 .about-head{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:28px;position:relative}
 .mode-switch{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:var(--shadow-sm)}
@@ -613,7 +654,7 @@ h1,h2,h3{font-family:var(--display)}
 .coach.show{opacity:1;transform:translate(-50%,0);pointer-events:auto;animation:coachBob 1.6s ease-in-out .6s infinite}
 @keyframes coachBob{50%{transform:translate(-50%,-4px)}}
 .coach button{color:#fff;opacity:.7;font-size:.9rem;margin-left:4px}
-.coach .hand{display:inline-block;animation:swipe 1.4s ease-in-out infinite}
+.coach .hand{display:inline-flex;animation:swipe 1.4s ease-in-out infinite}
 @keyframes swipe{0%,100%{transform:translateX(-3px)}50%{transform:translateX(5px)}}
 .about-grid.v2{grid-template-columns:.92fr 1.08fr;align-items:stretch}
 .about-media{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:560px;background:#0B1124;box-shadow:var(--shadow-sm)}
@@ -875,6 +916,8 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
   .job-body .tags{padding:0 0 20px 0}
   .tools{grid-template-columns:repeat(3,1fr)}
   .hobby-grid{grid-template-columns:1fr 1fr}
+  .flow,.brings ul{grid-template-columns:1fr}
+  .flow-it:not(:last-child)::after{display:none}
   .about-media{min-height:0;aspect-ratio:4/5}
   .mode-switch button{padding:9px 16px;font-size:.82rem}
   .coach{white-space:normal;width:250px;text-align:left}
@@ -977,7 +1020,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
             <span class="hint"><i></i>Pasa el mouse</span>
             <div class="id-card"><div class="nm">José Pérez</div><div class="rl">Especialista en Branding</div></div>
             <div class="ask" data-open="contact">
-              <span class="l">👋 <span><b>¿Conversamos?</b> Escríbeme</span></span>
+              <span class="l"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span><b>¿Conversamos?</b> Escríbeme</span></span>
               <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
             </div>
           </div>
@@ -1011,18 +1054,15 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
 <!-- ================= ABOUT ================= -->
 <section class="section" id="sobre-mi">
   <div class="container">
-    <div class="about-head reveal">
-      <div class="mode-switch" id="modeSwitch" role="group" aria-label="Elegir cómo conocerme">
-        <span class="thumb" aria-hidden="true"></span>
-        <button type="button" data-mode="pro" aria-pressed="true">💼 Profesional</button>
-        <button type="button" data-mode="per" aria-pressed="false">🎸 Personal</button>
-      </div>
-      <div class="coach" id="coach" role="status"><span class="hand">👉</span> Cambia aquí y conoce mi lado personal <button type="button" id="coachX" aria-label="Cerrar aviso">✕</button></div>
+    <div class="section-head reveal">
+      <span class="eyebrow">Sobre mí</span>
+      <h2>Conóceme más allá <span class="em">del portafolio</span></h2>
+      <p>Mi perfil profesional y lo que me mueve fuera del trabajo. Cambia de vista para conocer ambos lados.</p>
     </div>
     <div class="about-grid v2">
       <!-- Fotos de stock (Unsplash, licencia libre). Reemplázalas por fotos propias cuando las tengas. -->
       <div class="about-media reveal" id="aboutMedia" aria-roledescription="carrusel" aria-label="Fotos">
-        <div class="am-top"><span class="am-chip" id="amMode">💼 Modo profesional</span><span class="clock" id="clock" title="Hora en Lima">--:--</span></div>
+        <div class="am-top"><span class="am-chip" id="amMode"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>Modo profesional</span></span><span class="clock" id="clock" title="Hora en Lima">--:--</span></div>
         <div class="am-dots" id="amDots"></div>
         <div class="am-bottom">
           <div class="am-cap"><small id="amSub"></small><strong id="amTitle"></strong></div>
@@ -1033,25 +1073,47 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
         </div>
       </div>
       <div class="about-card v2 reveal" data-delay="1">
+        <div class="ac-top">
+          <div class="mode-switch" id="modeSwitch" role="group" aria-label="Elegir cómo conocerme">
+            <span class="thumb" aria-hidden="true"></span>
+            <button type="button" data-mode="pro" aria-pressed="true"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Profesional</button>
+            <button type="button" data-mode="per" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></svg>Personal</button>
+          </div>
+          <span class="ac-status"><i></i>Abierto a nuevas oportunidades</span>
+          <div class="coach" id="coach" role="status"><span class="hand"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>Cambia aquí y conoce mi lado personal <button type="button" id="coachX" aria-label="Cerrar aviso"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+        </div>
         <div class="panes">
           <div class="pane" data-pane="pro">
             <span class="eyebrow">Perfil profesional</span>
-            <h2>Especialista en branding, <span class="em">curioso por naturaleza</span></h2>
-            <p>Mi trabajo empieza en la <span class="hl">estrategia de marca</span>: entender qué es la marca, a quién le habla y qué quiere decir. Desde ahí construyo identidades y sistemas visuales coherentes en cada punto de contacto.</p>
-            <p class="muted">Con los años amplié mi campo con diseño gráfico, producción audiovisual, fotografía, UX/UI y web. No los trabajo como disciplinas sueltas, sino como herramientas al servicio de la marca: cada una ayuda a que la marca se vea, se escuche y funcione igual en todas partes.</p>
-            <div class="skill-pills"><span>Estrategia</span><span>Identidad visual</span><span>Diseño gráfico</span><span>Audiovisual</span><span>Fotografía</span><span>UX/UI & web</span><span>IA aplicada</span></div>
+            <h3 class="title">Especialista en branding, <span class="em">curioso por naturaleza</span></h3>
+            <p class="muted">Construyo marcas de forma integral: parto de la estrategia y la llevo a cada punto de contacto con diseño gráfico, audiovisual, fotografía, UX/UI y web, todo con un mismo lenguaje.</p>
+            <div class="flow">
+              <div class="flow-it" style="--c:#0E0F12"><span class="n">01</span><span class="ib"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><strong>Estrategia</strong><span>Qué es la marca y a quién le habla.</span></div>
+              <div class="flow-it" style="--c:#4F86EC"><span class="n">02</span><span class="ib"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><strong>Identidad</strong><span>Un sistema visual coherente y aplicable.</span></div>
+              <div class="flow-it" style="--c:#7B61FF"><span class="n">03</span><span class="ib"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4M17 5h4"/></svg></span><strong>Experiencia</strong><span>La marca viva en video, foto, UX/UI y web.</span></div>
+            </div>
+            <div class="skill-pills" style="margin:0 0 14px"><span>Estrategia</span><span>Identidad visual</span><span>Diseño gráfico</span><span>Audiovisual</span><span>Fotografía</span><span>UX/UI & web</span><span>IA aplicada</span></div>
+            <div class="motto"><span class="ib"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></span><p><small>Mi forma de trabajar</small><b>Primero entiendo, después diseño.</b> Cada decisión visual responde a un objetivo de marca.</p></div>
           </div>
           <div class="pane" data-pane="per" hidden>
             <span class="eyebrow warm">Lado personal</span>
-            <h2>Lo que me mueve <span class="em">y me hace quien soy</span></h2>
-            <p class="muted">Creo que los mejores equipos se arman entre personas, no solo entre perfiles. Esto es lo que disfruto en mis ratos libres y que, sin darme cuenta, termina inspirando mi trabajo.</p>
+            <h3 class="title">Lo que me mueve <span class="em">y me hace quien soy</span></h3>
+            <p class="muted">Los mejores equipos se arman entre personas, no solo entre perfiles. Esto es lo que disfruto fuera del trabajo y que termina inspirando lo que hago.</p>
             <div class="hobby-grid">
-              <div class="hobby"><span class="ico">🎸</span><strong>Guitarra</strong><span>Me gusta tocarla en mis ratos libres; me despeja y me ordena las ideas.</span></div>
-              <div class="hobby"><span class="ico">🤘</span><strong>Rock & música</strong><span>La banda sonora de casi todo lo que diseño.</span></div>
-              <div class="hobby"><span class="ico">🎟️</span><strong>Conciertos</strong><span>La energía en vivo no se compara con nada.</span></div>
-              <div class="hobby"><span class="ico">🎬</span><strong>Cine</strong><span>Encuadres, luz y narrativa: aprendo en cada película.</span></div>
-              <div class="hobby"><span class="ico">🚀</span><strong>Ciencia ficción</strong><span>Leo mundos posibles que me abren la cabeza.</span></div>
-              <div class="hobby"><span class="ico">🎮</span><strong>Videojuegos</strong><span>Historias, mundos e interfaces que me inspiran.</span></div>
+              <div class="hobby"><span class="ico" style="--c:#E9785B"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 10l6-6M18 2l4 4"/><path d="M10.5 9.5a4 4 0 0 0-5.6.4L4 11a4 4 0 0 0 0 5.6l3.4 3.4a4 4 0 0 0 5.6 0l1-1a4 4 0 0 0 .4-5.6"/><circle cx="9" cy="15" r="1.5"/></svg></span><strong>Guitarra</strong><span>Me despeja y me ordena las ideas.</span></div>
+              <div class="hobby"><span class="ico" style="--c:#7B61FF"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><strong>Rock & música</strong><span>La banda sonora de lo que diseño.</span></div>
+              <div class="hobby"><span class="ico" style="--c:#EC4899"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9a3 3 0 0 0 0 6v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a3 3 0 0 1 0-6V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg></span><strong>Conciertos</strong><span>Energía en vivo, sin comparación.</span></div>
+              <div class="hobby"><span class="ico" style="--c:#0E0F12"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4M3 12h18"/></svg></span><strong>Cine</strong><span>Encuadres, luz y narrativa.</span></div>
+              <div class="hobby"><span class="ico" style="--c:#4F86EC"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8a2 2 0 0 0-3 0z"/><path d="M12 15l-3-3a22 22 0 0 1 2-4A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22 22 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1 5 0 5 0M12 15v5s3-.6 4-2c1-1.6 0-5 0-5"/></svg></span><strong>Ciencia ficción</strong><span>Mundos que me abren la cabeza.</span></div>
+              <div class="hobby"><span class="ico" style="--c:#16A34A"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/></svg></span><strong>Videojuegos</strong><span>Historias e interfaces que inspiran.</span></div>
+            </div>
+            <div class="brings">
+              <h4>Lo que esto suma a un equipo</h4>
+              <ul>
+                <li><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg><span><b>Constancia</b>La guitarra me enseñó a practicar hasta que sale.</span></li>
+                <li><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg><span><b>Imaginación</b>El cine y la ciencia ficción alimentan mis ideas.</span></li>
+                <li><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6 6 0 0 0-4-5.6"/></svg><span><b>Trabajo en equipo</b>Conciertos y juegos: todo es mejor en grupo.</span></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1216,7 +1278,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
       <div class="panel-visual" style="background:linear-gradient(160deg,#2B1E5C,#6C5CE7 55%,#C9C2F8)">
         <div class="mock">
           <div class="mock-h">Exploración con IA<div class="ic"><span></span><span></span></div></div>
-          <div class="prompt"><b>✦</b><span>Marca de salud cálida y confiable, luz natural, tonos tierra<span class="caret"></span></span></div>
+          <div class="prompt"><b style="display:flex"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4M17 5h4"/></svg></b><span>Marca de salud cálida y confiable, luz natural, tonos tierra<span class="caret"></span></span></div>
           <div class="ai-grid"><div style="--a:#F4C95D;--b:#E9785B"></div><div style="--a:#4F86EC;--b:#9DBEF4"></div><div style="--a:#C8873A;--b:#F2EBDD"></div><div style="--a:#16A34A;--b:#A7E3B9"></div></div>
         </div>
       </div>
@@ -1514,9 +1576,9 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     <div class="cta-device"><div><div class="small">José Pérez · Portafolio</div><div class="bigtype">Br<br>and.</div><div class="small">Branding 360° · Hecho en Lima</div><span class="ring"></span><span class="ring r2"></span></div></div>
     <div class="mini">
       <h4>Tiempo de respuesta</h4>
-      <div style="font-family:var(--display);font-size:1.8rem;font-weight:700;letter-spacing:-.04em">Al toque ⚡</div>
+      <div style="font-family:var(--display);font-size:1.8rem;font-weight:700;letter-spacing:-.04em;display:flex;align-items:center;gap:8px">Al toque <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
       <div style="font-size:.72rem;color:var(--muted);margin-bottom:10px">por correo o WhatsApp</div>
-      <div class="it" style="justify-content:space-between"><span>📅 Entrevista</span><span style="color:var(--blue);font-weight:600">Cuando gustes</span></div>
+      <div class="it" style="justify-content:space-between"><span style="display:flex;align-items:center;gap:6px"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Entrevista</span><span style="color:var(--blue);font-weight:600">Cuando gustes</span></div>
     </div>
   </div>
 </section>
@@ -1715,7 +1777,7 @@ footer{background:#111214;color:#fff;padding:72px 0 28px}
     sw.classList.toggle('personal', m === 'per');
     $$('button', sw).forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
     $$('.pane').forEach(p => p.hidden = p.dataset.pane !== m);
-    $('#amMode').textContent = m === 'per' ? '🎸 Modo personal' : '💼 Modo profesional';
+    $('#amMode').innerHTML = m === 'per' ? '<svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></svg><span>Modo personal</span>' : '<svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>Modo profesional</span>';
     $$('.slide', aMedia).forEach(s => s.classList.add('old'));
     buildSlides(); hideCoach(true);
   };
