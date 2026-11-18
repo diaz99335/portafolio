@@ -1477,6 +1477,61 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 .lb-x:hover,.lb-nav:hover{background:rgba(255,255,255,.24)}
 .lb-x{position:absolute;top:20px;right:20px}
 @media (max-width:640px){.lightbox{padding:16px}.lb-nav{position:absolute;bottom:24px}.lb-nav.prev{left:calc(50% - 54px)}.lb-nav.next{right:calc(50% - 54px)}}
+
+/* ===== Sobre mí v5 ===== */
+.ab3{grid-template-columns:.7fr 1.3fr}
+.ab-media{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:#DCE8F7;box-shadow:var(--shadow-sm);min-height:560px}
+.ab-portrait{position:absolute;inset:0;margin:0;transition:opacity .6s var(--ease),transform .8s var(--ease)}
+.ab-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.ab-portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(8,14,32,.6))}
+.ab-portrait figcaption{position:absolute;left:22px;bottom:20px;z-index:1;color:#fff}
+.ab-portrait figcaption b{display:block;font-size:1.15rem;font-weight:600;letter-spacing:-.02em}
+.ab-portrait figcaption span{font-size:.78rem;opacity:.85}
+.ab-collage{position:absolute;inset:0;background:linear-gradient(160deg,#F3EEE6,#E9E2D6);opacity:0;pointer-events:none;transition:opacity .6s var(--ease)}
+.pol{position:absolute;margin:0;width:62%;background:#fff;padding:8px 8px 34px;border-radius:6px;box-shadow:0 18px 40px -18px rgba(14,15,18,.45);transition:transform .8s var(--ease),opacity .6s}
+.pol img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;background:#ddd}
+.pol figcaption{position:absolute;left:12px;bottom:9px;font-size:.78rem;font-weight:600;color:var(--ink)}
+.pol.p1{left:6%;top:6%;transform:rotate(-6deg) translateY(30px)}
+.pol.p2{right:5%;top:26%;transform:rotate(5deg) translateY(30px);z-index:2}
+.pol.p3{left:12%;bottom:5%;width:56%;transform:rotate(-2deg) translateY(30px);z-index:3}
+.pol.p3 img{aspect-ratio:4/3}
+.ab-media.is-per .ab-portrait{opacity:0;transform:scale(1.04)}
+.ab-media.is-per .ab-collage{opacity:1;pointer-events:auto}
+.ab-media.is-per .pol.p1{transform:rotate(-6deg)}
+.ab-media.is-per .pol.p2{transform:rotate(5deg);transition-delay:.08s}
+.ab-media.is-per .pol.p3{transform:rotate(-2deg);transition-delay:.16s}
+.ab-media.is-per .pol:hover{transform:rotate(0) scale(1.03);z-index:5}
+/* timeline */
+.ab-tl{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);position:relative;margin:14px 0 6px}
+.ab-tl::before{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:var(--line)}
+.ab-tl li{position:relative;padding:22px 14px 0 0}
+.ab-tl li::before{content:"";position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--blue)}
+.ab-tl li:last-child::before{background:var(--blue)}
+.ab-tl small{display:block;font-size:.7rem;font-weight:600;color:var(--blue);letter-spacing:.04em}
+.ab-tl b{display:block;font-size:.9rem;font-weight:600;margin:2px 0}
+.ab-tl span{font-size:.78rem;color:var(--muted);line-height:1.4}
+.ab-traits{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 22px}
+.ab-traits li{background:var(--bg);border-radius:14px;padding:16px}
+.ab-traits b{display:block;font-size:.9rem;font-weight:600;margin-bottom:4px}
+.ab-traits span{font-size:.8rem;color:var(--muted);line-height:1.45}
+.about-card.v2 .quiet-q{margin-bottom:0}
+/* hobbies */
+.ab-hobbies{list-style:none;display:grid;gap:0;margin:18px 0 18px;border-top:1px solid var(--line)}
+.ab-hobbies li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
+.hb-ic{width:42px;height:42px;flex:none;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center}
+.hb-ic svg{width:20px;height:20px}
+.ab-hobbies b{font-size:.95rem;font-weight:600}
+.ab-hobbies small{display:inline-block;margin-left:8px;font-size:.72rem;font-weight:600;color:var(--blue);background:var(--blue-soft);padding:2px 9px;border-radius:999px;vertical-align:2px}
+.ab-hobbies p{font-size:.86rem;color:var(--muted);margin:4px 0 0;line-height:1.5}
+.ab-also{font-size:.86rem;color:var(--ink-2);margin:0}
+.ab-also span{display:block;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+/* switch: aviso de la primera vez */
+.mode-switch.peek{box-shadow:0 0 0 4px rgba(62,111,224,.15)}
+@media (max-width:1180px){.ab-traits{grid-template-columns:1fr}}
+@media (max-width:980px){.ab-media{min-height:0;aspect-ratio:4/3}.ab-portrait img{object-position:50% 25%}.pol{width:44%}.pol.p3{width:40%}}
+@media (max-width:640px){.ab-media{aspect-ratio:4/5}.pol{width:60%}.pol.p3{width:54%}.ab-tl{grid-template-columns:1fr 1fr;row-gap:18px}.ab-tl::before{display:none}.ab-hobbies small{display:block;margin:4px 0 0;width:fit-content}}
+
+.ab-tl span,.ab-traits span{display:block;line-height:1.45}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"José Pérez","jobTitle":"Especialista en Branding","url":"https://diaz99335.github.io/portafolio/","image":"https://diaz99335.github.io/portafolio/img/hero-1600.jpg","address":{"@type":"PostalAddress","addressLocality":"Lima","addressCountry":"PE"},"knowsAbout":["Branding","Identidad visual","Diseño gráfico","UX/UI","Audiovisual","Fotografía"],"knowsLanguage":["es","en"],"sameAs":["https://www.linkedin.com/in/jose-perez-branding"]}</script>
 </head>
@@ -1693,43 +1748,62 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
       <div><span class="eyebrow">Sobre mí</span><h2>Conóceme más allá <span class="em">del portafolio</span></h2></div>
       <p>Quién soy como profesional y qué me mueve fuera del trabajo.</p>
     </div>
-    <div class="about-grid v2">
-      <!-- Fotos de stock (Unsplash, licencia libre). Reemplázalas por fotos propias cuando las tengas. -->
-      <div class="about-media reveal" id="aboutMedia" aria-roledescription="carrusel" aria-label="Fotos">
-        <span id="amMode" hidden></span>
-        <div class="am-dots" id="amDots"></div>
-        <div class="am-bottom">
-          <div class="am-cap"><small id="amSub"></small><strong id="amTitle"></strong></div>
-          <div class="am-ctrl">
-            <button class="arw" id="amPrev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></button>
-            <button class="arw" id="amNext" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg></button>
-          </div>
+    <div class="about-grid v2 ab3">
+      <!-- FOTOS: el retrato sale de tu foto del hero. Las 3 fotos personales son de stock (Unsplash):
+           reemplázalas por fotos tuyas en img/ (guitarra, concierto, cine) y cambia cada src. -->
+      <div class="ab-media reveal" id="aboutMedia" aria-label="Fotos">
+        <figure class="ab-portrait">
+          <picture>
+            <source type="image/avif" srcset="img/retrato.avif">
+            <source type="image/webp" srcset="img/retrato.webp">
+            <img src="img/retrato.jpg" width="900" height="1125" alt="Retrato de José Pérez" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><b>José Pérez</b><span>Especialista en Branding · Lima</span></figcaption>
+        </figure>
+        <div class="ab-collage" aria-hidden="true">
+          <figure class="pol p1"><img src="https://images.unsplash.com/photo-1587052655186-7c9fde446293?auto=format&fit=crop&w=700&q=70" alt="" loading="lazy"><figcaption>Guitarra</figcaption></figure>
+          <figure class="pol p2"><img src="https://images.unsplash.com/photo-1617405169156-4cf26e70605c?auto=format&fit=crop&w=700&q=70" alt="" loading="lazy"><figcaption>Conciertos</figcaption></figure>
+          <figure class="pol p3"><img src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?auto=format&fit=crop&w=700&q=70" alt="" loading="lazy"><figcaption>Cine</figcaption></figure>
         </div>
       </div>
       <div class="about-card v2 reveal" data-delay="1">
         <div class="ac-top">
           <div class="mode-switch" id="modeSwitch" role="group" aria-label="Elegir cómo conocerme">
             <span class="thumb" aria-hidden="true"></span>
-            <button type="button" data-mode="pro" aria-pressed="true"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Profesional</button>
-            <button type="button" data-mode="per" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></svg>Personal</button>
+            <button type="button" data-mode="pro" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Profesional</button>
+            <button type="button" data-mode="per" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></svg>Personal</button>
           </div>
-          <div class="coach" id="coach" role="status"><span class="hand"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>Cambia aquí y conoce mi lado personal <button type="button" id="coachX" aria-label="Cerrar aviso"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
         </div>
         <div class="panes">
           <div class="pane" data-pane="pro">
             <span class="eyebrow">Perfil profesional</span>
-            <h3 class="title">Especialista en branding, <span class="em">curioso por naturaleza</span></h3>
-            <p class="muted">Me gusta entender a fondo el negocio antes de abrir cualquier programa. Esa curiosidad me llevó a dominar varias disciplinas para que una marca se vea y se sienta igual en todos sus formatos.</p>
-            <p class="list-lbl">Lo que hago como brand designer senior</p>
-            <ol class="plist"><li><span>01</span>Pensamiento estratégico</li><li><span>02</span>Generación de identidad</li><li><span>03</span>Naming y tono de voz</li><li><span>04</span>Arquitectura de marca</li><li><span>05</span>Brand guidelines</li><li><span>06</span>Dirección de arte</li><li><span>07</span>Rebranding</li><li><span>08</span>Workshops con stakeholders</li><li><span>09</span>Gestión de proyectos creativos</li></ol>
-            <blockquote class="quiet-q"><small>Mi forma de trabajar</small><b>Primero entiendo, después diseño.</b> Cada decisión visual responde a un objetivo de marca.</blockquote>
+            <h3 class="title">Así <span class="em">trabajo</span></h3>
+            <p class="muted">Empecé grabando y editando, pasé por las redes y el diseño gráfico, y terminé en el branding: me di cuenta de que todo lo anterior funciona mejor cuando la marca está clara.</p>
+            <p class="list-lbl">Cómo llegué al branding</p>
+            <ol class="ab-tl">
+              <li><small>2017</small><b>Audiovisual</b><span>Video, edición y redacción</span></li>
+              <li><small>2018</small><b>Redes y marketing</b><span>Contenido con objetivos</span></li>
+              <li><small>2019</small><b>Diseño gráfico</b><span>Identidad y piezas de marca</span></li>
+              <li><small>2023</small><b>Branding y UX/UI</b><span>Marca de punta a punta</span></li>
+            </ol>
+            <p class="list-lbl">Cómo soy en un equipo</p>
+            <ul class="ab-traits">
+              <li><b>Pregunto antes de diseñar</b><span>Los workshops con stakeholders son parte de mi proceso, no un extra.</span></li>
+              <li><b>Pienso en sistema</b><span>Entrego guías y plantillas para que el equipo aplique la marca sin depender de mí.</span></li>
+              <li><b>Resuelvo de punta a punta</b><span>Grabo, edito, diseño y prototipo, así que puedo cerrar una pieza sin cuellos de botella.</span></li>
+            </ul>
+            <blockquote class="quiet-q"><b>Primero entiendo, después diseño.</b> Cada decisión visual responde a un objetivo de marca.</blockquote>
           </div>
           <div class="pane" data-pane="per" hidden>
             <span class="eyebrow">Lado personal</span>
-            <h3 class="title">Lo que me mueve <span class="em">y me hace quien soy</span></h3>
-            <p class="muted">Los mejores equipos se arman entre personas, no solo entre perfiles. Esto es lo que disfruto fuera del trabajo y que termina inspirando lo que hago.</p>
-            <ul class="hlist"><li><span class="r-ic"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 10l6-6M18 2l4 4"/><path d="M10.5 9.5a4 4 0 0 0-5.6.4L4 11a4 4 0 0 0 0 5.6l3.4 3.4a4 4 0 0 0 5.6 0l1-1a4 4 0 0 0 .4-5.6"/><circle cx="9" cy="15" r="1.5"/></svg></span>Guitarra</li><li><span class="r-ic"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>Rock & música</li><li><span class="r-ic"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9a3 3 0 0 0 0 6v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a3 3 0 0 1 0-6V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg></span>Conciertos</li><li><span class="r-ic"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4M3 12h18"/></svg></span>Cine</li><li><span class="r-ic"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8a2 2 0 0 0-3 0z"/><path d="M12 15l-3-3a22 22 0 0 1 2-4A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22 22 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1 5 0 5 0M12 15v5s3-.6 4-2c1-1.6 0-5 0-5"/></svg></span>Ciencia ficción</li><li><span class="r-ic"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/></svg></span>Videojuegos</li><li><span class="r-ic"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span>Viajar</li><li><span class="r-ic"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5h11M6.5 17.5h11M6 4v16M18 4v16M3 7v10M21 7v10"/></svg></span>Calistenia</li><li><span class="r-ic"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-3h6l2 3h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></svg></span>Foto urbana</li></ul>
-            <div class="brings2"><span>Lo que esto suma a un equipo</span><p><b>Constancia</b>La guitarra me enseñó a practicar hasta que sale.</p><p><b>Imaginación</b>El cine y la ciencia ficción alimentan mis ideas.</p><p><b>Trabajo en equipo</b>Conciertos y juegos: todo es mejor en grupo.</p></div>
+            <h3 class="title">Así <span class="em">soy</span></h3>
+            <p class="muted">Los mejores equipos se arman entre personas, no solo entre perfiles. Esto es lo que disfruto fuera del trabajo y lo que me enseñó.</p>
+            <ul class="ab-hobbies">
+              <li><span class="hb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 10l6-6M18 2l4 4"/><path d="M10.5 9.5a4 4 0 0 0-5.6.4L4 11a4 4 0 0 0 0 5.6l3.4 3.4a4 4 0 0 0 5.6 0l1-1a4 4 0 0 0 .4-5.6"/><circle cx="9" cy="15" r="1.5"/></svg></span><div><b>Guitarra</b><small>Me enseñó constancia</small><p>Practico hasta que sale. En diseño hago lo mismo: itero hasta que la pieza funciona.</p></div></li>
+              <li><span class="hb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><div><b>Rock y conciertos</b><small>Me enseñó a trabajar en equipo</small><p>Una banda suena bien cuando cada uno sabe su parte. Un equipo creativo, igual.</p></div></li>
+              <li><span class="hb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4M3 12h18"/></svg></span><div><b>Cine y ciencia ficción</b><small>Alimentan mi imaginación</small><p>De ahí saco encuadres, ritmos y mundos que después aparecen en mis ideas.</p></div></li>
+            </ul>
+            <p class="ab-also"><span>También disfruto</span>Videojuegos · Viajar · Calistenia · Foto urbana</p>
           </div>
         </div>
         <div class="about-actions">
@@ -2189,52 +2263,28 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
     heroEl.addEventListener('mouseleave', () => { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
   }
 
-  /* ---------- Sobre mí: profesional / personal + carrusel de fotos ---------- */
-  const ABOUT_PHOTOS = {"pro": [{"src": "https://images.unsplash.com/photo-1758876203195-69a51e4145f0?auto=format&fit=crop&w=900&q=70", "t": "Estrategia de marca", "s": "Investigación e insights"}, {"src": "https://images.unsplash.com/photo-1716471330475-f0669db8947a?auto=format&fit=crop&w=900&q=70", "t": "Identidad visual", "s": "Color, tipografía y sistema"}, {"src": "https://images.unsplash.com/photo-1729710877311-0e8e70bf820b?auto=format&fit=crop&w=900&q=70", "t": "UX/UI & web", "s": "Wireframes y prototipos"}, {"src": "https://images.unsplash.com/photo-1760768550727-00f5e02feb72?auto=format&fit=crop&w=900&q=70", "t": "Producción audiovisual", "s": "Video, motion y edición"}, {"src": "https://images.unsplash.com/photo-1552599886-841708231c60?auto=format&fit=crop&w=900&q=70", "t": "Fotografía", "s": "Luz, encuadre y retoque"}], "per": [{"src": "https://images.unsplash.com/photo-1587052655186-7c9fde446293?auto=format&fit=crop&w=900&q=70", "t": "Guitarra", "s": "Mi forma de despejar la mente"}, {"src": "https://images.unsplash.com/photo-1617405169156-4cf26e70605c?auto=format&fit=crop&w=900&q=70", "t": "Conciertos", "s": "Rock y música en vivo"}, {"src": "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?auto=format&fit=crop&w=900&q=70", "t": "Cine", "s": "Encuadres que me inspiran"}, {"src": "https://images.unsplash.com/photo-1603162610423-af7febeca563?auto=format&fit=crop&w=900&q=70", "t": "Ciencia ficción", "s": "Mundos posibles en cada libro"}, {"src": "https://images.unsplash.com/photo-1600861194942-f883de0dfe96?auto=format&fit=crop&w=900&q=70", "t": "Videojuegos", "s": "Historias e interfaces"}]};
-  const aMedia = $('#aboutMedia'), dotsEl = $('#amDots'), sw = $('#modeSwitch');
-  let aMode = 'pro', aIdx = 0, aTimer = null;
-  const buildSlides = () => {
-    $$('.slide', aMedia).forEach(s => { s.classList.remove('on'); setTimeout(() => s.remove(), 1000); });
-    ABOUT_PHOTOS[aMode].forEach((p, i) => {
-      const d = document.createElement('div'); d.className = 'slide';
-      d.innerHTML = `<img src="${p.src}" alt="${p.t}" loading="${i ? 'lazy' : 'eager'}">`;
-      aMedia.insertBefore(d, aMedia.firstChild);
-    });
-    dotsEl.innerHTML = ABOUT_PHOTOS[aMode].map(() => '<i><b></b></i>').join('');
-    aIdx = 0; showSlide(0);
-  };
-  const showSlide = (i) => {
-    const set = ABOUT_PHOTOS[aMode], slides = $$('.slide:not(.old)', aMedia).slice(0, set.length).reverse();
-    aIdx = (i + set.length) % set.length;
-    slides.forEach((s, j) => s.classList.toggle('on', j === aIdx));
-    $$('i', dotsEl).forEach((d, j) => { d.classList.toggle('done', j < aIdx); d.classList.remove('on'); });
-    const cur = $$('i', dotsEl)[aIdx]; cur && (cur.offsetWidth, cur.classList.add('on'));
-    $('#amTitle').textContent = set[aIdx].t; $('#amSub').textContent = set[aIdx].s;
-    clearTimeout(aTimer); aTimer = setTimeout(() => showSlide(aIdx + 1), 6000);
-  };
+  /* ---------- Sobre mí: profesional / personal ---------- */
+  const aMedia = $('#aboutMedia'), sw = $('#modeSwitch');
+  let aMode = 'pro';
   const setMode = (m) => {
     if (m === aMode) return; aMode = m;
     sw.classList.toggle('personal', m === 'per');
+    aMedia.classList.toggle('is-per', m === 'per');
     $$('button', sw).forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
     $$('.pane').forEach(p => p.hidden = p.dataset.pane !== m);
-    $('#amMode').innerHTML = m === 'per' ? '<svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></svg><span>Modo personal</span>' : '<svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>Modo profesional</span>';
-    $$('.slide', aMedia).forEach(s => s.classList.add('old'));
-    buildSlides(); hideCoach(true);
   };
-  $$('button', sw).forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
-  $('#amPrev').onclick = () => showSlide(aIdx - 1);
-  $('#amNext').onclick = () => showSlide(aIdx + 1);
-  aMedia.addEventListener('mouseenter', () => clearTimeout(aTimer));
-  aMedia.addEventListener('mouseleave', () => showSlide(aIdx));
-  buildSlides();
-  // Aviso la primera vez que se llega a la sección
-  const coach = $('#coach'); let coachSeen = false;
-  try { coachSeen = localStorage.getItem('aboutCoach') === '1'; } catch (e) {}
-  function hideCoach(save) { coach.classList.remove('show'); if (save) { try { localStorage.setItem('aboutCoach', '1'); } catch (e) {} } }
-  $('#coachX').onclick = () => hideCoach(true);
-  if (!coachSeen) {
-    const cio = new IntersectionObserver(en => { if (en[0].isIntersecting) { setTimeout(() => coach.classList.add('show'), 500); setTimeout(() => hideCoach(true), 9000); cio.disconnect(); } }, { threshold: .4 });
-    cio.observe(sw);
+  let peekDone = false, userTouched = false;
+  try { peekDone = localStorage.getItem('aboutPeek') === '1'; } catch (e) {}
+  $$('button', sw).forEach(b => b.addEventListener('click', () => { userTouched = true; setMode(b.dataset.mode); }));
+  // La primera vez: el switch muestra el lado personal 2 s y vuelve, para que se note que hay dos caras
+  if (!peekDone && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const pio = new IntersectionObserver(en => {
+      if (!en[0].isIntersecting) return; pio.disconnect();
+      try { localStorage.setItem('aboutPeek', '1'); } catch (e) {}
+      setTimeout(() => { if (userTouched) return; sw.classList.add('peek'); setMode('per');
+        setTimeout(() => { sw.classList.remove('peek'); if (!userTouched) setMode('pro'); }, 2200); }, 900);
+    }, { threshold: .55 });
+    pio.observe(sw);
   }
 
   /* Herramientas: carrusel continuo + ver todas */
