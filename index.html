@@ -1263,6 +1263,25 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 .fig strong{font-size:clamp(2.4rem,4.2vw,3.5rem);letter-spacing:-.045em;line-height:1;font-weight:650}
 .fig span{font-size:var(--fs-sm);margin-top:12px}
 .btn{letter-spacing:-.005em}
+
+/* =========================================================
+   TÍTULOS CON DEGRADADO CONTINUO (estilo limpio)
+   ========================================================= */
+:root{
+  --grad-title:linear-gradient(100deg,#0E0F12 0%,#18264D 38%,#2F5FC9 72%,#6F9BF2 100%);
+  --grad-title-light:linear-gradient(100deg,#FFFFFF 0%,#E3ECFD 45%,#F6D3A0 100%);
+}
+.section-head h2,.split-head h2,.faq-grid h2,.cta h2,.f-top h2,.panel-copy h3,.about-card.v2 .pane h3.title,.case-body h2,.impact h2,.contact-side h3{font-weight:600!important;letter-spacing:-.035em!important;width:fit-content;max-width:100%;background:var(--grad-title);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;padding-bottom:.08em}
+.section-head h2,.cta h2,.impact h2{margin-left:auto!important;margin-right:auto!important}
+.impact h2,footer .f-top h2,.contact-side h3{background:var(--grad-title-light);-webkit-background-clip:text;background-clip:text}
+.section-head h2 .em,.split-head h2 .em,.faq-grid h2 .em,.cta h2 .em,.f-top h2 .em,.panel-copy h3 .em,.about-card.v2 .pane h3.title .em,.case-body h2 .em,.impact h2 .em,.contact-side h3 .em{background:none!important;-webkit-text-fill-color:transparent!important;color:transparent!important;font-weight:inherit!important;letter-spacing:inherit!important;padding:0!important}
+/* Hero */
+.hero h1{font-weight:600!important}
+.hero h1 .line:first-child .rise{background:linear-gradient(100deg,#FFFFFF 0%,#EAF1FF 60%,#CFE0FF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.hero h1 .g,.hero h1 .rotator .w{font-weight:600!important;background:linear-gradient(100deg,#DCE8FF 0%,#F6E3C4 50%,#F4C27F 100%);-webkit-background-clip:text;background-clip:text}
+/* Hero a todo el ancho */
+.hero-wrap{padding:0!important}
+.hero{border-radius:0!important}
 </style>
 </head>
 <body>
