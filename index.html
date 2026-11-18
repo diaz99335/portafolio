@@ -1532,6 +1532,11 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 @media (max-width:640px){.ab-media{aspect-ratio:4/5}.pol{width:60%}.pol.p3{width:54%}.ab-tl{grid-template-columns:1fr 1fr;row-gap:18px}.ab-tl::before{display:none}.ab-hobbies small{display:block;margin:4px 0 0;width:fit-content}}
 
 .ab-tl span,.ab-traits span{display:block;line-height:1.45}
+
+.about-media{min-height:0}
+.ab-sectors{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 22px}
+.ab-sectors li{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 11px;border-radius:999px;border:1px solid var(--line);font-size:.86rem;color:var(--ink);background:#fff}
+.ab-sectors svg{width:16px;height:16px;color:var(--blue)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"José Pérez","jobTitle":"Especialista en Branding","url":"https://diaz99335.github.io/portafolio/","image":"https://diaz99335.github.io/portafolio/img/hero-1600.jpg","address":{"@type":"PostalAddress","addressLocality":"Lima","addressCountry":"PE"},"knowsAbout":["Branding","Identidad visual","Diseño gráfico","UX/UI","Audiovisual","Fotografía"],"knowsLanguage":["es","en"],"sameAs":["https://www.linkedin.com/in/jose-perez-branding"]}</script>
 </head>
@@ -1749,21 +1754,16 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
       <p>Quién soy como profesional y qué me mueve fuera del trabajo.</p>
     </div>
     <div class="about-grid v2 ab3">
-      <!-- FOTOS: el retrato sale de tu foto del hero. Las 3 fotos personales son de stock (Unsplash):
-           reemplázalas por fotos tuyas en img/ (guitarra, concierto, cine) y cambia cada src. -->
-      <div class="ab-media reveal" id="aboutMedia" aria-label="Fotos">
-        <figure class="ab-portrait">
-          <picture>
-            <source type="image/avif" srcset="img/retrato.avif">
-            <source type="image/webp" srcset="img/retrato.webp">
-            <img src="img/retrato.jpg" width="900" height="1125" alt="Retrato de José Pérez" loading="lazy" decoding="async">
-          </picture>
-          <figcaption><b>José Pérez</b><span>Especialista en Branding · Lima</span></figcaption>
-        </figure>
-        <div class="ab-collage" aria-hidden="true">
-          <figure class="pol p1"><img src="https://images.unsplash.com/photo-1587052655186-7c9fde446293?auto=format&fit=crop&w=700&q=70" alt="" loading="lazy"><figcaption>Guitarra</figcaption></figure>
-          <figure class="pol p2"><img src="https://images.unsplash.com/photo-1617405169156-4cf26e70605c?auto=format&fit=crop&w=700&q=70" alt="" loading="lazy"><figcaption>Conciertos</figcaption></figure>
-          <figure class="pol p3"><img src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?auto=format&fit=crop&w=700&q=70" alt="" loading="lazy"><figcaption>Cine</figcaption></figure>
+      <!-- Carrusel: la primera foto es tuya; el resto son de stock (Unsplash). Cambia las URLs en ABOUT_PHOTOS (JS) por tus fotos. -->
+      <div class="about-media reveal" id="aboutMedia" aria-roledescription="carrusel" aria-label="Fotos">
+        <span id="amMode" hidden></span>
+        <div class="am-dots" id="amDots"></div>
+        <div class="am-bottom">
+          <div class="am-cap"><small id="amSub"></small><strong id="amTitle"></strong></div>
+          <div class="am-ctrl">
+            <button class="arw" id="amPrev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button class="arw" id="amNext" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
         </div>
       </div>
       <div class="about-card v2 reveal" data-delay="1">
@@ -1779,13 +1779,8 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
             <span class="eyebrow">Perfil profesional</span>
             <h3 class="title">Así <span class="em">trabajo</span></h3>
             <p class="muted">Empecé grabando y editando, pasé por las redes y el diseño gráfico, y terminé en el branding: me di cuenta de que todo lo anterior funciona mejor cuando la marca está clara.</p>
-            <p class="list-lbl">Cómo llegué al branding</p>
-            <ol class="ab-tl">
-              <li><small>2017</small><b>Audiovisual</b><span>Video, edición y redacción</span></li>
-              <li><small>2018</small><b>Redes y marketing</b><span>Contenido con objetivos</span></li>
-              <li><small>2019</small><b>Diseño gráfico</b><span>Identidad y piezas de marca</span></li>
-              <li><small>2023</small><b>Branding y UX/UI</b><span>Marca de punta a punta</span></li>
-            </ol>
+            <p class="list-lbl">Sectores en los que he trabajado</p>
+            <ul class="ab-sectors"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/><path d="M9 12h6M12 9v6"/></svg>Salud</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>Educación</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>Seguros</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/></svg>Banca</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></svg>Inmobiliaria</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-1 13H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Retail</li></ul>
             <p class="list-lbl">Cómo soy en un equipo</p>
             <ul class="ab-traits">
               <li><b>Pregunto antes de diseñar</b><span>Los workshops con stakeholders son parte de mi proceso, no un extra.</span></li>
@@ -2264,15 +2259,40 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   }
 
   /* ---------- Sobre mí: profesional / personal ---------- */
-  const aMedia = $('#aboutMedia'), sw = $('#modeSwitch');
-  let aMode = 'pro';
+  const ABOUT_PHOTOS = {"pro": [{"src": "img/retrato.jpg", "t": "José Pérez", "s": "Especialista en Branding · Lima"}, {"src": "https://images.unsplash.com/photo-1758876203195-69a51e4145f0?auto=format&fit=crop&w=900&q=70", "t": "Estrategia de marca", "s": "Investigación e insights"}, {"src": "https://images.unsplash.com/photo-1716471330475-f0669db8947a?auto=format&fit=crop&w=900&q=70", "t": "Identidad visual", "s": "Color, tipografía y sistema"}, {"src": "https://images.unsplash.com/photo-1729710877311-0e8e70bf820b?auto=format&fit=crop&w=900&q=70", "t": "UX/UI & web", "s": "Wireframes y prototipos"}, {"src": "https://images.unsplash.com/photo-1760768550727-00f5e02feb72?auto=format&fit=crop&w=900&q=70", "t": "Producción audiovisual", "s": "Video, motion y edición"}, {"src": "https://images.unsplash.com/photo-1552599886-841708231c60?auto=format&fit=crop&w=900&q=70", "t": "Fotografía", "s": "Luz, encuadre y retoque"}], "per": [{"src": "https://images.unsplash.com/photo-1587052655186-7c9fde446293?auto=format&fit=crop&w=900&q=70", "t": "Guitarra", "s": "Mi forma de despejar la mente"}, {"src": "https://images.unsplash.com/photo-1617405169156-4cf26e70605c?auto=format&fit=crop&w=900&q=70", "t": "Conciertos", "s": "Rock y música en vivo"}, {"src": "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?auto=format&fit=crop&w=900&q=70", "t": "Cine", "s": "Encuadres que me inspiran"}, {"src": "https://images.unsplash.com/photo-1603162610423-af7febeca563?auto=format&fit=crop&w=900&q=70", "t": "Ciencia ficción", "s": "Mundos posibles en cada libro"}, {"src": "https://images.unsplash.com/photo-1600861194942-f883de0dfe96?auto=format&fit=crop&w=900&q=70", "t": "Videojuegos", "s": "Historias e interfaces"}]};
+  const aMedia = $('#aboutMedia'), dotsEl = $('#amDots'), sw = $('#modeSwitch');
+  let aMode = 'pro', aIdx = 0, aTimer = null;
+  const buildSlides = () => {
+    $$('.slide', aMedia).forEach(s => { s.classList.remove('on'); setTimeout(() => s.remove(), 1000); });
+    ABOUT_PHOTOS[aMode].forEach((p, i) => {
+      const d = document.createElement('div'); d.className = 'slide';
+      d.innerHTML = `<img src="${p.src}" alt="${p.t}" loading="${i ? 'lazy' : 'eager'}">`;
+      aMedia.insertBefore(d, aMedia.firstChild);
+    });
+    dotsEl.innerHTML = ABOUT_PHOTOS[aMode].map(() => '<i><b></b></i>').join('');
+    aIdx = 0; showSlide(0);
+  };
+  const showSlide = (i) => {
+    const set = ABOUT_PHOTOS[aMode], slides = $$('.slide:not(.old)', aMedia).slice(0, set.length).reverse();
+    aIdx = (i + set.length) % set.length;
+    slides.forEach((s, j) => s.classList.toggle('on', j === aIdx));
+    $$('i', dotsEl).forEach((d, j) => { d.classList.toggle('done', j < aIdx); d.classList.remove('on'); });
+    const cur = $$('i', dotsEl)[aIdx]; cur && (cur.offsetWidth, cur.classList.add('on'));
+    $('#amTitle').textContent = set[aIdx].t; $('#amSub').textContent = set[aIdx].s;
+    clearTimeout(aTimer); aTimer = setTimeout(() => showSlide(aIdx + 1), 6000);
+  };
   const setMode = (m) => {
     if (m === aMode) return; aMode = m;
     sw.classList.toggle('personal', m === 'per');
-    aMedia.classList.toggle('is-per', m === 'per');
+    $$('.slide', aMedia).forEach(s => s.classList.add('old')); buildSlides();
     $$('button', sw).forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
     $$('.pane').forEach(p => p.hidden = p.dataset.pane !== m);
   };
+  $('#amPrev').onclick = () => showSlide(aIdx - 1);
+  $('#amNext').onclick = () => showSlide(aIdx + 1);
+  aMedia.addEventListener('mouseenter', () => clearTimeout(aTimer));
+  aMedia.addEventListener('mouseleave', () => showSlide(aIdx));
+  buildSlides();
   let peekDone = false, userTouched = false;
   try { peekDone = localStorage.getItem('aboutPeek') === '1'; } catch (e) {}
   $$('button', sw).forEach(b => b.addEventListener('click', () => { userTouched = true; setMode(b.dataset.mode); }));
