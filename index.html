@@ -1323,6 +1323,54 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 .pcard .fc2{animation:heroPop .7s var(--ease) 1.6s backwards,bob 6s ease-in-out 2.4s infinite}
 .nav{animation:heroDown .8s var(--ease) .1s backwards}
 @media (prefers-reduced-motion:reduce){.hero *,.nav{animation-delay:0s!important}}
+
+/* =========================================================
+   HERO v2 (titular grande + cifras integradas)
+   ========================================================= */
+.hero.hx{position:relative;min-height:max(660px,min(100vh,940px));min-height:max(660px,min(100svh,940px));background:#0B1630;color:#fff;overflow:hidden;display:flex}
+.hx-media{position:absolute;inset:-16px;overflow:hidden}
+.hx-img{width:100%;height:100%;object-fit:cover;object-position:56% 28%;transform:scale(1.03);will-change:translate;animation:rackBg 1.8s cubic-bezier(.22,1,.36,1) .05s backwards}
+.hx-shade{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(90deg,rgba(6,12,30,.82) 0%,rgba(6,12,30,.55) 32%,rgba(6,12,30,.12) 58%,rgba(6,12,30,0) 72%),
+  linear-gradient(0deg,rgba(6,12,30,.88) 0%,rgba(6,12,30,.5) 22%,rgba(6,12,30,0) 48%),
+  linear-gradient(180deg,rgba(6,12,30,.45) 0%,rgba(6,12,30,0) 18%)}
+.hx-inner{position:relative;z-index:2;width:min(var(--container),100% - 64px);margin:auto auto 0;padding:140px 0 44px;display:flex;flex-direction:column;justify-content:flex-end;will-change:translate}
+.hx-eyebrow{font-size:.92rem;font-weight:500;color:rgba(255,255,255,.88);letter-spacing:-.005em;margin:0 0 14px;animation:heroUp .8s var(--ease) .4s backwards}
+.hx-eyebrow span{opacity:.6;margin:0 2px}
+.hx h1{font-size:clamp(3rem,6.2vw,6rem)!important;line-height:.98!important;letter-spacing:-.055em!important;font-weight:600!important;margin:0 0 30px;max-width:none}
+.hx h1 .line:first-child .rise{background:none!important;-webkit-text-fill-color:#fff!important;color:#fff}
+.hx h1 .g:not(.w){background:none!important;-webkit-text-fill-color:#fff!important;color:#fff}
+.hx h1 .rotator .w{background:linear-gradient(100deg,#FFFFFF 0%,#D8E6FF 45%,#9FC2FF 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+.hx .rotator{height:1.02em}.hx .rotator .w{line-height:1.02}
+.hx-row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:40px}
+.hx .hero-sub{max-width:460px;margin:0;color:rgba(255,255,255,.82);font-size:1rem;line-height:1.6}
+.hx .hero-actions{flex:none}
+.hx .hero-actions .btn-dark{background:#fff;color:var(--ink)}
+.hx .hero-actions .btn-light{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(8px)}
+.hx .hero-actions .btn-light:hover{background:rgba(255,255,255,.18)}
+.hx-bar{position:relative;height:1px;background:rgba(255,255,255,.22);margin-bottom:28px;overflow:hidden;animation:heroUp .8s var(--ease) 1.15s backwards}
+.hx-bar i{position:absolute;left:0;top:-1px;height:3px;width:20%;background:#fff;border-radius:3px;transition:transform .8s var(--ease)}
+.hx-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.hx-st{animation:heroUp .8s var(--ease) backwards}
+.hx-st:nth-child(1){animation-delay:1.25s}.hx-st:nth-child(2){animation-delay:1.35s}.hx-st:nth-child(3){animation-delay:1.45s}.hx-st:nth-child(4){animation-delay:1.55s}
+.hx-top{display:flex;align-items:center;gap:12px}
+.hx-n{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;font-size:.68rem;font-weight:500;color:rgba(255,255,255,.85);flex:none;font-variant-numeric:tabular-nums}
+.hx-st strong{font-size:clamp(1.7rem,2.6vw,2.4rem);font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.hx-st small{display:block;margin-top:10px;font-size:.86rem;color:rgba(255,255,255,.72)}
+.hx-st small b{color:#fff;font-weight:600}
+@media (max-width:1080px){.hx-row{flex-direction:column;align-items:flex-start;gap:22px}}
+@media (max-width:640px){
+  .hero.hx{background:#081227}
+  .hx-media{inset:0 0 auto 0;height:440px}
+  .hx-img{object-position:70% 30%;transform:none}
+  .hx-inner{width:calc(100% - 40px);padding:330px 0 32px}
+  .hx-shade{background:linear-gradient(180deg,rgba(6,12,30,.35) 0%,transparent 14%,transparent 42%,#081227 440px)}
+  .hx h1{font-size:2.7rem!important;margin-bottom:20px}
+  .hx-row{margin-bottom:28px}
+  .hx-stats{grid-template-columns:1fr 1fr;row-gap:22px}
+  .hx-eyebrow{font-size:.82rem}
+}
+@media (prefers-reduced-motion:reduce){.hx *{animation-delay:0s!important}}
 </style>
 </head>
 <body>
@@ -1365,42 +1413,24 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 
 <!-- ================= HERO ================= -->
 <header class="hero-wrap" id="inicio">
-  <div class="hero photo-hero" id="heroBox">
-    <div class="hero-media" aria-hidden="true" id="heroMedia">
-      <div class="geo bgl"><img src="foto-hero2.jpg" alt=""></div>
-      <div class="hero-shade soft"></div>
-    </div>
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <h1 aria-label="Construyo marcas que conectan">
-          <span class="line"><span class="rise">Construyo marcas</span></span>
-          <span class="line"><span class="rise d2"><span class="g">que</span> <span class="rotator" id="rotator" aria-hidden="true"><span class="w g is-on">conectan</span><span class="w g">se recuerdan</span><span class="w g">inspiran</span><span class="w g">trascienden</span><span class="w g">enamoran</span></span></span></span>
-        </h1>
-        <p class="hero-sub">Hola, soy <strong>José Pérez</strong>, especialista en Branding. Diseño marcas de forma integral: parto de la estrategia y la llevo a cada punto de contacto con diseño, audiovisual, fotografía, UX/UI y web.</p>
+  <div class="hero hx" id="heroBox">
+    <div class="hx-media" aria-hidden="true"><img class="hx-img" id="hxImg" src="foto-hero2.jpg" alt=""></div>
+    <div class="hx-shade" aria-hidden="true"></div>
+    <div class="hx-inner" id="hxInner">
+      <p class="hx-eyebrow"><span>«</span> José Pérez · Especialista en Branding <span>»</span></p>
+      <h1 aria-label="Construyo marcas que conectan">
+        <span class="line"><span class="rise">Construyo marcas</span></span>
+        <span class="line"><span class="rise d2"><span class="g">que</span> <span class="rotator" id="rotator" aria-hidden="true"><span class="w g is-on">conectan</span><span class="w g">se recuerdan</span><span class="w g">inspiran</span><span class="w g">trascienden</span><span class="w g">enamoran</span></span></span></span>
+      </h1>
+      <div class="hx-row">
+        <p class="hero-sub">Diseño marcas de forma integral: parto de la estrategia y la llevo a cada punto de contacto con diseño, audiovisual, fotografía, UX/UI y web.</p>
         <div class="hero-actions">
           <a href="#proyectos" class="btn btn-dark magnetic">Ver mi trabajo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a href="cv.pdf" download class="btn btn-light magnetic" data-cv>Descargar CV</a>
         </div>
       </div>
-
-      <div class="hero-card-col">
-        <div class="pcard" id="pcard">
-          <div class="device-screen" id="screen">
-            <div class="geo fg"><img class="sharp" src="foto-hero2.jpg" alt="José Pérez, especialista en branding, en un estudio fotográfico"></div>
-            <div class="shade"></div>
-            <div class="spot" aria-hidden="true"></div>
-            <div class="id-card"><div class="nm">José Pérez</div><div class="rl">Especialista en Branding</div></div>
-            <div class="ask" data-open="contact">
-              <span class="l"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span><b>¿Conversamos?</b> Escríbeme</span></span>
-              <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
-            </div>
-          </div>
-          <div class="float-card fc1"><div class="k">Especialidad</div><div class="v">Branding 360°</div><div class="k">Diseño · Video · Foto · UX/UI · Web</div></div>
-          <div class="float-card fc2"><div class="k">Mi stack diario</div>
-            <div class="stack"><span style="background:#0E0F12">Fg</span><span style="background:#FF9A00">Ai</span><span style="background:#31A8FF">Ps</span><span style="background:#7B61FF">Pr</span><span style="background:#9999FF">Ae</span></div>
-          </div>
-        </div>
-      </div>
+      <div class="hx-bar" aria-hidden="true"><i id="hxBar"></i></div>
+      <div class="hx-stats"><div class="hx-st"><div class="hx-top"><span class="hx-n">01</span><strong data-count="8" data-suffix="+">8+</strong></div><small><b>Años</b> de experiencia</small></div><div class="hx-st"><div class="hx-top"><span class="hx-n">02</span><strong data-count="10" data-suffix="+">10+</strong></div><small><b>Sectores</b> atendidos</small></div><div class="hx-st"><div class="hx-top"><span class="hx-n">03</span><strong data-count="6" data-suffix="">6</strong></div><small><b>Disciplinas</b> integradas</small></div><div class="hx-st"><div class="hx-top"><span class="hx-n">04</span><strong data-count="35" data-suffix="+">35+</strong></div><small><b>Herramientas,</b> IA incluida</small></div></div>
     </div>
   </div>
 </header>
@@ -1423,15 +1453,7 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   </div>
 </section>
 
-<!-- ================= CIFRAS ================= -->
-<section class="figures reveal" aria-label="Cifras">
-  <div class="container figs">
-    <div class="fig"><strong data-count="8" data-suffix="+">0</strong><span>Años de experiencia</span></div>
-    <div class="fig"><strong data-count="10" data-suffix="+">0</strong><span>Sectores atendidos</span></div>
-    <div class="fig"><strong data-count="6">0</strong><span>Disciplinas integradas</span></div>
-    <div class="fig"><strong data-count="35" data-suffix="+">0</strong><span>Herramientas, IA incluida</span></div>
-  </div>
-</section>
+
 
 <!-- ================= PROJECTS ================= -->
 <section class="section" id="proyectos">
@@ -2048,49 +2070,16 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   const easeRate = () => { const a = mqAnim(); if (!a) return; mqRate += (mqTarget - mqRate) * .08; a.playbackRate = mqRate; if (Math.abs(mqTarget - mqRate) > .01) requestAnimationFrame(easeRate); };
   mq.parentElement.addEventListener('mouseenter', () => { mqTarget = .25; easeRate(); });
   mq.parentElement.addEventListener('mouseleave', () => { mqTarget = 1; easeRate(); });
-  /* Tarjeta del hero: ventana alineada con la foto de fondo + lupa */
-  const screen = $('#screen'), pcard = $('#pcard'), media = $('#heroMedia'), heroEl = $('#heroBox');
-  const IMG = { w: 2104, h: 954, faceX: 1365, hairY: 330 };
-  const setGeo = (el, g) => { el.style.setProperty('--gl', g.l + 'px'); el.style.setProperty('--gt', g.t + 'px'); el.style.setProperty('--gw', g.w + 'px'); el.style.setProperty('--gh', g.h + 'px'); };
-  // Ubica la foto para cubrir una caja (W×H) con el rostro en (cx, hy)
-  const fit = (W, H, cx, hy, sMin) => {
-    let sc = Math.max(sMin, W / IMG.w, H / IMG.h, (W - cx) / (IMG.w - IMG.faceX), hy / IMG.hairY);
-    let l = cx - IMG.faceX * sc, t = hy - IMG.hairY * sc;
-    l = Math.min(0, Math.max(l, W - IMG.w * sc)); t = Math.min(0, Math.max(t, H - IMG.h * sc));
-    return { l, t, w: IMG.w * sc, h: IMG.h * sc };
-  };
-  const cardCol = $('.hero-card-col'), heroCopy = $('.hero-copy');
-  const textRight = () => {
-    const h1 = $('.hero h1'), l1 = $('.hero h1 .rise'), que = $('.hero h1 .d2 > .g');
-    const maxW = Math.max(...$$('#rotator .w').map(w => w.offsetWidth));
-    const copyLeft = heroCopy.getBoundingClientRect().left - heroEl.getBoundingClientRect().left;
-    return copyLeft + Math.max(l1.offsetWidth, que.offsetWidth + 18 + maxW, 470);
-  };
-  const layoutHero = () => {
-    const hr = heroEl.getBoundingClientRect();
-    if (innerWidth > 1080) {
-      const cw = cardCol.offsetWidth, ch = cardCol.offsetHeight;
-      const sCover = Math.max(hr.width / IMG.w, hr.height / IMG.h);
-      // centro deseado: sobre la persona, pero sin chocar con el texto (+ tarjeta flotante)
-      const cRight = (hr.width + Math.min(1180, hr.width - 112)) / 2; // borde derecho del contenido
-      const cx = Math.min(Math.max(IMG.faceX * sCover, textRight() + 150 + cw / 2), cRight - 70 - cw / 2);
-      const sc = Math.max(sCover, cx / IMG.faceX);
-      const cTop = cardCol.getBoundingClientRect().top - hr.top;
-      const g = fit(hr.width, hr.height, cx, cTop + ch * .15, sc);
-      const left = g.l + IMG.faceX * (g.w / IMG.w) - cw / 2;
-      heroEl.style.setProperty('--cardL', left + 'px');
-      setGeo(media, g);
-      const x = left + pcard.clientLeft + screen.offsetLeft, y = cTop + pcard.clientTop + screen.offsetTop; // borde fino de la tarjeta
-      setGeo(screen, { l: g.l - x, t: g.t - y, w: g.w, h: g.h });
-    } else {
-      const sw = screen.offsetWidth, sh = screen.offsetHeight;
-      setGeo(media, fit(hr.width, hr.height, hr.width * .5, hr.height * .06, 0));
-      setGeo(screen, fit(sw, sh, sw / 2, sh * .2, sh / 820));
-    }
-  };
-  layoutHero(); addEventListener('resize', layoutHero); addEventListener('load', layoutHero);
-  document.fonts && document.fonts.ready.then(layoutHero);
-  screen.addEventListener('mousemove', e => { const r = screen.getBoundingClientRect(); screen.style.setProperty('--mx', (e.clientX - r.left) + 'px'); screen.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+  /* Hero: cámara en mano (parallax suave) + barra sincronizada con la palabra */
+  const heroEl = $('#heroBox'), hxImg = $('#hxImg'), hxInner = $('#hxInner');
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+    let tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+    const loop = () => { cx += (tx - cx) * .06; cy += (ty - cy) * .06;
+      hxImg.style.translate = `${cx * -14}px ${cy * -10}px`; hxInner.style.translate = `${cx * 4}px ${cy * 3}px`;
+      raf = (Math.abs(tx - cx) + Math.abs(ty - cy) > .001) ? requestAnimationFrame(loop) : null; };
+    heroEl.addEventListener('mousemove', e => { const r = heroEl.getBoundingClientRect(); tx = (e.clientX - r.left) / r.width - .5; ty = (e.clientY - r.top) / r.height - .5; if (!raf) raf = requestAnimationFrame(loop); });
+    heroEl.addEventListener('mouseleave', () => { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
+  }
 
   /* ---------- Sobre mí: profesional / personal + carrusel de fotos ---------- */
   const ABOUT_PHOTOS = {"pro": [{"src": "https://images.unsplash.com/photo-1758876203195-69a51e4145f0?auto=format&fit=crop&w=900&q=70", "t": "Estrategia de marca", "s": "Investigación e insights"}, {"src": "https://images.unsplash.com/photo-1716471330475-f0669db8947a?auto=format&fit=crop&w=900&q=70", "t": "Identidad visual", "s": "Color, tipografía y sistema"}, {"src": "https://images.unsplash.com/photo-1729710877311-0e8e70bf820b?auto=format&fit=crop&w=900&q=70", "t": "UX/UI & web", "s": "Wireframes y prototipos"}, {"src": "https://images.unsplash.com/photo-1760768550727-00f5e02feb72?auto=format&fit=crop&w=900&q=70", "t": "Producción audiovisual", "s": "Video, motion y edición"}, {"src": "https://images.unsplash.com/photo-1552599886-841708231c60?auto=format&fit=crop&w=900&q=70", "t": "Fotografía", "s": "Luz, encuadre y retoque"}], "per": [{"src": "https://images.unsplash.com/photo-1587052655186-7c9fde446293?auto=format&fit=crop&w=900&q=70", "t": "Guitarra", "s": "Mi forma de despejar la mente"}, {"src": "https://images.unsplash.com/photo-1617405169156-4cf26e70605c?auto=format&fit=crop&w=900&q=70", "t": "Conciertos", "s": "Rock y música en vivo"}, {"src": "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?auto=format&fit=crop&w=900&q=70", "t": "Cine", "s": "Encuadres que me inspiran"}, {"src": "https://images.unsplash.com/photo-1603162610423-af7febeca563?auto=format&fit=crop&w=900&q=70", "t": "Ciencia ficción", "s": "Mundos posibles en cada libro"}, {"src": "https://images.unsplash.com/photo-1600861194942-f883de0dfe96?auto=format&fit=crop&w=900&q=70", "t": "Videojuegos", "s": "Historias e interfaces"}]};
@@ -2162,6 +2151,7 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
     cur.classList.remove('is-on'); cur.classList.add('is-out');
     nxt.classList.remove('is-out'); nxt.classList.add('is-on');
     fitRot(true);
+    const hb = $('#hxBar'); if (hb) hb.style.transform = `translateX(${wi * 100}%)`;
     setTimeout(() => cur.classList.remove('is-out'), 700);
   }, 2800);
 
@@ -2518,6 +2508,7 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
     io.unobserve(el);
   }), { threshold: .15, rootMargin: '0px 0px -40px 0px' });
   $$('.reveal').forEach(el => io.observe(el));
+  $$('.hx-st [data-count]').forEach(el => setTimeout(() => animateCount(el), 1500));
 
   /* ---------- Nav ---------- */
   const nav = $('#nav'), navInd = $('#navInd'), links = $$('#navLinks a');
