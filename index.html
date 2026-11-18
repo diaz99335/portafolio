@@ -1277,7 +1277,7 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
    ========================================================= */
 :root{
   --grad-title:linear-gradient(100deg,#0E0F12 0%,#18264D 38%,#2F5FC9 72%,#6F9BF2 100%);
-  --grad-title-light:linear-gradient(100deg,#FFFFFF 0%,#E3ECFD 45%,#F6D3A0 100%);
+  --grad-title-light:linear-gradient(100deg,#FFFFFF 0%,#D8E6FF 45%,#9FC2FF 100%);
 }
 .section-head h2,.split-head h2,.faq-grid h2,.cta h2,.f-top h2,.panel-copy h3,.about-card.v2 .pane h3.title,.case-body h2,.impact h2,.contact-side h3{font-weight:600!important;letter-spacing:-.035em!important;width:fit-content;max-width:100%;background:var(--grad-title);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;padding-bottom:.08em}
 .section-head h2,.cta h2,.impact h2{margin-left:auto!important;margin-right:auto!important}
@@ -1421,7 +1421,64 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 .lang{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:999px;background:var(--blue-soft);color:var(--ink);font-size:.86rem;font-weight:500}
 .lang svg{width:16px;height:16px;color:var(--blue)}
 
+
+/* ===== Auditoría UX ===== */
+/* Proceso compacto: línea de 6 pasos */
+#proceso .steps{grid-template-columns:repeat(6,1fr);gap:0;position:relative}
+#proceso .steps::before{content:"";position:absolute;left:0;right:0;top:20px;height:1px;background:#D5DAE2}
+#proceso .step{background:none;box-shadow:none;border-radius:0;padding:0 22px 0 0;overflow:visible}
+#proceso .step:hover{transform:none;box-shadow:none}
+#proceso .step-ic{position:relative;top:auto;right:auto;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #D5DAE2;margin-bottom:18px}
+#proceso .step:hover .step-ic{background:var(--blue-soft);border-color:var(--blue);transform:none}
+#proceso .step-n{font-size:.72rem;font-weight:600;letter-spacing:.08em;background:none;-webkit-text-fill-color:var(--blue);color:var(--blue);font-family:inherit}
+#proceso .step h3{margin:6px 0 8px}
+#proceso .step p{font-size:.84rem}
+@media (max-width:1080px){#proceso .steps{grid-template-columns:repeat(3,1fr);row-gap:36px}#proceso .steps::before{display:none}}
+@media (max-width:640px){#proceso .steps{grid-template-columns:1fr 1fr;column-gap:16px;row-gap:28px}#proceso .step{padding:0}#proceso .step p{font-size:.8rem}}
+/* Contraste del carrusel de notas */
+.ncard{opacity:1!important}
+.ncard:not(.on) .nc-art{filter:saturate(.75)}
+/* Áreas táctiles de puntos */
+.dots button{position:relative}
+.dots button::after{content:"";position:absolute;inset:-18px -3px}
+/* Legibilidad de la línea sobre el titular */
+.hx-eyebrow{text-shadow:0 1px 12px rgba(6,12,30,.55)}
+/* WhatsApp aparece después del hero */
+.wa-float{opacity:0;transform:scale(.8);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.wa-float.show{opacity:1;transform:none;pointer-events:auto}
+.wa-float.show:hover{transform:scale(1.08) rotate(-6deg)}
+/* Proyecto con imágenes reales */
+.project-art.has-img{background:#0B1630}
+.project-art.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pa-count{position:absolute;left:14px;bottom:14px;z-index:2;font-size:.72rem;font-weight:600;color:#fff;padding:6px 11px;border-radius:999px;background:rgba(10,16,32,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25)}
+.case-hero.has-img{background:#0B1630}
+.case-hero.has-img img{width:100%;height:100%;object-fit:cover}
+.case-gal{margin-top:34px}
+.case-gal h4{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.case-gal h4 span{font-size:.7rem;padding:2px 8px;border-radius:999px;background:var(--blue-soft);color:var(--blue);letter-spacing:0}
+.cg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cg{margin:0;display:flex;flex-direction:column}
+.cg.wide{grid-column:span 2;grid-row:span 2}
+.cg-btn{display:block;width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--bg);cursor:zoom-in;padding:0}
+.cg.wide .cg-btn{aspect-ratio:auto;flex:1;min-height:200px}
+.cg-btn img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.cg-btn:hover img{transform:scale(1.05)}
+.cg figcaption{padding:10px 2px 0;font-size:.78rem;color:var(--muted);line-height:1.4}
+.cg figcaption b{display:block;color:var(--ink);font-weight:600;font-size:.84rem}
+@media (max-width:640px){.cg-grid{grid-template-columns:1fr 1fr;gap:10px}.cg.wide{grid-column:1/-1;grid-row:auto}.cg.wide .cg-btn{flex:none;aspect-ratio:4/3}}
+.lightbox{position:fixed;inset:0;z-index:400;background:rgba(6,10,22,.92);display:flex;align-items:center;justify-content:center;gap:16px;padding:40px;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox figure{margin:0;max-width:min(1200px,100%);display:flex;flex-direction:column;align-items:center}
+.lightbox img{max-width:100%;max-height:78vh;border-radius:12px;object-fit:contain}
+.lightbox figcaption{color:rgba(255,255,255,.75);font-size:.86rem;margin-top:14px;text-align:center}
+.lightbox figcaption b{color:#fff;font-weight:600;margin-right:6px}
+.lightbox figcaption span{margin-left:10px;opacity:.6}
+.lb-x,.lb-nav{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:1.5rem;line-height:1;display:grid;place-items:center;flex:none;transition:background .3s}
+.lb-x:hover,.lb-nav:hover{background:rgba(255,255,255,.24)}
+.lb-x{position:absolute;top:20px;right:20px}
+@media (max-width:640px){.lightbox{padding:16px}.lb-nav{position:absolute;bottom:24px}.lb-nav.prev{left:calc(50% - 54px)}.lb-nav.next{right:calc(50% - 54px)}}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"José Pérez","jobTitle":"Especialista en Branding","url":"https://diaz99335.github.io/portafolio/","image":"https://diaz99335.github.io/portafolio/img/hero-1600.jpg","address":{"@type":"PostalAddress","addressLocality":"Lima","addressCountry":"PE"},"knowsAbout":["Branding","Identidad visual","Diseño gráfico","UX/UI","Audiovisual","Fotografía"],"knowsLanguage":["es","en"],"sameAs":["https://www.linkedin.com/in/jose-perez-branding"]}</script>
 </head>
 <body>
 
@@ -1435,11 +1492,11 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   <a href="#inicio" class="brand" aria-label="José Pérez, inicio"><span class="brand-mark">JP</span>José Pérez</a>
   <div class="nav-links" id="navLinks">
     <a href="#proyectos">Proyectos</a>
+    <a href="#experiencia">Experiencia</a>
     <a href="#sobre-mi">Sobre mí</a>
     <a href="#especialidades">Especialidades</a>
-    <a href="#experiencia">Experiencia</a>
     <a href="#habilidades">Habilidades</a>
-    <a href="#enfoque">Enfoque</a>
+    <a href="#enfoque">Notas</a>
     <span class="nav-indicator" id="navInd"></span>
   </div>
   <div class="nav-cta">
@@ -1450,11 +1507,11 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 
 <div class="mobile-menu" id="mobileMenu">
   <a class="m-link" href="#proyectos">Proyectos <span>01</span></a>
-  <a class="m-link" href="#sobre-mi">Sobre mí <span>02</span></a>
-  <a class="m-link" href="#especialidades">Especialidades <span>03</span></a>
-  <a class="m-link" href="#experiencia">Experiencia <span>04</span></a>
+  <a class="m-link" href="#experiencia">Experiencia <span>02</span></a>
+  <a class="m-link" href="#sobre-mi">Sobre mí <span>03</span></a>
+  <a class="m-link" href="#especialidades">Especialidades <span>04</span></a>
   <a class="m-link" href="#habilidades">Habilidades <span>05</span></a>
-  <a class="m-link" href="#enfoque">Enfoque <span>06</span></a>
+  <a class="m-link" href="#enfoque">Notas <span>06</span></a>
   <div class="m-actions">
     <button class="btn btn-dark" data-open="contact">Contáctame</button>
     <a href="cv.pdf" download class="btn btn-light" data-cv>Descargar CV (PDF)</a>
@@ -1537,18 +1594,109 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   </div>
 </section>
 
+<!-- ================= EXPERIENCE ================= -->
+<section class="section" id="experiencia">
+  <div class="container">
+    <div class="split-head reveal">
+      <div><span class="eyebrow">Trayectoria</span><h2>Experiencia <span class="em">profesional</span></h2></div>
+      <p>8+ años en consultoría, educación, inmobiliaria y retail, con clientes de salud, seguros y banca. Haz clic en cada rol para ver qué hice.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="timeline reveal" id="timeline">
+        <div class="job open">
+          <button class="job-head" aria-expanded="true"><span class="period"><b>2023 — Hoy</b>Consultoría</span><div><h3>Diseñador Gráfico Senior / Diseñador UX/UI <span class="now">Más reciente</span></h3><p>Última empresa</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="job-body"><div>
+            <ul>
+              <li class="brand-li"><b>Marca:</b> Llevé la identidad de cada cliente a todos sus canales, cuidando la consistencia de marca.</li>
+              <li>Desarrollé comunicación de marca para clientes de salud, educación, aseguradoras y banca, adaptando tono y sistema visual a cada sector.</li>
+              <li>Produje contenido visual estratégico para branding, publicidad digital y engagement en redes.</li>
+              <li>Creé artes para redes, banners, mailing, WhatsApp y comunicación interna.</li>
+              <li>Diseñé interfaces web y móviles, ecosistemas y sitemaps, desde wireframes hasta prototipos.</li>
+            </ul>
+            <div class="tags"><span class="tag">Branding</span><span class="tag">Multisector</span><span class="tag">UX/UI</span><span class="tag">Figma</span></div>
+          </div></div>
+        </div>
+        <div class="job">
+          <button class="job-head" aria-expanded="false"><span class="period"><b>2021 — 2023</b>Educación</span><div><h3>Audiovisual / Filmmaker / Fotógrafo</h3><p>Instituto Daniel Alcides Carrión</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="job-body"><div>
+            <ul>
+              <li class="brand-li"><b>Marca:</b> Construí la línea visual audiovisual de la institución, coherente en todas sus plataformas.</li>
+              <li>Grabé audio y video para redes sociales y contenido institucional, y edité el material.</li>
+              <li>Creé contenido visual dinámico y animaciones para distintas plataformas.</li>
+              <li>Realicé entrevistas, sesiones fotográficas y manejé la iluminación de las producciones.</li>
+            </ul>
+            <div class="tags"><span class="tag">Premiere</span><span class="tag">After Effects</span><span class="tag">Lightroom</span><span class="tag">Iluminación</span></div>
+          </div></div>
+        </div>
+        <div class="job">
+          <button class="job-head" aria-expanded="false"><span class="period"><b>2019 — 2021</b>Inmobiliaria</span><div><h3>Diseñador Gráfico Senior</h3><p>Inmobiliaria Imagina Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="job-body"><div>
+            <ul>
+              <li class="brand-li"><b>Marca:</b> Desarrollé la identidad visual de proyectos inmobiliarios y su sistema de piezas.</li>
+              <li>Diseñé ilustraciones, logotipos y elementos visuales para medios digitales e impresos.</li>
+              <li>Creé contenido, grabé y edité audio y video, animé gráficos y diagramé piezas.</li>
+              <li>Hice prototipos y productos digitales con criterios de UX/UI, y material para e-commerce.</li>
+            </ul>
+            <div class="tags"><span class="tag">Branding</span><span class="tag">Ilustración</span><span class="tag">E-commerce</span><span class="tag">Motion</span></div>
+          </div></div>
+        </div>
+        <div class="job">
+          <button class="job-head" aria-expanded="false"><span class="period"><b>2018 — 2019</b>Textil · Retail</span><div><h3>Community Manager / Analista de Marketing</h3><p>Textil Colortex Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="job-body"><div>
+            <ul>
+              <li class="brand-li"><b>Marca:</b> Mantuve el tono y la línea gráfica de la marca en redes, web y campañas.</li>
+              <li>Gestioné redes sociales, calendaricé contenido y administré el sitio web.</li>
+              <li>Produje, diseñé, publiqué y promocioné contenidos, e implementé pauta (SEO y SEM).</li>
+              <li>Realicé campañas, benchmark, analítica e informes de marketing.</li>
+            </ul>
+            <div class="tags"><span class="tag">Meta Ads</span><span class="tag">Google Ads</span><span class="tag">Analytics</span><span class="tag">Hootsuite</span></div>
+          </div></div>
+        </div>
+        <div class="job">
+          <button class="job-head" aria-expanded="false"><span class="period"><b>2017 — 2018</b>Prácticas</span><div><h3>Audiovisual / Redactor</h3><p>Universidad Tecnológica del Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="job-body"><div>
+            <ul>
+              <li class="brand-li"><b>Marca:</b> Apoyé la comunicación institucional con piezas audiovisuales y textos.</li>
+              <li>Producción audiovisual y redacción de contenidos para la universidad.</li>
+            </ul>
+            <div class="tags"><span class="tag">Video</span><span class="tag">Redacción</span></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="side-stack">
+        <div class="side-card reveal" data-delay="1">
+          <h3>Formación</h3>
+          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><div><strong>Ciencias de la Comunicación</strong><span>Universidad · 2015 – 2019</span></div></div>
+          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="5"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg></span><div><strong>Community Manager</strong><span>Programa de especialización · 2020 – 2021</span></div></div>
+          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg></span><div><strong>Marketing Digital</strong><span>Certificación internacional · 2017 – 2018</span></div></div>
+          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 11h11L21 7H7"/><circle cx="9" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg></span><div><strong>Comercio Electrónico</strong><span>Escuela de negocios · 2015 – 2019</span></div></div>
+          <div class="edu-sep"><span>Idiomas</span></div>
+          <div class="langs"><span class="lang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Español</span><span class="lang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Inglés</span></div>
+        </div>
+        <div class="side-card reveal" data-delay="2">
+          <h3>Enlaces</h3>
+          <ul class="awards">
+            <li><a href="https://www.linkedin.com/in/jose-perez-branding" target="_blank" rel="noopener">LinkedIn <em>/in/jose-perez-branding ↗</em></a></li>
+            <li><a href="cv.pdf" download data-cv>CV en PDF <em>Descargar ↓</em></a></li>
+            <li><a href="https://wa.me/51999999999" target="_blank" rel="noopener">WhatsApp <em>+51 999 999 999 ↗</em></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= ABOUT ================= -->
 <section class="section" id="sobre-mi">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Sobre mí</span>
-      <h2>Conóceme más allá <span class="em">del portafolio</span></h2>
-      <p>Mi perfil profesional y lo que me mueve fuera del trabajo. Cambia de vista para conocer ambos lados.</p>
+    <div class="split-head reveal">
+      <div><span class="eyebrow">Sobre mí</span><h2>Conóceme más allá <span class="em">del portafolio</span></h2></div>
+      <p>Quién soy como profesional y qué me mueve fuera del trabajo.</p>
     </div>
     <div class="about-grid v2">
       <!-- Fotos de stock (Unsplash, licencia libre). Reemplázalas por fotos propias cuando las tengas. -->
       <div class="about-media reveal" id="aboutMedia" aria-roledescription="carrusel" aria-label="Fotos">
-        <div class="am-top"><span class="am-chip" id="amMode"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>Modo profesional</span></span></div>
+        <span id="amMode" hidden></span>
         <div class="am-dots" id="amDots"></div>
         <div class="am-bottom">
           <div class="am-cap"><small id="amSub"></small><strong id="amTitle"></strong></div>
@@ -1571,7 +1719,7 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
           <div class="pane" data-pane="pro">
             <span class="eyebrow">Perfil profesional</span>
             <h3 class="title">Especialista en branding, <span class="em">curioso por naturaleza</span></h3>
-            <p class="muted">Construyo marcas de forma integral: parto de la estrategia y la llevo a cada punto de contacto con diseño gráfico, audiovisual, fotografía, UX/UI y web, todo con un mismo lenguaje.</p>
+            <p class="muted">Me gusta entender a fondo el negocio antes de abrir cualquier programa. Esa curiosidad me llevó a dominar varias disciplinas para que una marca se vea y se sienta igual en todos sus formatos.</p>
             <p class="list-lbl">Lo que hago como brand designer senior</p>
             <ol class="plist"><li><span>01</span>Pensamiento estratégico</li><li><span>02</span>Generación de identidad</li><li><span>03</span>Naming y tono de voz</li><li><span>04</span>Arquitectura de marca</li><li><span>05</span>Brand guidelines</li><li><span>06</span>Dirección de arte</li><li><span>07</span>Rebranding</li><li><span>08</span>Workshops con stakeholders</li><li><span>09</span>Gestión de proyectos creativos</li></ol>
             <blockquote class="quiet-q"><small>Mi forma de trabajar</small><b>Primero entiendo, después diseño.</b> Cada decisión visual responde a un objetivo de marca.</blockquote>
@@ -1586,7 +1734,6 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
         </div>
         <div class="about-actions">
           <button class="btn btn-dark magnetic" data-open="contact">Agendar una entrevista <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-          <a href="cv.pdf" download class="btn btn-light" data-cv>Descargar CV</a>
         </div>
       </div>
     </div>
@@ -1732,153 +1879,13 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   </div>
 </section>
 
-<!-- ================= PROCESS ================= -->
-<section class="section process-bg" id="proceso">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Cómo trabajo</span>
-      <h2>De la investigación <span class="em">a la evolución de la marca</span></h2>
-      <p>Un proceso estratégico de principio a fin. Cada decisión responde a un objetivo de marca y se evalúa después del lanzamiento.</p>
-    </div>
-    <div class="steps">
-      <article class="step reveal" data-delay="1">
-        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
-        <div class="step-n">01</div><h3>Investigación</h3>
-        <p>Entiendo el negocio, la audiencia, la competencia y el contexto. Aquí salen los insights que guían todo lo demás.</p>
-        <span class="time">Insights · Benchmark</span>
-      </article>
-      <article class="step reveal" data-delay="2">
-        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></svg></span>
-        <div class="step-n">02</div><h3>Estrategia</h3>
-        <p>Defino el posicionamiento, la propuesta de valor, la personalidad y el tono. Es la brújula de la marca.</p>
-        <span class="time">Posicionamiento · Tono</span>
-      </article>
-      <article class="step reveal" data-delay="3">
-        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span>
-        <div class="step-n">03</div><h3>Concepto & identidad</h3>
-        <p>Exploro rutas creativas y construyo el sistema visual y verbal que mejor responde a la estrategia.</p>
-        <span class="time">Rutas creativas · Sistema</span>
-      </article>
-      <article class="step reveal" data-delay="1">
-        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></span>
-        <div class="step-n">04</div><h3>Producción</h3>
-        <p>Llevo la marca a cada formato: piezas gráficas, video, foto, UX/UI y web. Uso IA para iterar más rápido.</p>
-        <span class="time">Multiformato · IA</span>
-      </article>
-      <article class="step reveal" data-delay="2">
-        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 15c-1 2-1 4-1 5 1 0 3 0 5-1M9 15l-3-3 7-7c2-2 5-2 6-2 0 1 0 4-2 6z"/><circle cx="15" cy="9" r="1.5"/></svg></span>
-        <div class="step-n">05</div><h3>Implementación & lanzamiento</h3>
-        <p>Aplico la marca en todos los puntos de contacto, entrego guías claras y acompaño al equipo en la salida.</p>
-        <span class="time">Brand book · Rollout</span>
-      </article>
-      <article class="step reveal" data-delay="3">
-        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg></span>
-        <div class="step-n">06</div><h3>Post: evaluación & evolución</h3>
-        <p>Evalúo percepción, consistencia, desempeño de las piezas y feedback del equipo y del público. Con eso ajusto y hago crecer la marca.</p>
-        <span class="time">KPIs · Aprendizajes</span>
-      </article>
-    </div>
-  </div>
-</section>
 
-<!-- ================= EXPERIENCE ================= -->
-<section class="section" id="experiencia">
-  <div class="container">
-    <div class="split-head reveal">
-      <div><span class="eyebrow">Trayectoria</span><h2>Experiencia <span class="em">profesional</span></h2></div>
-      <p>Consultora, educación, inmobiliaria y retail. Haz clic en cada rol para ver qué hice.</p>
-    </div>
-    <div class="exp-grid">
-      <div class="timeline reveal" id="timeline">
-        <div class="job open">
-          <button class="job-head" aria-expanded="true"><span class="period"><b>2023 — Hoy</b>Consultoría</span><div><h3>Diseñador Gráfico Senior / Diseñador UX/UI <span class="now">Más reciente</span></h3><p>Última empresa</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="job-body"><div>
-            <ul>
-              <li class="brand-li"><b>Marca:</b> Llevé la identidad de cada cliente a todos sus canales, cuidando la consistencia de marca.</li>
-              <li>Desarrollé comunicación de marca para clientes de salud, educación, aseguradoras y banca, adaptando tono y sistema visual a cada sector.</li>
-              <li>Produje contenido visual estratégico para branding, publicidad digital y engagement en redes.</li>
-              <li>Creé artes para redes, banners, mailing, WhatsApp y comunicación interna.</li>
-              <li>Diseñé interfaces web y móviles, ecosistemas y sitemaps, desde wireframes hasta prototipos.</li>
-            </ul>
-            <div class="tags"><span class="tag">Branding</span><span class="tag">Multisector</span><span class="tag">UX/UI</span><span class="tag">Figma</span></div>
-          </div></div>
-        </div>
-        <div class="job">
-          <button class="job-head" aria-expanded="false"><span class="period"><b>2021 — 2023</b>Educación</span><div><h3>Audiovisual / Filmmaker / Fotógrafo</h3><p>Instituto Daniel Alcides Carrión</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="job-body"><div>
-            <ul>
-              <li class="brand-li"><b>Marca:</b> Construí la línea visual audiovisual de la institución, coherente en todas sus plataformas.</li>
-              <li>Grabé audio y video para redes sociales y contenido institucional, y edité el material.</li>
-              <li>Creé contenido visual dinámico y animaciones para distintas plataformas.</li>
-              <li>Realicé entrevistas, sesiones fotográficas y manejé la iluminación de las producciones.</li>
-            </ul>
-            <div class="tags"><span class="tag">Premiere</span><span class="tag">After Effects</span><span class="tag">Lightroom</span><span class="tag">Iluminación</span></div>
-          </div></div>
-        </div>
-        <div class="job">
-          <button class="job-head" aria-expanded="false"><span class="period"><b>2019 — 2021</b>Inmobiliaria</span><div><h3>Diseñador Gráfico Senior</h3><p>Inmobiliaria Imagina Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="job-body"><div>
-            <ul>
-              <li class="brand-li"><b>Marca:</b> Desarrollé la identidad visual de proyectos inmobiliarios y su sistema de piezas.</li>
-              <li>Diseñé ilustraciones, logotipos y elementos visuales para medios digitales e impresos.</li>
-              <li>Creé contenido, grabé y edité audio y video, animé gráficos y diagramé piezas.</li>
-              <li>Hice prototipos y productos digitales con criterios de UX/UI, y material para e-commerce.</li>
-            </ul>
-            <div class="tags"><span class="tag">Branding</span><span class="tag">Ilustración</span><span class="tag">E-commerce</span><span class="tag">Motion</span></div>
-          </div></div>
-        </div>
-        <div class="job">
-          <button class="job-head" aria-expanded="false"><span class="period"><b>2018 — 2019</b>Textil · Retail</span><div><h3>Community Manager / Analista de Marketing</h3><p>Textil Colortex Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="job-body"><div>
-            <ul>
-              <li class="brand-li"><b>Marca:</b> Mantuve el tono y la línea gráfica de la marca en redes, web y campañas.</li>
-              <li>Gestioné redes sociales, calendaricé contenido y administré el sitio web.</li>
-              <li>Produje, diseñé, publiqué y promocioné contenidos, e implementé pauta (SEO y SEM).</li>
-              <li>Realicé campañas, benchmark, analítica e informes de marketing.</li>
-            </ul>
-            <div class="tags"><span class="tag">Meta Ads</span><span class="tag">Google Ads</span><span class="tag">Analytics</span><span class="tag">Hootsuite</span></div>
-          </div></div>
-        </div>
-        <div class="job">
-          <button class="job-head" aria-expanded="false"><span class="period"><b>2017 — 2018</b>Prácticas</span><div><h3>Audiovisual / Redactor</h3><p>Universidad Tecnológica del Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="job-body"><div>
-            <ul>
-              <li class="brand-li"><b>Marca:</b> Apoyé la comunicación institucional con piezas audiovisuales y textos.</li>
-              <li>Producción audiovisual y redacción de contenidos para la universidad.</li>
-            </ul>
-            <div class="tags"><span class="tag">Video</span><span class="tag">Redacción</span></div>
-          </div></div>
-        </div>
-      </div>
-      <div class="side-stack">
-        <div class="side-card reveal" data-delay="1">
-          <h3>Formación</h3>
-          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><div><strong>Ciencias de la Comunicación</strong><span>Universidad · 2015 – 2019</span></div></div>
-          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="5"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg></span><div><strong>Community Manager</strong><span>Programa de especialización · 2020 – 2021</span></div></div>
-          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg></span><div><strong>Marketing Digital</strong><span>Certificación internacional · 2017 – 2018</span></div></div>
-          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 11h11L21 7H7"/><circle cx="9" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg></span><div><strong>Comercio Electrónico</strong><span>Escuela de negocios · 2015 – 2019</span></div></div>
-          <div class="edu-sep"><span>Idiomas</span></div>
-          <div class="langs"><span class="lang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Español</span><span class="lang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Inglés</span></div>
-        </div>
-        <div class="side-card reveal" data-delay="2">
-          <h3>Enlaces</h3>
-          <ul class="awards">
-            <li><a href="https://www.linkedin.com/in/jose-perez-branding" target="_blank" rel="noopener">LinkedIn <em>/in/jose-perez-branding ↗</em></a></li>
-            <li><a href="cv.pdf" download data-cv>CV en PDF <em>Descargar ↓</em></a></li>
-            <li><a href="https://wa.me/51999999999" target="_blank" rel="noopener">WhatsApp <em>+51 999 999 999 ↗</em></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================= SKILLS ================= -->
 <section class="section" id="habilidades">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Habilidades</span>
-      <h2>Mi caja de <span class="em">herramientas</span></h2>
+    <div class="split-head reveal">
+      <div><span class="eyebrow">Habilidades</span><h2>Mi caja de <span class="em">herramientas</span></h2></div>
       <p>Cómo participo en cada disciplina y con qué trabajo a diario.</p>
     </div>
     <div class="sk-board reveal">
@@ -1907,6 +1914,48 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
         <div class="tl-grp"><span class="lbl">Inteligencia artificial</span><div class="tl-grid"><div class="tl" title="ChatGPT"><i class="mono-ic" style="background:#10A37F;color:#fff">AI</i><span>ChatGPT</span></div><div class="tl" title="Midjourney"><i class="mono-ic" style="background:#0E0F12;color:#fff">Mj</i><span>Midjourney</span></div><div class="tl" title="Adobe Firefly"><i class="mono-ic" style="background:#EB1000;color:#fff">Ff</i><span>Adobe Firefly</span></div><div class="tl" title="Runway"><i class="mono-ic" style="background:#111;color:#fff">Rw</i><span>Runway</span></div><div class="tl" title="Krea"><i class="mono-ic" style="background:#1F1F1F;color:#fff">Kr</i><span>Krea</span></div></div></div>
         <div class="tl-grp"><span class="lbl">También trabajo con</span><div class="tl-grid"><div class="tl" title="InDesign"><i class="mono-ic" style="background:#49021F;color:#FF3366">Id</i><span>InDesign</span></div><div class="tl" title="Lightroom"><i class="mono-ic" style="background:#001E36;color:#31A8FF">Lr</i><span>Lightroom</span></div><div class="tl" title="Sketch"><img src="icons/sketch.svg" alt="Logo de Sketch" loading="lazy"><span>Sketch</span></div><div class="tl" title="CorelDRAW"><img src="icons/coreldraw.svg" alt="Logo de CorelDRAW" loading="lazy"><span>CorelDRAW</span></div><div class="tl" title="CapCut"><i class="mono-ic" style="background:#000;color:#fff">Cc</i><span>CapCut</span></div><div class="tl" title="Audition"><i class="mono-ic" style="background:#00005B;color:#9999FF">Au</i><span>Audition</span></div><div class="tl" title="Camera Raw"><i class="mono-ic" style="background:#001E36;color:#31A8FF">Cr</i><span>Camera Raw</span></div><div class="tl" title="Capture One"><i class="mono-ic" style="background:#1A1A1A;color:#fff">C1</i><span>Capture One</span></div><div class="tl" title="Snapseed"><i class="mono-ic" style="background:#2E7D32;color:#fff">Sn</i><span>Snapseed</span></div><div class="tl" title="HTML5"><img src="icons/html5.svg" alt="Logo de HTML5" loading="lazy"><span>HTML5</span></div><div class="tl" title="CSS"><img src="icons/css3.svg" alt="Logo de CSS" loading="lazy"><span>CSS</span></div><div class="tl" title="JavaScript"><img src="icons/javascript.svg" alt="Logo de JavaScript" loading="lazy"><span>JavaScript</span></div><div class="tl" title="VS Code"><img src="icons/vscode.svg" alt="Logo de VS Code" loading="lazy"><span>VS Code</span></div><div class="tl" title="Meta Ads"><img src="icons/meta.svg" alt="Logo de Meta Ads" loading="lazy"><span>Meta Ads</span></div><div class="tl" title="Google Ads"><img src="icons/googleads.svg" alt="Logo de Google Ads" loading="lazy"><span>Google Ads</span></div><div class="tl" title="TikTok Ads"><img src="icons/tiktok.svg" alt="Logo de TikTok Ads" loading="lazy"><span>TikTok Ads</span></div><div class="tl" title="HubSpot"><img src="icons/hubspot.svg" alt="Logo de HubSpot" loading="lazy"><span>HubSpot</span></div><div class="tl" title="Mailchimp"><img src="icons/mailchimp.svg" alt="Logo de Mailchimp" loading="lazy"><span>Mailchimp</span></div><div class="tl" title="Miro"><img src="icons/miro.svg" alt="Logo de Miro" loading="lazy"><span>Miro</span></div><div class="tl" title="Jira"><img src="icons/jira.svg" alt="Logo de Jira" loading="lazy"><span>Jira</span></div><div class="tl" title="Trello"><img src="icons/trello.svg" alt="Logo de Trello" loading="lazy"><span>Trello</span></div><div class="tl" title="Slack"><img src="icons/slack.svg" alt="Logo de Slack" loading="lazy"><span>Slack</span></div></div></div>
       </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="section process-bg" id="proceso">
+  <div class="container">
+    <div class="split-head reveal">
+      <div><span class="eyebrow">Cómo trabajo</span><h2>De la investigación <span class="em">a la evolución de la marca</span></h2></div>
+      <p>Seis etapas, de la investigación a la evolución. Cada decisión responde a un objetivo de marca.</p>
+    </div>
+    <div class="steps">
+      <article class="step reveal" data-delay="1">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+        <div class="step-n">01</div><h3>Investigación</h3>
+        <p>Entiendo el negocio, la audiencia, la competencia y el contexto. Aquí salen los insights que guían todo lo demás.</p>
+      </article>
+      <article class="step reveal" data-delay="2">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></svg></span>
+        <div class="step-n">02</div><h3>Estrategia</h3>
+        <p>Defino el posicionamiento, la propuesta de valor, la personalidad y el tono. Es la brújula de la marca.</p>
+      </article>
+      <article class="step reveal" data-delay="3">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span>
+        <div class="step-n">03</div><h3>Concepto & identidad</h3>
+        <p>Exploro rutas creativas y construyo el sistema visual y verbal que mejor responde a la estrategia.</p>
+      </article>
+      <article class="step reveal" data-delay="1">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></span>
+        <div class="step-n">04</div><h3>Producción</h3>
+        <p>Llevo la marca a cada formato: piezas gráficas, video, foto, UX/UI y web. Uso IA para iterar más rápido.</p>
+      </article>
+      <article class="step reveal" data-delay="2">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 15c-1 2-1 4-1 5 1 0 3 0 5-1M9 15l-3-3 7-7c2-2 5-2 6-2 0 1 0 4-2 6z"/><circle cx="15" cy="9" r="1.5"/></svg></span>
+        <div class="step-n">05</div><h3>Implementación & lanzamiento</h3>
+        <p>Aplico la marca en todos los puntos de contacto, entrego guías claras y acompaño al equipo en la salida.</p>
+      </article>
+      <article class="step reveal" data-delay="3">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg></span>
+        <div class="step-n">06</div><h3>Post: evaluación & evolución</h3>
+        <p>Evalúo percepción, consistencia, desempeño de las piezas y feedback del equipo y del público. Con eso ajusto y hago crecer la marca.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1940,9 +1989,8 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 <!-- ================= ENFOQUE / BLOG ================= -->
 <section class="section" id="enfoque">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Mi enfoque</span>
-      <h2>Notas sobre <span class="em">marca y creatividad</span></h2>
+    <div class="split-head reveal">
+      <div><span class="eyebrow">Mi enfoque</span><h2>Notas sobre <span class="em">marca y creatividad</span></h2></div>
       <p>Lo que pienso, investigo y aplico. Ideas cortas sobre branding, diseño e inteligencia artificial.</p>
     </div>
   </div>
@@ -1979,8 +2027,8 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 <!-- ================= CTA ================= -->
 <section class="cta" id="contacto">
   <div class="container reveal">
-    <span class="eyebrow">¿Chambeamos juntos?</span>
-    <h2>Hagamos crecer <span class="em">tu marca juntos</span></h2>
+    <span class="eyebrow">Contacto</span>
+    <h2>¿Chambeamos <span class="em">juntos?</span></h2>
     <p>Si tienes una vacante o un proyecto en mente, escríbeme. Te respondo al toque.</p>
     <div class="cta-actions">
       <button class="btn btn-dark magnetic" data-open="contact">Contáctame <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -2233,7 +2281,19 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
       role:'Diseñador Gráfico Sr. / UX/UI', company:'Última empresa', scope:'Marca, contenido y digital', tools:'Figma · Illustrator · Photoshop',
       challenge:'Cada cliente tenía su propio sector, tono y nivel de exigencia (salud, educación, aseguradoras y banca). La comunicación tenía que respetar cada marca y mantenerse consistente en todos los canales.',
       solution:'Produje contenido visual estratégico para branding, publicidad digital y engagement; artes para redes, banners, mailing, WhatsApp y comunicación interna; y diseñé interfaces web y móviles con sus ecosistemas, sitemaps y prototipos.',
-      results:[['4 sectores','salud, educación, seguros, banca'],['Multicanal','RRSS, mailing y WhatsApp'],['Web + App','interfaces y prototipos']] },
+      results:[['4 sectores','salud, educación, seguros, banca'],['Multicanal','RRSS, mailing y WhatsApp'],['Web + App','interfaces y prototipos']],
+      /* EJEMPLO con fotos de stock (Unsplash). Para usar tus trabajos: exporta tus imágenes a img/proyectos/
+         (ej. ultima-portada.avif, 1600 px de ancho) y reemplaza cada src. "t" es el título del entregable y "s" una línea de contexto.
+         wide:true hace que esa imagen ocupe el doble de espacio en la galería. */
+      cover:'https://images.unsplash.com/photo-1759215524472-1b0686fdbd87?auto=format&fit=crop&w=1400&q=70',
+      gallery:[
+        { src:'https://images.unsplash.com/photo-1759215524472-1b0686fdbd87?auto=format&fit=crop&w=1400&q=70', t:'Campaña en redes', s:'Feed y stories para el lanzamiento de servicios de salud', wide:true },
+        { src:'https://images.unsplash.com/photo-1627542557169-5ed71c66ed85?auto=format&fit=crop&w=1200&q=70', t:'App de citas', s:'Interfaz móvil: agenda, resultados y recetas' },
+        { src:'https://images.unsplash.com/photo-1718670013921-2f144aba173a?auto=format&fit=crop&w=1200&q=70', t:'Papelería', s:'Tarjetas y piezas impresas del sistema de marca' },
+        { src:'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=1200&q=70', t:'Web responsive', s:'Sitemap, wireframes y diseño final en Figma' },
+        { src:'https://images.unsplash.com/photo-1513757378314-e46255f6ed16?auto=format&fit=crop&w=1200&q=70', t:'Vía pública', s:'Adaptación de la campaña a paneles' },
+        { src:'https://images.unsplash.com/photo-1561015314-6bd8c1e875ee?auto=format&fit=crop&w=1200&q=70', t:'Brand book', s:'Guía para que el equipo aplique la marca' }
+      ] },
     { id:'imagina', title:'Imagina Perú', sub:'Identidad, piezas y material e-commerce inmobiliario', cats:['branding','grafico','audiovisual','uxui'], tags:['Branding','Ilustración','E-commerce'], label:'Inmobiliaria', wide:true, c1:'#E9785B', c2:'#F4C95D',
       art:`<div class="mono" style="left:32%">i.</div><div class="art-card" style="right:10%;top:16%"><span>Proyecto</span><b>Ficha inmobiliaria</b></div><div class="art-card" style="right:16%;bottom:14%"><span>E-commerce</span><b>Banners + landing</b></div>`,
       summary:'Como Diseñador Gráfico Senior me encargué de la parte visual de la marca y de sus proyectos, tanto en piezas impresas como digitales.',
@@ -2280,12 +2340,12 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   const grid = $('#projects');
   grid.innerHTML = projects.map(p => `
     <article class="project reveal" data-cats="${p.cats.join(' ')}" data-id="${p.id}" tabindex="0" role="button" aria-label="Ver proyecto ${p.title}">
-      <div class="project-art" style="--c1:${p.c1};--c2:${p.c2}"><div class="art-inner">${p.art}</div><span class="view">${ICON_ARROW}</span></div>
+      <div class="project-art${p.cover ? ' has-img' : ''}" style="--c1:${p.c1};--c2:${p.c2}"><div class="art-inner">${p.cover ? `<img src="${p.cover}" alt="${p.title}: ${p.sub}" loading="lazy" decoding="async">` : p.art}</div>${p.gallery ? `<span class="pa-count">${p.gallery.length} entregables</span>` : ''}<span class="view">${ICON_ARROW}</span></div>
       <div class="project-body"><div><h3>${p.title}</h3><p>${p.sub}</p><div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></div><span class="year">${p.label}</span></div>
     </article>`).join('');
 
   $$('.filter').forEach(f => { const k = f.dataset.filter; if (k !== 'all') f.querySelector('.count').textContent = projects.filter(p => p.cats.includes(k)).length; });
-  const PER_PAGE = 6; let curFilter = 'all', curPage = 1, busy = false;
+  const PER_PAGE = matchMedia('(max-width:640px)').matches ? 3 : 6; let curFilter = 'all', curPage = 1, busy = false;
   const ARW = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`;
   const pad = n => String(n).padStart(2, '0');
   const pager = $('#pager');
@@ -2362,16 +2422,17 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   });
 
   const renderCase = (id) => {
-    const i = projects.findIndex(p => p.id === id), p = projects[i];
+    const i = projects.findIndex(p => p.id === id), p = projects[i]; curCase = p;
     const prev = projects[(i - 1 + projects.length) % projects.length], next = projects[(i + 1) % projects.length];
     $('#caseContent').innerHTML = `
-      <div class="case-hero" style="--c1:${p.c1};--c2:${p.c2}">${p.art}</div>
+      <div class="case-hero${p.cover ? ' has-img' : ''}" style="--c1:${p.c1};--c2:${p.c2}">${p.cover ? `<img src="${p.cover}" alt="${p.title}">` : p.art}</div>
       <div class="case-body">
         <span class="eyebrow">Proyecto · ${p.label}</span>
         <h2 id="caseTitle">${p.title} <span class="em">— ${p.sub}</span></h2>
         <p class="sum">${p.summary}</p>
         <div class="case-meta"><div><small>Mi rol</small><strong>${p.role}</strong></div><div><small>Empresa</small><strong>${p.company}</strong></div><div><small>Alcance</small><strong>${p.scope}</strong></div><div><small>Herramientas</small><strong>${p.tools}</strong></div></div>
         <div class="case-cols"><div><h4>El contexto</h4><p>${p.challenge}</p></div><div><h4>Mi aporte</h4><p>${p.solution}</p></div></div>
+        ${p.gallery ? `<div class="case-gal"><h4>Entregables <span>${p.gallery.length}</span></h4><div class="cg-grid">${p.gallery.map((g, gi) => `<figure class="cg${g.wide ? ' wide' : ''}"><button type="button" class="cg-btn" data-gal="${gi}" aria-label="Ampliar: ${g.t}"><img src="${g.src}" alt="${g.t}: ${g.s}" loading="lazy" decoding="async"></button><figcaption><b>${g.t}</b><span>${g.s}</span></figcaption></figure>`).join('')}</div></div>` : ''}
         <div class="case-results">${p.results.map(r => `<div><strong>${r[0]}</strong><span>${r[1]}</span></div>`).join('')}</div>
         <div class="case-nav">
           <button class="btn btn-light btn-sm" data-case="${prev.id}">← ${prev.title}</button>
@@ -2384,6 +2445,14 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   grid.addEventListener('click', e => { const c = e.target.closest('.project'); if (c) { renderCase(c.dataset.id); openModal('caseModal'); } });
   grid.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('project')) { e.preventDefault(); e.target.click(); } });
   $('#caseContent').addEventListener('click', e => { const b = e.target.closest('[data-case]'); if (b) renderCase(b.dataset.case); });
+  const lb = document.createElement('div'); lb.className = 'lightbox'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-label', 'Imagen ampliada');
+  lb.innerHTML = '<button class="lb-x" aria-label="Cerrar">×</button><button class="lb-nav prev" aria-label="Anterior">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-nav next" aria-label="Siguiente">›</button>';
+  document.body.appendChild(lb);
+  let lbSet = [], lbI = 0, curCase = null;
+  const lbShow = i => { lbI = (i + lbSet.length) % lbSet.length; const g = lbSet[lbI]; $('img', lb).src = g.src.replace(/w=\d+/, 'w=1800'); $('img', lb).alt = g.t; $('figcaption', lb).innerHTML = `<b>${g.t}</b> ${g.s} <span>${lbI + 1} / ${lbSet.length}</span>`; };
+  $('#caseContent').addEventListener('click', e => { const b = e.target.closest('[data-gal]'); if (!b || !curCase || !curCase.gallery) return; lbSet = curCase.gallery; lbShow(+b.dataset.gal); lb.classList.add('open'); });
+  lb.addEventListener('click', e => { if (e.target.closest('.lb-nav')) { lbShow(lbI + (e.target.closest('.next') ? 1 : -1)); return; } if (e.target === lb || e.target.closest('.lb-x')) lb.classList.remove('open'); });
+  document.addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; if (e.key === 'Escape') { e.stopImmediatePropagation(); lb.classList.remove('open'); } if (e.key === 'ArrowRight') lbShow(lbI + 1); if (e.key === 'ArrowLeft') lbShow(lbI - 1); }, true);
 
   document.addEventListener('click', e => {
     const b = e.target.closest('[data-open="contact"]'); if (!b) return;
@@ -2592,6 +2661,7 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
     $('#progress').style.width = (y / h * 100) + '%';
     nav.classList.toggle('scrolled', y > 40);
     $('#toTop').classList.toggle('show', y > 800);
+    $('.wa-float').classList.toggle('show', y > innerHeight * .8);
     let act = null;
     sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < innerHeight * .4) act = links[i]; });
     links.forEach(l => l.classList.toggle('active', l === act));
