@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>José Pérez — Especialista en Branding · Lima, Perú</title>
 <meta name="description" content="Portafolio de José Pérez, especialista en Branding en Lima, Perú. Estrategia e identidad de marca, diseño gráfico, audiovisual, fotografía, UX/UI y web." />
+<meta name="theme-color" content="#0E0F12" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="José Pérez — Especialista en Branding" />
+<meta property="og:description" content="Construyo marcas que conectan: estrategia, identidad, diseño, audiovisual, fotografía, UX/UI y web." />
+<meta property="og:image" content="https://diaz99335.github.io/portafolio/og-image.jpg" />
+<meta property="og:url" content="https://diaz99335.github.io/portafolio/" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -15,7 +23,7 @@
 :root{
   --ink:#0E0F12;
   --ink-2:#2A2D34;
-  --muted:#6B7280;
+  --muted:#5D6472;
   --line:#E7E9EE;
   --bg:#F5F6F8;
   --card:#FFFFFF;
@@ -1282,6 +1290,17 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 /* Hero a todo el ancho */
 .hero-wrap{padding:0!important}
 .hero{border-radius:0!important}
+
+/* Ajustes UX */
+.period{display:flex;flex-direction:column;gap:2px}
+.period b{font-weight:600;color:var(--ink);font-size:.8rem;font-variant-numeric:tabular-nums}
+.job-body li.brand-li{color:var(--ink)}
+.job-body li.brand-li b{color:var(--blue);font-weight:600}
+.avail{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink-2);margin:18px 0 0!important;max-width:none!important}
+.avail i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:ping 2s infinite}
+.cta .copy-mail{display:flex;margin:14px auto 0}
+.ok-alt{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.f-mid{grid-template-columns:1fr!important}
 </style>
 </head>
 <body>
@@ -1295,8 +1314,8 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
 <nav class="nav" id="nav" aria-label="Navegación principal">
   <a href="#inicio" class="brand" aria-label="José Pérez, inicio"><span class="brand-mark">JP</span>José Pérez</a>
   <div class="nav-links" id="navLinks">
-    <a href="#sobre-mi">Sobre mí</a>
     <a href="#proyectos">Proyectos</a>
+    <a href="#sobre-mi">Sobre mí</a>
     <a href="#especialidades">Especialidades</a>
     <a href="#experiencia">Experiencia</a>
     <a href="#habilidades">Habilidades</a>
@@ -1304,15 +1323,14 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
     <span class="nav-indicator" id="navInd"></span>
   </div>
   <div class="nav-cta">
-    <a href="cv.pdf" download class="btn btn-ghost btn-sm" data-cv>Descargar CV</a>
     <button class="btn btn-dark btn-sm magnetic" data-open="contact">Contáctame</button>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a class="m-link" href="#sobre-mi">Sobre mí <span>01</span></a>
-  <a class="m-link" href="#proyectos">Proyectos <span>02</span></a>
+  <a class="m-link" href="#proyectos">Proyectos <span>01</span></a>
+  <a class="m-link" href="#sobre-mi">Sobre mí <span>02</span></a>
   <a class="m-link" href="#especialidades">Especialidades <span>03</span></a>
   <a class="m-link" href="#experiencia">Experiencia <span>04</span></a>
   <a class="m-link" href="#habilidades">Habilidades <span>05</span></a>
@@ -1349,7 +1367,6 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
             <div class="geo fg"><img class="sharp" src="foto-hero2.jpg" alt="José Pérez, especialista en branding, en un estudio fotográfico"></div>
             <div class="shade"></div>
             <div class="spot" aria-hidden="true"></div>
-            <span class="hint"><i></i>Pasa el mouse</span>
             <div class="id-card"><div class="nm">José Pérez</div><div class="rl">Especialista en Branding</div></div>
             <div class="ask" data-open="contact">
               <span class="l"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span><b>¿Conversamos?</b> Escríbeme</span></span>
@@ -1391,6 +1408,30 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
     <div class="fig"><strong data-count="10" data-suffix="+">0</strong><span>Sectores atendidos</span></div>
     <div class="fig"><strong data-count="6">0</strong><span>Disciplinas integradas</span></div>
     <div class="fig"><strong data-count="35" data-suffix="+">0</strong><span>Herramientas, IA incluida</span></div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="section" id="proyectos">
+  <div class="container">
+    <div class="split-head reveal">
+      <div><span class="eyebrow">Trabajo destacado</span><h2>Marcas que muestran <span class="em">cómo pienso</span></h2></div>
+      <p>Una selección de mi trabajo en cada empresa: el contexto, lo que aporté y los entregables. Haz clic en cualquier tarjeta para ver el detalle completo.</p>
+    </div>
+    <div class="proj-bar reveal">
+    <div class="filters" id="filters" role="tablist" aria-label="Filtrar proyectos">
+      <button class="filter active" data-filter="all">Todos <span class="count">7</span></button>
+      <button class="filter" data-filter="branding">Branding <span class="count"></span></button>
+      <button class="filter" data-filter="grafico">Diseño gráfico <span class="count"></span></button>
+      <button class="filter" data-filter="campanas">Campañas & social media <span class="count"></span></button>
+      <button class="filter" data-filter="audiovisual">Audiovisual & foto <span class="count"></span></button>
+      <button class="filter" data-filter="motion">Motion <span class="count"></span></button>
+      <button class="filter" data-filter="uxui">UX/UI & web <span class="count"></span></button>
+      <button class="filter" data-filter="marketing">Marketing <span class="count"></span></button>
+    </div>
+      <nav class="pager off" id="pager" aria-label="Paginación de proyectos"></nav>
+    </div>
+    <div class="projects" id="projects"></div>
   </div>
 </section>
 
@@ -1447,30 +1488,6 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ================= PROJECTS ================= -->
-<section class="section" id="proyectos">
-  <div class="container">
-    <div class="split-head reveal">
-      <div><span class="eyebrow">Trabajo destacado</span><h2>Marcas que muestran <span class="em">cómo pienso</span></h2></div>
-      <p>Una selección de mi trabajo en cada empresa: el contexto, lo que aporté y los entregables. Haz clic en cualquier tarjeta para ver el detalle completo.</p>
-    </div>
-    <div class="proj-bar reveal">
-    <div class="filters" id="filters" role="tablist" aria-label="Filtrar proyectos">
-      <button class="filter active" data-filter="all">Todos <span class="count">7</span></button>
-      <button class="filter" data-filter="branding">Branding <span class="count"></span></button>
-      <button class="filter" data-filter="grafico">Diseño gráfico <span class="count"></span></button>
-      <button class="filter" data-filter="campanas">Campañas & social media <span class="count"></span></button>
-      <button class="filter" data-filter="audiovisual">Audiovisual & foto <span class="count"></span></button>
-      <button class="filter" data-filter="motion">Motion <span class="count"></span></button>
-      <button class="filter" data-filter="uxui">UX/UI & web <span class="count"></span></button>
-      <button class="filter" data-filter="marketing">Marketing <span class="count"></span></button>
-    </div>
-      <nav class="pager off" id="pager" aria-label="Paginación de proyectos"></nav>
-    </div>
-    <div class="projects" id="projects"></div>
   </div>
 </section>
 
@@ -1662,22 +1679,6 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   </div>
 </section>
 
-<!-- ================= IMPACT ================= -->
-<section class="section">
-  <div class="container">
-    <div class="impact reveal">
-      <h2>Un perfil amplio <span class="em">con foco en la marca</span></h2>
-      <p>Todo lo que hago parte del branding. El diseño, el video, la foto y la web son formas de hacer crecer una misma marca.</p>
-      <div class="stats">
-        <div class="stat"><div class="num"><span data-count="10" data-suffix="+">0</span></div><small>sectores, entre ellos salud, educación, seguros, banca, inmobiliario y retail</small></div>
-        <div class="stat"><div class="num"><span data-count="6">0</span></div><small>disciplinas integradas alrededor del branding</small></div>
-        <div class="stat"><div class="num"><span data-count="35" data-suffix="+">0</span></div><small>herramientas de diseño, video, web e IA</small></div>
-        <div class="stat"><div class="num"><span data-count="360" data-suffix="°">0</span></div><small>de visión: de la estrategia a la última pieza</small></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= EXPERIENCE ================= -->
 <section class="section" id="experiencia">
   <div class="container">
@@ -1688,9 +1689,10 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
     <div class="exp-grid">
       <div class="timeline reveal" id="timeline">
         <div class="job open">
-          <button class="job-head" aria-expanded="true"><span class="period">Consultoría</span><div><h3>Diseñador Gráfico Senior / Diseñador UX/UI <span class="now">Más reciente</span></h3><p>Última empresa</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <button class="job-head" aria-expanded="true"><span class="period"><b>2023 — Hoy</b>Consultoría</span><div><h3>Diseñador Gráfico Senior / Diseñador UX/UI <span class="now">Más reciente</span></h3><p>Última empresa</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
           <div class="job-body"><div>
             <ul>
+              <li class="brand-li"><b>Marca:</b> Llevé la identidad de cada cliente a todos sus canales, cuidando la consistencia de marca.</li>
               <li>Desarrollé comunicación de marca para clientes de salud, educación, aseguradoras y banca, adaptando tono y sistema visual a cada sector.</li>
               <li>Produje contenido visual estratégico para branding, publicidad digital y engagement en redes.</li>
               <li>Creé artes para redes, banners, mailing, WhatsApp y comunicación interna.</li>
@@ -1700,9 +1702,10 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
           </div></div>
         </div>
         <div class="job">
-          <button class="job-head" aria-expanded="false"><span class="period">Educación</span><div><h3>Audiovisual / Filmmaker / Fotógrafo</h3><p>Instituto Daniel Alcides Carrión</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <button class="job-head" aria-expanded="false"><span class="period"><b>2021 — 2023</b>Educación</span><div><h3>Audiovisual / Filmmaker / Fotógrafo</h3><p>Instituto Daniel Alcides Carrión</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
           <div class="job-body"><div>
             <ul>
+              <li class="brand-li"><b>Marca:</b> Construí la línea visual audiovisual de la institución, coherente en todas sus plataformas.</li>
               <li>Grabé audio y video para redes sociales y contenido institucional, y edité el material.</li>
               <li>Creé contenido visual dinámico y animaciones para distintas plataformas.</li>
               <li>Realicé entrevistas, sesiones fotográficas y manejé la iluminación de las producciones.</li>
@@ -1711,9 +1714,10 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
           </div></div>
         </div>
         <div class="job">
-          <button class="job-head" aria-expanded="false"><span class="period">Inmobiliaria</span><div><h3>Diseñador Gráfico Senior</h3><p>Inmobiliaria Imagina Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <button class="job-head" aria-expanded="false"><span class="period"><b>2019 — 2021</b>Inmobiliaria</span><div><h3>Diseñador Gráfico Senior</h3><p>Inmobiliaria Imagina Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
           <div class="job-body"><div>
             <ul>
+              <li class="brand-li"><b>Marca:</b> Desarrollé la identidad visual de proyectos inmobiliarios y su sistema de piezas.</li>
               <li>Diseñé ilustraciones, logotipos y elementos visuales para medios digitales e impresos.</li>
               <li>Creé contenido, grabé y edité audio y video, animé gráficos y diagramé piezas.</li>
               <li>Hice prototipos y productos digitales con criterios de UX/UI, y material para e-commerce.</li>
@@ -1722,9 +1726,10 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
           </div></div>
         </div>
         <div class="job">
-          <button class="job-head" aria-expanded="false"><span class="period">Textil · Retail</span><div><h3>Community Manager / Analista de Marketing</h3><p>Textil Colortex Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <button class="job-head" aria-expanded="false"><span class="period"><b>2018 — 2019</b>Textil · Retail</span><div><h3>Community Manager / Analista de Marketing</h3><p>Textil Colortex Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
           <div class="job-body"><div>
             <ul>
+              <li class="brand-li"><b>Marca:</b> Mantuve el tono y la línea gráfica de la marca en redes, web y campañas.</li>
               <li>Gestioné redes sociales, calendaricé contenido y administré el sitio web.</li>
               <li>Produje, diseñé, publiqué y promocioné contenidos, e implementé pauta (SEO y SEM).</li>
               <li>Realicé campañas, benchmark, analítica e informes de marketing.</li>
@@ -1733,9 +1738,10 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
           </div></div>
         </div>
         <div class="job">
-          <button class="job-head" aria-expanded="false"><span class="period">Prácticas</span><div><h3>Audiovisual / Redactor</h3><p>Universidad Tecnológica del Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <button class="job-head" aria-expanded="false"><span class="period"><b>2017 — 2018</b>Prácticas</span><div><h3>Audiovisual / Redactor</h3><p>Universidad Tecnológica del Perú</p></div><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
           <div class="job-body"><div>
             <ul>
+              <li class="brand-li"><b>Marca:</b> Apoyé la comunicación institucional con piezas audiovisuales y textos.</li>
               <li>Producción audiovisual y redacción de contenidos para la universidad.</li>
             </ul>
             <div class="tags"><span class="tag">Video</span><span class="tag">Redacción</span></div>
@@ -1745,10 +1751,10 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
       <div class="side-stack">
         <div class="side-card reveal" data-delay="1">
           <h3>Formación</h3>
-          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><div><strong>Ciencias de la Comunicación</strong><span>Universidad Tecnológica del Perú · 2015 – 2019</span></div></div>
-          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="5"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg></span><div><strong>Community Manager</strong><span>Universidad San Martín de Porres · 2020 – 2021</span></div></div>
-          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg></span><div><strong>Marketing Digital</strong><span>IAB Spain · 2017 – 2018</span></div></div>
-          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 11h11L21 7H7"/><circle cx="9" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg></span><div><strong>Comercio Electrónico</strong><span>Escuela de Organización Industrial · 2015 – 2019</span></div></div>
+          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><div><strong>Ciencias de la Comunicación</strong><span>Universidad · 2015 – 2019</span></div></div>
+          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="5"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg></span><div><strong>Community Manager</strong><span>Programa de especialización · 2020 – 2021</span></div></div>
+          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg></span><div><strong>Marketing Digital</strong><span>Certificación internacional · 2017 – 2018</span></div></div>
+          <div class="edu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 11h11L21 7H7"/><circle cx="9" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg></span><div><strong>Comercio Electrónico</strong><span>Escuela de negocios · 2015 – 2019</span></div></div>
         </div>
         <div class="side-card reveal" data-delay="2">
           <h3>Idiomas & enlaces</h3>
@@ -1877,6 +1883,7 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
       <button class="btn btn-dark magnetic" data-open="contact">Contáctame <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       <a href="cv.pdf" download class="btn btn-light magnetic" data-cv>Descargar CV</a>
     </div>
+    <p class="avail"><i></i>Disponible para incorporación inmediata · Lima o remoto</p>
     <button class="copy-mail" id="copyMail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>jose.perez@email.com</span></button>
   </div>
   <div class="cta-stage">
@@ -1914,10 +1921,6 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
     </div>
     <div class="f-mid">
       <div class="f-brand"><span class="brand-mark">JP</span>José Pérez</div>
-      <form class="news" id="newsForm" novalidate>
-        <input type="email" placeholder="Déjame tu correo y te escribo" aria-label="Correo electrónico" required />
-        <button class="btn btn-sm" type="submit">Enviar</button>
-      </form>
     </div>
     <div class="f-bot">
       <span>© 2026 José Pérez · Hecho con cariño en Lima, Perú.</span>
@@ -1990,8 +1993,12 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
       <div class="form-ok" id="formOk">
         <div class="ok-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div>
         <h3>¡Mensaje listo!</h3>
-        <p>Se abrió tu correo con el mensaje armado. Te respondo al toque.</p>
-        <button class="btn btn-light" style="margin-top:20px" data-close>Cerrar</button>
+        <p>Intentamos abrir tu correo con el mensaje armado. Si no se abrió, envíalo por aquí:</p>
+        <div class="ok-alt">
+          <a class="btn btn-dark btn-sm" id="okWa" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+          <button class="btn btn-light btn-sm" id="okCopy" type="button">Copiar mensaje</button>
+        </div>
+        <button class="btn btn-ghost btn-sm" style="margin-top:14px" data-close>Cerrar</button>
       </div>
     </div>
   </div>
@@ -2341,7 +2348,10 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
     const body = `${$('#fMsg').value.trim()}\n\n— ${$('#fName').value.trim()}${$('#fCo').value.trim() ? ' (' + $('#fCo').value.trim() + ')' : ''}\n${$('#fMail').value.trim()}`;
     btn.classList.add('loading'); btn.disabled = true;
     setTimeout(() => {
-      location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const full = `${subject}\n\n${body}`;
+      $('#okWa').href = `https://wa.me/51999999999?text=${encodeURIComponent(full)}`;
+      $('#okCopy').onclick = () => { navigator.clipboard?.writeText(`Para: ${EMAIL}\n${full}`); toast('Mensaje copiado'); };
+      const a = document.createElement('a'); a.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; a.click();
       btn.classList.remove('loading'); btn.disabled = false;
       f.reset(); f.style.display = 'none'; $('#formOk').style.display = 'block';
     }, 900);
@@ -2521,12 +2531,6 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.003em;text-rendering:optimi
   /* ---------- CV, copiar correo, footer ---------- */
   document.addEventListener('click', e => { if (e.target.closest('[data-cv]')) toast('Descargando el CV de José Pérez…'); });
   $('#copyMail').onclick = () => { navigator.clipboard?.writeText(EMAIL); toast('Correo copiado al portapapeles'); };
-  $('#newsForm').addEventListener('submit', e => {
-    e.preventDefault(); const i = e.target.querySelector('input');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(i.value.trim())) { i.style.animation = 'shake .4s'; setTimeout(() => i.style.animation = '', 400); toast('Revisa tu correo, parece incompleto'); return; }
-    location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Contacto desde tu portafolio')}&body=${encodeURIComponent('Hola José, mi correo es ' + i.value.trim())}`;
-    i.value = ''; toast('¡Gracias! Te escribiré pronto');
-  });
 
   /* ---------- Reloj de Lima ---------- */
   const clock = () => { if (!$('#clock')) return; $('#clock').textContent = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima', hour: '2-digit', minute: '2-digit' }) + ' en Lima'; };
